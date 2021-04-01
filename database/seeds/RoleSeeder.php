@@ -14,15 +14,20 @@ class RoleSeeder extends Seeder
     {
         DB::table('user_roles')->insert(array(
             array(
+
                 'role' => 'admin',
             ),
-//            array(
-//
-//                'role' => 'vendor_account',
-//            ),
+            array(
+
+                'role' => 'vendor_account',
+            ),
             array(
 
                 'role' => 'customer',
+            ),
+            array(
+
+                'role' => 'job_company',
             )
 
         ));

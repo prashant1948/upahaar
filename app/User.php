@@ -60,4 +60,8 @@ class User extends Authenticatable
     public function hasRole($id) {
         return $this->user_role == $id ? TRUE : FALSE;
     }
+
+    public function isJobCompany() {
+        return $this->user_role == 4 ? TRUE : FALSE;
+    }
 }

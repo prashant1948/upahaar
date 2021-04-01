@@ -73,7 +73,7 @@
                 </div>
                 <div class="product-cards col-lg-4 col-md-4 col-12 wow slideInLeft" data-wow-duration="3s"
                      data-wow-delay="1.5s">
-                    <a href="">
+                    <a href="{{route('job.index')}}">
                         <div class="card">
                             <div class="overlay">
                                 <img src="{{asset('images/job.png')}}"/>

@@ -125,3 +125,15 @@ Route::get('/profileMart', 'ProfileController@showProfileMart');
 Route::resource('/featured_image', 'ProductImageController');
 Route::get('/featured_image/destroy/{id}', 'ProductImageController@destroy')->name('fi.destroy');
 
+//Job
+Route::get('/indexJob', 'Job\IndexController@index')->name('job.index');
+Route::get('/joblogin', 'Job\IndexController@login')->name('job.login');
+Route::get('/jobregister', 'Job\IndexController@register')->name('job.register');
+Route::get('/browse', 'Job\IndexController@browse')->name('job.browse-job');
+Route::get('/company', 'Job\IndexController@company')->name('job.companies');
+Route::get('/detail', 'Job\IndexController@detail')->name('job.detail');
+Route::get('/resume', 'Job\IndexController@resume')->name('job.resume');
+Route::get('/jobCompany', 'Job\JobCompanyController@company')->name('job_company.create');
+
+Route::resource('/jobcompany', 'Job\JobCompanyController');
+Route::get('/jobcompany/destroy/{id}', 'Job\JobCompanyController@destroy')->name('job.destroy');
