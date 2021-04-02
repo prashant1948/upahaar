@@ -8,6 +8,7 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class JobCompanyController extends Controller
 {
@@ -75,7 +76,8 @@ class JobCompanyController extends Controller
         $user->save();
         $job_company->save();
 
-        return redirect('/jobcompany');
+        Alert::success('Thank you', 'Your application is submitted.');
+        return redirect()->back();
     }
 
     /**

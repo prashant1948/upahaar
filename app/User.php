@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Job\JobCompany;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -43,6 +44,9 @@ class User extends Authenticatable
 
     public function vendor() {
         return $this->belongsTo(Vendor::class);
+    }
+    public function company() {
+        return $this->belongsTo(JobCompany::class);
     }
 
     public function isAdmin() {

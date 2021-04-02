@@ -351,6 +351,52 @@
                 </li>
             </ul>
         </li>
+        <li class="nav-item">
+            <a href="" class="nav-link">
+                <i class="nav-icon fas fa-bookmark"></i>
+                <p>
+                    Job Categories
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{route('jobcategory.create')}}" class="nav-link">
+                        <i class="fas fa-plus nav-icon"></i>
+                        <p>Add Content</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('jobcategory.index')}}" class="nav-link">
+                        <i class="fas fa-list nav-icon"></i>
+                        <p>List Job Categories</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="" class="nav-link">
+                <i class="nav-icon fas fa-box-open"></i>
+                <p>
+                    Job
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{route('jobs.create')}}" class="nav-link">
+                        <i class="fas fa-plus nav-icon"></i>
+                        <p>Add Content</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('jobs.index')}}" class="nav-link">
+                        <i class="fas fa-list nav-icon"></i>
+                        <p>List Jobs</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
         @endif
 
     </ul>

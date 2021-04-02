@@ -2,12 +2,16 @@
 
 namespace App\Http\Controllers\Job;
 
+
 use App\Http\Controllers\Controller;
-use App\JobCategories;
+use App\Job\JobCategories;
 use Illuminate\Http\Request;
 
 class JobCategoriesController extends Controller
 {
+    public function __construct() {
+        $this->middleware('role:1');
+    }
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +19,8 @@ class JobCategoriesController extends Controller
      */
     public function index()
     {
-        //
+        $jobcategories = JobCategories::all();
+        return view('Job.admin.jobcategory.index',['jobcategories' => $jobcategories]);
     }
 
     /**
@@ -25,7 +30,7 @@ class JobCategoriesController extends Controller
      */
     public function create()
     {
-        //
+        return view('Job.admin.jobcategory.create');
     }
 
     /**
@@ -36,7 +41,14 @@ class JobCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'job_category' => 'required',
+        ]);
+
+        $job_category = new JobCategories();
+        $job_category->job_category = $request->input('job_category');
+        $job_category->save();
+        return redirect('/jobcategory');
     }
 
     /**
@@ -56,9 +68,10 @@ class JobCategoriesController extends Controller
      * @param  \App\JobCategories  $jobCategories
      * @return \Illuminate\Http\Response
      */
-    public function edit(JobCategories $jobCategories)
+    public function edit($id)
     {
-        //
+        $job_category = JobCategories::find($id);
+        return view('Job.admin.jobcategory.edit', compact('job_category'));
     }
 
     /**
@@ -68,9 +81,12 @@ class JobCategoriesController extends Controller
      * @param  \App\JobCategories  $jobCategories
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, JobCategories $jobCategories)
+    public function update(Request $request, $id)
     {
-        //
+        $job_category = JobCategories::find($id);
+        $job_category->job_category = request('job_category');
+        $job_category->save();
+        return redirect('/jobcategory');
     }
 
     /**
@@ -79,8 +95,9 @@ class JobCategoriesController extends Controller
      * @param  \App\JobCategories  $jobCategories
      * @return \Illuminate\Http\Response
      */
-    public function destroy(JobCategories $jobCategories)
+    public function destroy($id)
     {
-        //
+        $job_category= JobCategories::find($id)->delete();
+        return redirect()->back();
     }
 }

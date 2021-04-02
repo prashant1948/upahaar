@@ -5,7 +5,7 @@
 		<section class="login-wrapper">
 			<div class="container">
 				<div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
-                    <form method="POST" action="{{ route('jobcompany.store')}}">
+                    <form method="POST" action="{{ route('jobcompany.store')}}" enctype="multipart/form-data">
                         @csrf
 						<img class="img-responsive" alt="logo" src="job/img/logo.png">
                         <input type="text" class="form-control input-lg" name="name" placeholder="Company Name" required>
@@ -20,12 +20,12 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                         @enderror
-                        <input type="file" class="form-control input-lg" name="logo" placeholder="Company Logo" required>
-                        @error('logo')
-                        <span class="red-text" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
+                        <input type="file" class="form-control" name="logo" placeholder="Company Logo" required>
+{{--                        @error('logo')--}}
+{{--                        <span class="red-text" role="alert">--}}
+{{--                                <strong>{{ $message }}</strong>--}}
+{{--                            </span>--}}
+{{--                        @enderror--}}
                         <input type="text" class="form-control input-lg" name="address" placeholder="Company Address" required>
                         @error('address')
                         <span class="red-text" role="alert">

@@ -137,3 +137,12 @@ Route::get('/jobCompany', 'Job\JobCompanyController@company')->name('job_company
 
 Route::resource('/jobcompany', 'Job\JobCompanyController');
 Route::get('/jobcompany/destroy/{id}', 'Job\JobCompanyController@destroy')->name('job.destroy');
+
+Route::resource('/jobcategory', 'Job\JobCategoriesController');
+Route::get('/jobcategory/destroy/{id}', 'Job\JobCategoriesController@destroy')->name('job_category.destroy');
+
+
+Route::resource('/jobs', 'Job\JobController');
+Route::get('/jobs/destroy/{id}', 'Job\JobController@destroy')->name('jobb.destroy');
+
+Route::get('/postjob', 'Job\JobController@postJob')->name('postJob.create');
