@@ -21,45 +21,14 @@ use Illuminate\Support\Facades\DB;
 class IndexController extends Controller
 {
     public function index() {
-        $featured_products = Product::where('featured', '=', 1)
-                ->orderBy('created_at', 'desc')
-                ->take(10)
-                ->get();
-        $new_arrival = Product::where('new_arrival', '=', 1)
-                ->orderBy('created_at', 'desc')
-                ->take(10)
-                ->get();
-        $top_sales = Product::where('top_sales', '=', 1)
-                ->orderBy('created_at', 'desc')
-                ->take(10)
-                ->get();
+        $jobs = DB::table('jobs')
+            ->select('jobs.name','jobs.salary','jobs.job_type','job_companies.name AS company_name','job_companies.logo','job_companies.address as company_address')
+            ->join('job_companies', 'job_companies.id', '=', 'jobs.company_id')
+            ->get();
 
-
-        $dairyDepartment = Department::where('department_name', '=', 'Dairy')->value('id');
-        $fruitDepartment = Department::where('department_name', '=', 'Fruits & Vegetables')->value('id');
-        $bakeryDepartment = Department::where('department_name', '=', 'Bakery')->value('id');
-        $chipsDepartment = Department::where('department_name', '=', 'Chips')->value('id');
-        $dairy= Product::select()->where('dept_id', $dairyDepartment)->get();
-        $fruits= Product::select()->where('dept_id', $fruitDepartment)->get();
-        $bakery= Product::select()->where('dept_id', $bakeryDepartment)->get();
-        $chips= Product::select()->where('dept_id', $chipsDepartment)->get();
-
-        $frontEnd = Frontend::orderBy('created_at', 'desc')->get();
-        $banner = Banner::first();
-        $popup = PopUp::first();
-        $products = Product::get();
         return view('Job.index', [
-            'featured' => $featured_products,
-            'new_arrival' => $new_arrival,
-            'top_sales' => $top_sales,
-            'frontEnd' => $frontEnd,
-            'banner' => $banner,
-            'products' => $products,
-            'popup' => $popup,
-            'dairy' => $dairy,
-            'fruits' => $fruits,
-            'bakery' => $bakery,
-            'chips' => $chips
+
+            'jobs' => $jobs
         ]);
     }
     public function home() {

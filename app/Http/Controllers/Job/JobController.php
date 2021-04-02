@@ -76,7 +76,7 @@ class JobController extends Controller
         if (Auth::user()->isAdmin()) {
             $job->company_id = $request->input('company_id');
         } else {
-            $job->company_id = Auth::user()->job_company_id();
+            $job->company_id = Auth::user()->job_company_id;
         }
 
 

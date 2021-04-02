@@ -72,6 +72,7 @@ class JobCompanyController extends Controller
         $user->email = $job_company->email;
         $user->password = $job_company->password;
         $user->user_role = $job_company->user_role;
+        $user->job_company_id = $job_company->id;
         $user->created_at = Carbon::now();
         $user->save();
         $job_company->save();
