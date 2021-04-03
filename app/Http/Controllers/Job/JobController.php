@@ -4,11 +4,14 @@ namespace App\Http\Controllers\Job;
 
 
 
+use App\Cart;
 use App\Http\Controllers\Controller;
 use App\Job\Job;
+use App\Job\JobApplications;
 use App\Job\JobCategories;
 use App\Job\JobCompany;
 use App\Product;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -168,5 +171,23 @@ class JobController extends Controller
         $jobs = Job::with('category')->where('name', 'like', '%'.$search.'%')->Paginate(10);
         $catList = DB::table('job_categories')->pluck('id', 'job_category');
         return view('jobs',['items' => $jobs])->with('catList', $catList);
+    }
+
+    public function application(Request $request){
+        if (Auth::check()) {
+
+            $job= Job::find($request->input('job'));
+
+
+            $application = new JobApplications();
+            $application->user_id = Auth::id();
+            $application->job_id = $job;
+            $application->save();
+
+            return redirect()->back();
+
+        }else {
+            return response()->json(array("error" => "Unauthorized error"), 401);
+        }
     }
 }

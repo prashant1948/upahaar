@@ -1,48 +1,57 @@
-@extends('Job.layout.master')
+@extends('layouts.eazyCommon')
 @section('content')
 <!-- Main jumbotron for a primary marketing message or call to action -->
-<section class="main-banner" style="background:#242c36 url('../job/img/slider-01.jpg') no-repeat">
-    <div class="container">
-        <div class="caption">
-            <h2>Multiservice Application</h2>
-            <form>
-                <fieldset>
-                    <div class="col-md-4 col-sm-4 no-pad">
-                        <input type="text" class="form-control border-right" placeholder="Skills, Designation, Companies" />
-                    </div>
-                    <div class="col-md-3 col-sm-3 no-pad">
-                        <select class="selectpicker border-right">
-                            <option>Experience</option>
-                            <option>0 Year</option>
-                            <option>1 Year</option>
-                            <option>2 Year</option>
-                            <option>3 Year</option>
-                            <option>4 Year</option>
-                            <option>5 Year</option>
-                            <option>6 Year</option>
-                            <option>7 Year</option>
-                            <option>8 Year</option>
-                            <option>9 Year</option>
-                            <option>10 Year</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3 col-sm-3 no-pad">
-                        <select class="selectpicker">
-                            <option>Select Category</option>
-                            <option>Accounf & Finance</option>
-                            <option>Information & Technology</option>
-                            <option>Marketing</option>
-                            <option>Food & Restaurent</option>
-                        </select>
-                    </div>
-                    <div class="col-md-2 col-sm-2 no-pad">
-                        <input type="submit" class="btn seub-btn" value="submit" />
-                    </div>
-                </fieldset>
-            </form>
-        </div>
-    </div>
-</section>
+{{--<section class="main-banner" style="background:#242c36 url('../job/img/slider-01.jpg') no-repeat">--}}
+{{--    <div class="container">--}}
+{{--        <div class="caption">--}}
+{{--            <h2>Multiservice Application</h2>--}}
+{{--            <form>--}}
+{{--                <fieldset>--}}
+{{--                    <div class="col-md-5 col-sm-4 no-pad">--}}
+{{--                        <form class="form" action="/products/search" method="POST">--}}
+{{--                            @csrf--}}
+{{--                            <div class="control-group pb-3">--}}
+{{--                                <input id="searchProduct" class="form-control border-right search-field" type="search" placeholder="Search jobs" name="query" />--}}
+
+{{--                                --}}{{--                                    <a class="search-button" type="submit"> <i class="fa fa-search fa-lg"></i></a>--}}
+{{--                                <button type="submit" class="btn">Submit<i class="fa fa-search fa-lg"></i></button>--}}
+{{--                            </div>--}}
+{{--                        </form>--}}
+{{--                        <input type="text" class="form-control border-right" placeholder="Skills, Designation, Companies" />--}}
+{{--                    </div>--}}
+{{--                    <div class="col-md-3 col-sm-3 no-pad">--}}
+{{--                        <select class="selectpicker border-right">--}}
+{{--                            <option>Experience</option>--}}
+{{--                            <option>0 Year</option>--}}
+{{--                            <option>1 Year</option>--}}
+{{--                            <option>2 Year</option>--}}
+{{--                            <option>3 Year</option>--}}
+{{--                            <option>4 Year</option>--}}
+{{--                            <option>5 Year</option>--}}
+{{--                            <option>6 Year</option>--}}
+{{--                            <option>7 Year</option>--}}
+{{--                            <option>8 Year</option>--}}
+{{--                            <option>9 Year</option>--}}
+{{--                            <option>10 Year</option>--}}
+{{--                        </select>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-md-5 col-sm-3 no-pad">--}}
+{{--                        <select class="selectpicker">--}}
+{{--                            <option>Select Category</option>--}}
+{{--                            <option>Accounf & Finance</option>--}}
+{{--                            <option>Information & Technology</option>--}}
+{{--                            <option>Marketing</option>--}}
+{{--                            <option>Food & Restaurent</option>--}}
+{{--                        </select>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-md-2 col-sm-2 no-pad">--}}
+{{--                        <input type="submit" class="btn seub-btn" value="submit" />--}}
+{{--                    </div>--}}
+{{--                </fieldset>--}}
+{{--            </form>--}}
+{{--        </div>--}}
+{{--    </div>--}}
+{{--</section>--}}
 
 {{--<section class="features">--}}
 {{--    <div class="container">--}}
@@ -133,26 +142,47 @@
 {{--    </div>--}}
 {{--</section>--}}
 
-<section class="jobs">
+<div class="ads-grid">
     <div class="container">
-        <div class="row heading">
-            <h2>Find Popular Jobs</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>
-        </div>
+        <!-- tittle heading -->
+        <h3 class="tittle-w3l">Find Popular Jobs
+            <span class="heading-style">
+					<i></i>
+					<i></i>
+					<i></i>
+            </span>
+        </h3>
+
+{{--        <div class="row heading">--}}
+{{--            <h2>Find Popular Jobs</h2>--}}
+{{--            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>--}}
+{{--        </div>--}}
         <div class="companies">
             @foreach($jobs as $job)
             <div class="company-list">
                 <div class="row">
                     <div class="col-md-2 col-sm-2">
-                        <div class="company-logo">git add
+                        <div class="company-logo">
                             <img src="/storage/images/jobCompanyLogo/{{$job->logo}}" class="img-responsive" alt="" />
                         </div>
                     </div>
-                    <div class="col-md-10 col-sm-10">
+                    <div class="col-md-8 col-sm-8">
                         <div class="company-content">
                             <h3>{{$job->name}}<span class="full-time">{{$job->job_type}}</span></h3>
                             <p><span class="company-name"><i class="fa fa-briefcase"></i>{{$job->company_name}}</span><span class="company-location"><i class="fa fa-map-marker"></i> {{$job->company_address}}</span><span class="package"><i class="fa fa-money"></i>{{$job->salary}}</span></p>
                         </div>
+
+                    </div>
+                    <div class="col-md-2 col-sm-2">
+                        @if(!Auth::user())
+                            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal1">
+                                <input type="submit" name="submit" onclick="apply({{$job->id}}, '<?php echo csrf_token() ?>')" value="Apply" class="button" />
+                            </div>
+                        @else
+                            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal4">
+                                <input type="submit" name="submit" onclick="apply({{$job->id}}, '<?php echo csrf_token() ?>')" value="Apply" class="button" />
+                            </div>
+                        @endif
                     </div>
                 </div>
             </div>
@@ -222,11 +252,11 @@
 {{--                </div>--}}
 {{--            </div>--}}
         </div>
-        <div class="row">
-            <input type="button" class="btn brows-btn" value="Brows All Jobs" />
-        </div>
+{{--        <div class="row">--}}
+{{--            <input type="button" class="btn brows-btn" value="Brows All Jobs" />--}}
+{{--        </div>--}}
     </div>
-</section>
+</div>
 
 {{--<section class="testimonials dark">--}}
 {{--    <div class="container">--}}

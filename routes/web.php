@@ -146,3 +146,5 @@ Route::resource('/jobs', 'Job\JobController');
 Route::get('/jobs/destroy/{id}', 'Job\JobController@destroy')->name('jobb.destroy');
 
 Route::get('/postjob', 'Job\JobController@postJob')->name('postJob.create');
+
+Route::post('/job/add', 'Job\JobController@application');
