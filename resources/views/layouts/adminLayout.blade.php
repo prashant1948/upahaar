@@ -397,6 +397,76 @@
                 </li>
             </ul>
         </li>
+        <li class="nav-header">Car Rental</li>
+{{--        <li class="nav-item">--}}
+{{--            <a href="" class="nav-link">--}}
+{{--                <i class="nav-icon fas fa-building"></i>--}}
+{{--                <p>--}}
+{{--                    Companies--}}
+{{--                    <i class="fas fa-angle-left right"></i>--}}
+{{--                </p>--}}
+{{--            </a>--}}
+{{--            <ul class="nav nav-treeview">--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('jobcompany.create')}}" class="nav-link">--}}
+{{--                        <i class="fas fa-plus nav-icon"></i>--}}
+{{--                        <p>Add Content</p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--                <li class="nav-item">--}}
+{{--                    <a href="{{route('jobcompany.index')}}" class="nav-link">--}}
+{{--                        <i class="fas fa-list nav-icon"></i>--}}
+{{--                        <p>List Companies</p>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
+{{--            </ul>--}}
+{{--        </li>--}}
+        <li class="nav-item">
+            <a href="" class="nav-link">
+                <i class="nav-icon fas fa-bookmark"></i>
+                <p>
+                    Car Categories
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{route('carcategory.create')}}" class="nav-link">
+                        <i class="fas fa-plus nav-icon"></i>
+                        <p>Add Content</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('carcategory.index')}}" class="nav-link">
+                        <i class="fas fa-list nav-icon"></i>
+                        <p>List Car Categories</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
+        <li class="nav-item">
+            <a href="" class="nav-link">
+                <i class="nav-icon fas fa-car"></i>
+                <p>
+                    Cars
+                    <i class="fas fa-angle-left right"></i>
+                </p>
+            </a>
+            <ul class="nav nav-treeview">
+                <li class="nav-item">
+                    <a href="{{route('cars.create')}}" class="nav-link">
+                        <i class="fas fa-plus nav-icon"></i>
+                        <p>Add Content</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('cars.index')}}" class="nav-link">
+                        <i class="fas fa-list nav-icon"></i>
+                        <p>List Cars</p>
+                    </a>
+                </li>
+            </ul>
+        </li>
         @endif
 
     </ul>

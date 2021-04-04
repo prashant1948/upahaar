@@ -7,7 +7,7 @@
 				<div class="col-md-6 col-sm-8 col-md-offset-3 col-sm-offset-2">
                     <form method="POST" action="{{ route('jobcompany.store')}}" enctype="multipart/form-data">
                         @csrf
-						<img class="img-responsive" alt="logo" src="job/img/logo.png">
+{{--						<img class="img-responsive" alt="logo" src="job/img/logo.png">--}}
                         <input type="text" class="form-control input-lg" name="name" placeholder="Company Name" required>
                         @error('name')
                         <span class="red-text" role="alert">

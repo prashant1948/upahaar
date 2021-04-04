@@ -33,35 +33,35 @@ function getcartList() {
 getCart();
 getcartList();
 
-function apply(job, csrf) {
-    $.ajaxSetup({
-        headers: {
-            'X-CSRF-TOKEN': csrf
-        }
-    });
-    var formData = {
-        'job': job
-    };
-    $.ajax({
-        type: 'POST',
-        url: '/job/add',
-        data: formData,
-        dataType: 'json',
-        success: function (data) {
-            $('#cart-dropdown').html(data.view);
-            $('#card-message').html("Applied");
-            $('#cart-message').slideToggle(200);
-            $("#cart-message").delay(2000).fadeOut(200);
-        },
-        error: function (data) {
-            if (data.status == 401) {
-                $('#message').slideToggle(200);
-                $('#message').delay(2000).fadeOut(200);
-            }
-            console.log("Error from the server");
-        }
-    });
-}
+// function apply(job, csrf) {
+//     $.ajaxSetup({
+//         headers: {
+//             'X-CSRF-TOKEN': csrf
+//         }
+//     });
+//     var formData = {
+//         'job': job
+//     };
+//     $.ajax({
+//         type: 'POST',
+//         url: '/job/add',
+//         data: formData,
+//         dataType: 'json',
+//         success: function (data) {
+//             $('#cart-dropdown').html(data.view);
+//             $('#card-message').html("Applied");
+//             $('#cart-message').slideToggle(200);
+//             $("#cart-message").delay(2000).fadeOut(200);
+//         },
+//         error: function (data) {
+//             if (data.status == 401) {
+//                 $('#message').slideToggle(200);
+//                 $('#message').delay(2000).fadeOut(200);
+//             }
+//             console.log("Error from the server");
+//         }
+//     });
+// }
 
 function addToCart(product, csrf) {
     $.ajaxSetup({

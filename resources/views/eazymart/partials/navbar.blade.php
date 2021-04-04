@@ -36,6 +36,9 @@
                     @if (Auth::user()->isStaff())
                         <li><a href="/admin/dashboard">Dashboard</a></li>
                     @endif
+                    @if (Auth::user()->isJobCompany())
+                        <li><a href="{{route('postJob.create')}}">Post a Job</a></li>
+                    @endif
                     <li><a href="/profileMart"><i class="fa fa-user s_color"></i> {{Auth::user()->name}} </a></li>
                     <li>
                         <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>

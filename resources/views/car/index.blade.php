@@ -1,4 +1,4 @@
-@extends('Job.layout.master')
+@extends('layouts.eazyCommon')
 @section('content')
 <!-- Main jumbotron for a primary marketing message or call to action -->
 {{--<section class="main-banner" style="background:#242c36 url('../job/img/slider-01.jpg') no-repeat">--}}
@@ -145,7 +145,7 @@
 <div class="ads-grid">
     <div class="container">
         <!-- tittle heading -->
-        <h3 class="tittle-w3l">Find Popular Jobs
+        <h3 class="tittle-w3l">Rent a Vehicle
             <span class="heading-style">
 					<i></i>
 					<i></i>
@@ -158,28 +158,30 @@
 {{--            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>--}}
 {{--        </div>--}}
         <div class="companies">
-            @foreach($jobs as $job)
+            @foreach($cars as $car)
             <div class="company-list">
                 <div class="row">
                     <div class="col-md-2 col-sm-2">
                         <div class="company-logo">
-                            <img src="/storage/images/jobCompanyLogo/{{$job->logo}}" class="img-responsive" alt="" />
+                            <img src="/storage/images/carDetails/{{$car->image}}" class="img-responsive" alt="" />
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-8">
                         <div class="company-content">
-                            <h3>{{$job->name}}<span class="full-time">{{$job->job_type}}</span></h3>
-                            <p><span class="company-name"><i class="fa fa-briefcase"></i>{{$job->company_name}}</span><span class="company-location"><i class="fa fa-map-marker"></i> {{$job->company_address}}</span><span class="package"><i class="fa fa-money"></i>{{$job->salary}}</span></p>
+                            <h3>{{$car->model}}<span class="full-time">{{$car->category->car_category}}</span></h3>
+                            <p><span class="company-name"><i class="fa fa-seat"></i>{{$car->seats}} Seater</span><span class="company-location"><i class="fa fa-car"></i> {{$car->description}}</span></p>
+{{--                            <span class="package"><i class="fa fa-money"></i>{{$car->model}}</span>--}}
                         </div>
                     </div>
                     <div class="col-md-2 col-sm-2 pt-2">
                         @if(!Auth::user())
                             <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal1">
-                                <input type="submit" name="submit" value="Apply" class="button"/>
+
+                                <a href="{{ url('/car/add/' . $car->id) }}"><input type="submit" name="submit" value="Rent" class="button" /></a>
                             </div>
                         @else
                             <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal4">
-                                <a href="{{ url('/job/add/' . $job->id) }}"><input type="submit" name="submit" value="Apply" class="button"/></a>
+                                <a href="{{ url('/car/add/' . $car->id) }}"><input type="submit" name="submit" value="Rent" class="button" /></a>
                             </div>
                         @endif
                     </div>

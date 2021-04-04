@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AboutUs;
 use App\Banner;
+use App\car\CarDetails;
 use App\checkout;
 use App\Frontend;
 use App\PopUp;
@@ -206,6 +207,13 @@ class IndexController extends Controller
 
 
     }
+    public function car(){
+        $cars = CarDetails::with('category')->get();
+        return view('car.index', [
+            'cars' => $cars
+        ]);
+    }
+
     public function aboutMart() {
         $about = AboutUs::first();
         return view('eazymart.about', compact('about'));

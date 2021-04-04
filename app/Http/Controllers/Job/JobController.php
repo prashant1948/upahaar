@@ -173,11 +173,9 @@ class JobController extends Controller
         return view('jobs',['items' => $jobs])->with('catList', $catList);
     }
 
-    public function application(Request $request){
+    public function application($id){
         if (Auth::check()) {
-
-            $job= Job::find($request->input('job'));
-
+            $job = Job::find($id)->value('id');
 
             $application = new JobApplications();
             $application->user_id = Auth::id();

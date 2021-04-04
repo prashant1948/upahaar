@@ -85,10 +85,10 @@
                 </div>
                 <div class="product-cards col-lg-4 col-md-4 col-12 wow slideInLeft" data-wow-duration="3s"
                      data-wow-delay="1.5s">
-                    <a href="">
+                    <a href="{{route('car.index')}}">
                         <div class="card">
                             <div class="overlay">
-                                <img src="{{asset('images/car.png')}}" />
+                                <img src="{{asset('images/car.png')}}"/>
                                 <h2>Vehicle Rental</h2>
                                 <p>We provide you with the best product. We assure you the quality.</p>
                             </div>

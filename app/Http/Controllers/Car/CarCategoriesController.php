@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Job;
+namespace App\Http\Controllers\Car;
 
 
 use App\Http\Controllers\Controller;
-use App\Job\JobCategories;
+
+use App\car\CarCategories;
 use Illuminate\Http\Request;
 
-class JobCategoriesController extends Controller
+class CarCategoriesController extends Controller
 {
     public function __construct() {
         $this->middleware('role:1');
@@ -19,8 +20,8 @@ class JobCategoriesController extends Controller
      */
     public function index()
     {
-        $jobcategories = JobCategories::all();
-        return view('Job.admin.carcategory.index',['jobcategories' => $jobcategories]);
+        $carcategories = CarCategories::all();
+        return view('Car.admin.carcategory.index',['carcategories' => $carcategories]);
     }
 
     /**
@@ -30,7 +31,7 @@ class JobCategoriesController extends Controller
      */
     public function create()
     {
-        return view('Job.admin.carcategory.create');
+        return view('Car.admin.carcategory.create');
     }
 
     /**
@@ -42,22 +43,22 @@ class JobCategoriesController extends Controller
     public function store(Request $request)
     {
         $this->validate($request, [
-            'job_category' => 'required',
+            'car_category' => 'required',
         ]);
 
-        $job_category = new JobCategories();
-        $job_category->job_category = $request->input('job_category');
-        $job_category->save();
+        $car_category = new CarCategories();
+        $car_category->car_category = $request->input('car_category');
+        $car_category->save();
         return redirect('/carcategory');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\JobCategories  $jobCategories
+     * @param  \App\CarCategories  $carCategories
      * @return \Illuminate\Http\Response
      */
-    public function show(JobCategories $jobCategories)
+    public function show(CarCategories $carCategories)
     {
         //
     }
@@ -65,39 +66,40 @@ class JobCategoriesController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\JobCategories  $jobCategories
+     * @param  \App\CarCategories  $carCategories
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
     {
-        $job_category = JobCategories::find($id);
-        return view('Job.admin.carcategory.edit', compact('job_category'));
+        $car_category = CarCategories::find($id);
+        return view('Car.admin.carcategory.edit', compact('car_category'));
     }
+
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\JobCategories  $jobCategories
+     * @param  \App\CarCategories  $carCategories
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $job_category = JobCategories::find($id);
-        $job_category->job_category = request('job_category');
-        $job_category->save();
+        $car_category = CarCategories::find($id);
+        $car_category->car_category = request('car_category');
+        $car_category->save();
         return redirect('/carcategory');
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\JobCategories  $jobCategories
+     * @param  \App\CarCategories  $carCategories
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        $job_category= JobCategories::find($id)->delete();
+        $car_category= CarCategories::find($id)->delete();
         return redirect()->back();
     }
 }
