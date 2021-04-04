@@ -149,6 +149,19 @@ Route::get('/postjob', 'Job\JobController@postJob')->name('postJob.create');
 
 Route::get('/job/add/{id}', 'Job\JobController@application');
 
+Route::get('/jobapplicants', 'Job\JobController@applicationDetails')->name('jobapplicants');
+
+Route::get('/profileCompany', 'ProfileController@showProfileJob')->name('company.profile');
+
+Route::post('/job/search/all', 'Job\JobController@searchJob');
+
+Route::get('liveJobSearch','Job\JobController@liveJobSearch')->name('liveJobSearch');
+
+
+
+Route::get('/jobCat', 'Job\JobCategoriesController@getJobCategories');
+
+Route::get('/jobCat/{jobCat}', 'Job\JobCategoriesController@showJobCat');
 //Car
 Route::get('/indexCar', 'IndexController@car')->name('car.index');
 
@@ -160,3 +173,5 @@ Route::resource('/cars', 'Car\CarDetailsController');
 Route::get('/cars/destroy/{id}', 'Car\CarDetailsController@destroy')->name('car.destroy');
 
 Route::get('/car/add/{id}', 'Car\CarDetailsController@rent');
+
+Route::get('/carapplicants', 'Car\CarDetailsController@rentDetails')->name('carapplicants');

@@ -38,8 +38,9 @@
                     @endif
                     @if (Auth::user()->isJobCompany())
                         <li><a href="{{route('postJob.create')}}">Post a Job</a></li>
+                        <li><a href="/profileCompany"><i class="fa fa-user s_color"></i> {{Auth::user()->name}} </a></li>
                     @endif
-                    <li><a href="/profileMart"><i class="fa fa-user s_color"></i> {{Auth::user()->name}} </a></li>
+
                     <li>
                         <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -51,7 +52,7 @@
             <!-- //header lists -->
             <!-- search -->
             <div class="agileits_search">
-                <form class="form" action="/products/search/all" method="POST">
+                <form class="form" action="/job/search/all" method="POST">
                     @csrf
                     <input id="searchProduct" name="query" type="search" placeholder="How can we help you today?" required="">
                     <button type="submit" class="btn btn-default" aria-label="Left Align">
@@ -313,21 +314,21 @@
 
 <div class="ban-top">
     <div class="container">
-{{--        <div class="agileits-navi_search">--}}
-{{--            <div id="agileinfo-nav_search">--}}
-{{--                <ul class="inline">--}}
-{{--                    <li class="dropdown le-dropdown">--}}
-{{--                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
-{{--                            <i class="fa fa-list"></i> All Categories--}}
-{{--                        </a>--}}
-{{--                        <ul class="dropdown-menu" id="departmentList">--}}
+        <div class="agileits-navi_search">
+            <div id="agileinfo-nav_search">
+                <ul class="inline">
+                    <li class="dropdown le-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-list"></i> All Categories
+                        </a>
+                        <ul class="dropdown-menu" id="jobList">
 
-{{--                        </ul>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
-{{--        </div>--}}
+        </div>
 
         <div class="top_nav_left">
             <nav class="navbar navbar-default">

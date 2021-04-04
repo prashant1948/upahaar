@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Job;
 
 
 use App\Cart;
+use App\Department;
 use App\Http\Controllers\Controller;
 use App\Job\Job;
 use App\Job\JobApplications;
@@ -78,7 +79,7 @@ class JobController extends Controller
 
         if (Auth::user()->isAdmin()) {
             $job->company_id = $request->input('company_id');
-        } else {
+        } elseif(Auth::user()->isJobCompany()) {
             $job->company_id = Auth::user()->job_company_id;
         }
 
@@ -187,5 +188,23 @@ class JobController extends Controller
         }else {
             return response()->json(array("error" => "Unauthorized error"), 401);
         }
+    }
+    public function applicationDetails(){
+        $application = JobApplications::with('user','job')->get();
+        return view('Job.admin.job.applicants',compact('application'));
+    }
+
+    public function searchJob(Request $request) {
+        $jobs = Job::where('name', 'LIKE', '%'.$request->input('query').'%')
+           ->get();
+
+        return view('Job.job_search', compact('jobs'));
+    }
+    public function liveJobSearch(Request $request) {
+        $search = $request->get('query');
+        $data = Job::where('name', 'LIKE', '%'.$search.'%')
+            ->get();
+        return response()->json($data);
+
     }
 }

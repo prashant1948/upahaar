@@ -43,7 +43,7 @@
 </head>
 
 <body>
-@include('Job.partials.navbar')
+@include('car.partials.navbar')
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 
 {{--<div id="cart-message" class="center" data-toggle="modal" data-target="#myModal4">--}}
@@ -303,7 +303,7 @@
 
             source: function(request, response) {
                 $.ajax({
-                    url: "{{url('liveJobSearch')}}",
+                    url: "{{url('livesearch')}}",
                     data: {
                         term : request.term
                     },

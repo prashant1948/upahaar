@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Job;
 
 
+use App\Department;
 use App\Http\Controllers\Controller;
+use App\Job\Job;
 use App\Job\JobCategories;
+use App\Product;
 use Illuminate\Http\Request;
 
 class JobCategoriesController extends Controller
@@ -99,5 +102,23 @@ class JobCategoriesController extends Controller
     {
         $job_category= JobCategories::find($id)->delete();
         return redirect()->back();
+    }
+
+    public function getJobCategories() {
+        $jobCat = JobCategories::all();
+        return response()->json(array('view' => view('partial.joblist', compact('jobCat'))->render()));
+
+    }
+
+    public function showJobCat(Request $request, $id) {
+        $items = $request->input('items');
+        if ($items == null) {
+            $items = 9;
+        }
+        $jobs = Job::where('category_id', $id)->paginate($items);
+        $jobCat = JobCategories::all();
+        $current_department = JobCategories::find($id);
+//        $productsDisplay = Product::get();
+        return view('Job.jobs_categories', compact('jobs', 'jobCat', 'current_department', 'items'));
     }
 }

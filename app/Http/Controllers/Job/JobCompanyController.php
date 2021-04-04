@@ -34,7 +34,7 @@ class JobCompanyController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage.j
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
@@ -66,8 +66,10 @@ class JobCompanyController extends Controller
         $job_company->password = Hash::make($request->input('password'));
         $job_company->user_role = 4;
         $job_company->created_at = Carbon::now();
+        $job_company->save();
 
         $user = new User();
+
         $user->name = $job_company->name;
         $user->email = $job_company->email;
         $user->password = $job_company->password;
@@ -75,9 +77,10 @@ class JobCompanyController extends Controller
         $user->job_company_id = $job_company->id;
         $user->created_at = Carbon::now();
         $user->save();
-        $job_company->save();
 
-        Alert::success('Thank you', 'Your application is submitted.');
+
+
+        Alert::success('Thank you', 'Your account is created.');
         return redirect()->back();
     }
 

@@ -8,6 +8,7 @@ use App\car\CarDetails;
 use App\Http\Controllers\Controller;
 
 use App\car\Rent;
+use App\Job\JobApplications;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -143,5 +144,9 @@ class CarDetailsController extends Controller
             return response()->json(array("error" => "Unauthorized error"), 401);
         }
 
+    }
+    public function rentDetails(){
+        $rent = Rent::with('user','car')->get();
+        return view('car.admin.car.applicants',compact('rent'));
     }
 }

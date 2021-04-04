@@ -1,4 +1,4 @@
-@extends('layouts.eazyCommon')
+@extends('car.layout.master')
 @section('content')
 <!-- Main jumbotron for a primary marketing message or call to action -->
 {{--<section class="main-banner" style="background:#242c36 url('../job/img/slider-01.jpg') no-repeat">--}}
@@ -176,8 +176,7 @@
                     <div class="col-md-2 col-sm-2 pt-2">
                         @if(!Auth::user())
                             <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal1">
-
-                                <a href="{{ url('/car/add/' . $car->id) }}"><input type="submit" name="submit" value="Rent" class="button" /></a>
+                                <input type="submit" name="submit" value="Rent" class="button" />
                             </div>
                         @else
                             <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal4">
