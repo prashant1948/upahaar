@@ -3,16 +3,19 @@
 namespace App\Http\Controllers\Car;
 
 
+use App\car\CarDetails;
 use App\Http\Controllers\Controller;
 
 use App\car\CarCategories;
+use App\Job\Job;
+use App\Job\JobCategories;
 use Illuminate\Http\Request;
 
 class CarCategoriesController extends Controller
 {
-    public function __construct() {
-        $this->middleware('role:1');
-    }
+//    public function __construct() {
+//        $this->middleware('role:1');
+//    }
     /**
      * Display a listing of the resource.
      *
@@ -101,5 +104,23 @@ class CarCategoriesController extends Controller
     {
         $car_category= CarCategories::find($id)->delete();
         return redirect()->back();
+    }
+
+    public function getCarCategories() {
+        $carCat = CarCategories::all();
+        return response()->json(array('view' => view('partial.carlist', compact('carCat'))->render()));
+
+    }
+
+    public function showCarCat(Request $request, $id) {
+        $items = $request->input('items');
+        if ($items == null) {
+            $items = 9;
+        }
+        $cars = CarDetails::where('category_id', $id)->paginate($items);
+        $carCat = CarCategories::all();
+        $current_department = CarCategories::find($id);
+//        $productsDisplay = Product::get();
+        return view('car.car_categories', compact('cars', 'carCat', 'current_department', 'items'));
     }
 }

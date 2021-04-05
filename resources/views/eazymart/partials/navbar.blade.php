@@ -12,7 +12,7 @@
         <div class="col-md-4 logo_agile">
             <h1>
                 <a href="/">
-                    <img src="{{asset('eazy/images/logoBack.png')}}" alt="" width="100px" height="100px">
+                    <img src="{{asset('images/job.png')}}" alt="" width="100px" height="100px">
                 </a>
             </h1>
         </div>

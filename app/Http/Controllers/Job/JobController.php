@@ -194,17 +194,5 @@ class JobController extends Controller
         return view('Job.admin.job.applicants',compact('application'));
     }
 
-    public function searchJob(Request $request) {
-        $jobs = Job::where('name', 'LIKE', '%'.$request->input('query').'%')
-           ->get();
 
-        return view('Job.job_search', compact('jobs'));
-    }
-    public function liveJobSearch(Request $request) {
-        $search = $request->get('query');
-        $data = Job::where('name', 'LIKE', '%'.$search.'%')
-            ->get();
-        return response()->json($data);
-
-    }
 }

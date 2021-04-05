@@ -7,6 +7,7 @@ use App\Banner;
 use App\car\CarDetails;
 use App\checkout;
 use App\Frontend;
+use App\Job\Job;
 use App\PopUp;
 use App\User;
 use Illuminate\Http\Request;
@@ -212,6 +213,31 @@ class IndexController extends Controller
         return view('car.index', [
             'cars' => $cars
         ]);
+    }
+    public function searchJob(Request $request) {
+        $jobs = Job::where('name', 'LIKE', '%'.$request->input('query').'%')
+            ->get();
+
+        return view('Job.job_search', compact('jobs'));
+    }
+    public function liveJobSearch(Request $request) {
+        $search = $request->get('query');
+        $data = Job::where('name', 'LIKE', '%'.$search.'%')
+            ->get();
+        return response()->json($data);
+
+    }
+    public function searchCar(Request $request) {
+        $cars = CarDetails::where('model', 'LIKE', '%'.$request->input('query').'%')
+            ->get();
+
+        return view('Car.car_search', compact('cars'));
+    }
+    public function liveCarSearch(Request $request) {
+        $search = $request->get('query');
+        $data = CarDetails::where('model', 'LIKE', '%'.$search.'%')
+            ->get();
+        return response()->json($data);
     }
 
     public function aboutMart() {

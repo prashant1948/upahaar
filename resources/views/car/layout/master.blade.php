@@ -299,13 +299,13 @@
 <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
     $(document).ready(function() {
-        $( "#searchProduct" ).autocomplete({
+        $( "#searchCar" ).autocomplete({
 
             source: function(request, response) {
                 $.ajax({
-                    url: "{{url('livesearch')}}",
+                    url: "{{url('liveCarSearch')}}",
                     data: {
-                        term : request.term
+                        term : request.termn
                     },
                     dataType: "json",
                     success: function(data){

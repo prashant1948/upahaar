@@ -19,3 +19,13 @@ $.ajax({
         console.log("Error from the server");
     }
 });
+$.ajax({
+    type: 'GET',
+    url: '/carCat',
+    success: function (data) {
+        $('#carList').html(data.view);
+    },
+    error: function (data) {
+        console.log("Error from the server");
+    }
+});

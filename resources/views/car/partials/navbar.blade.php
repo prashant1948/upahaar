@@ -12,7 +12,7 @@
         <div class="col-md-4 logo_agile">
             <h1>
                 <a href="/">
-                    <img src="{{asset('eazy/images/logoBack.png')}}" alt="" width="100px" height="100px">
+                    <img src="{{asset('images/job.png')}}" alt="" width="100px" height="100px">
                 </a>
             </h1>
         </div>
@@ -39,7 +39,7 @@
                     @if (Auth::user()->isJobCompany())
                         <li><a href="{{route('postJob.create')}}">Post a Job</a></li>
                     @endif
-                    <li><a href="/profileMart"><i class="fa fa-user s_color"></i> {{Auth::user()->name}} </a></li>
+{{--                    <li><a href="/profileMart"><i class="fa fa-user s_color"></i> {{Auth::user()->name}} </a></li>--}}
                     <li>
                         <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
@@ -51,9 +51,9 @@
             <!-- //header lists -->
             <!-- search -->
             <div class="agileits_search">
-                <form class="form" action="/products/search/all" method="POST">
+                <form class="form" action="/car/search/all" method="POST">
                     @csrf
-                    <input id="searchProduct" name="query" type="search" placeholder="How can we help you today?" required="">
+                    <input id="searchCar" name="query" type="search" placeholder="How can we help you today?" required="">
                     <button type="submit" class="btn btn-default" aria-label="Left Align">
                         <span class="fa fa-search" aria-hidden="true"></span>
                     </button>
@@ -311,21 +311,21 @@
 
 <div class="ban-top">
     <div class="container">
-{{--        <div class="agileits-navi_search">--}}
-{{--            <div id="agileinfo-nav_search">--}}
-{{--                <ul class="inline">--}}
-{{--                    <li class="dropdown le-dropdown">--}}
-{{--                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
-{{--                            <i class="fa fa-list"></i> All Categories--}}
-{{--                        </a>--}}
-{{--                        <ul class="dropdown-menu" id="departmentList">--}}
+        <div class="agileits-navi_search">
+            <div id="agileinfo-nav_search">
+                <ul class="inline">
+                    <li class="dropdown le-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-list"></i> All Categories
+                        </a>
+                        <ul class="dropdown-menu" id="carList">
 
-{{--                        </ul>--}}
-{{--                    </li>--}}
-{{--                </ul>--}}
-{{--            </div>--}}
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
-{{--        </div>--}}
+        </div>
 
         <div class="top_nav_left">
             <nav class="navbar navbar-default">

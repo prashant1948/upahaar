@@ -16,7 +16,7 @@
                 <div class="carousel-caption">
                     <h3><span>{{$front->heading}}</span></h3>
                     <p><span>{{$front->message}}</span></p>
-                    <a class="button2" href="product.html">Shop Now </a>
+{{--                    <a class="button2" href="product.html">Shop Now </a>--}}
                 </div>
             </div>
         </div>
