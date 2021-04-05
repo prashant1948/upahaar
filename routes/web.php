@@ -109,8 +109,8 @@ Route::get('/profile', 'ProfileController@showProfile');
 
 //Eazy Mart
 Route::get('/indexMart', 'IndexController@indexMart');
-Route::get('/aboutMart', 'IndexController@aboutMart');
-Route::get('/contactMart', 'IndexController@contactMart');
+Route::get('/about', 'IndexController@aboutMart');
+Route::get('/contact', 'IndexController@contactMart');
 Route::get('/singleMart/{id}', 'ProductsController@showProductsMart');
 
 
@@ -158,6 +158,10 @@ Route::post('/job/search/all', 'IndexController@searchJob');
 Route::get('liveJobSearch','IndexController@liveJobSearch')->name('liveJobSearch');
 
 
+Route::get('/jobSort','Job\JobController@sort')->name('sort');
+Route::get('/jobSearch','Job\JobController@search')->name('search');
+
+
 
 Route::get('/jobCat', 'Job\JobCategoriesController@getJobCategories');
 
@@ -183,3 +187,6 @@ Route::get('liveCarSearch','IndexController@liveCarSearch')->name('liveCarSearch
 Route::get('/carCat', 'Car\CarCategoriesController@getCarCategories');
 
 Route::get('/carCat/{carCat}', 'Car\CarCategoriesController@showCarCat');
+
+Route::get('/carSort','Car\CarDetailsController@sort')->name('sort');
+Route::get('/carSearch','Car\CarDetailsController@search')->name('search');

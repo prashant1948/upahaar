@@ -16,6 +16,37 @@
         <a href="{{route('cars.index')}}" class="btn btn-info btn-sm "><i class="fa fa-arrow-left" aria-hidden="true"></i> {{_('Back')}}</a>
     </div>
 
+    <div class="row">
+        <div class="pull-left">
+            <form action="/carSort" method="get" style="margin-left: 250px;">
+                <div class="input-group">
+                    <select class="form-control" id="sort" name="sort" >
+                        <option value="id" selected="selected">Sort By Category</option>
+                        @foreach ($catList as $name => $id)
+                            <option value="{{$id}}">{{$name}}</option>
+                        @endforeach
+                    </select>
+                    <span class="input-group-prepend">
+                      <button type="submit" class="btn btn-primary">Sort</button>
+                  </span>
+                </div>
+            </form>
+        </div>
+
+        <div class="pull-right">
+            <form action="/carSearch" method="get" style="margin-left: 30px;width: 280px">
+                <div class="input-group" >
+                    <input type="search" class="form-control" id="searchCar" name="search" placeholder="----Search Item----">
+                    <span class="input-group-prepend">
+                      <button type="submit" class="btn btn-primary">Search</button>
+                  </span>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <br>
+
     <div class="col-md-10 offset-md-1 col-sm-12">
         @if($cars)
             <table class="table table-bordered table-hover">

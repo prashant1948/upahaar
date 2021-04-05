@@ -351,7 +351,7 @@
                                 </a>
                             </li>
                             <li class="">
-                                <a class="nav-stylehead" href="/aboutMart">About Us</a>
+                                <a class="nav-stylehead" href="/about">About Us</a>
                             </li>
 {{--                            <li class="dropdown">--}}
 {{--                                <a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kitchen--}}
@@ -476,9 +476,9 @@
 {{--                                    </div>--}}
 {{--                                </ul>--}}
 {{--                            </li>--}}
-                            <li class="">
-                                <a class="nav-stylehead" href="faqs.html">Faqs</a>
-                            </li>
+{{--                            <li class="">--}}
+{{--                                <a class="nav-stylehead" href="faqs.html">Faqs</a>--}}
+{{--                            </li>--}}
 {{--                            <li class="dropdown">--}}
 {{--                                <a class="nav-stylehead dropdown-toggle" href="#" data-toggle="dropdown">Pages--}}
 {{--                                    <b class="caret"></b>--}}
@@ -493,7 +493,7 @@
 {{--                                </ul>--}}
 {{--                            </li>--}}
                             <li class="">
-                                <a class="nav-stylehead" href="/contactMart">Contact</a>
+                                <a class="nav-stylehead" href="/contact">Contact</a>
                             </li>
                         </ul>
                     </div>

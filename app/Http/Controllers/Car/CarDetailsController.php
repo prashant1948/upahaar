@@ -8,9 +8,11 @@ use App\car\CarDetails;
 use App\Http\Controllers\Controller;
 
 use App\car\Rent;
+use App\Job\Job;
 use App\Job\JobApplications;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\DB;
 
 class CarDetailsController extends Controller
 {
@@ -21,8 +23,9 @@ class CarDetailsController extends Controller
      */
     public function index()
     {
+        $catList = DB::table('car_categories')->pluck('id', 'car_category');
         $cars = CarDetails::with('category')->latest()->Paginate(10);
-        return view('car.admin.car.index', compact('cars'));
+        return view('car.admin.car.index', compact('cars','catList'));
     }
 
     /**
@@ -149,4 +152,19 @@ class CarDetailsController extends Controller
         $rent = Rent::with('user','car')->get();
         return view('car.admin.car.applicants',compact('rent'));
     }
+
+    public  function sort(Request $request){
+        $sort = $request->get('sort');
+        $cars = CarDetails::with('category')->where('category_id', 'like', '%'.$sort.'%')->Paginate(10);
+        $catList = DB::table('car_categories')->pluck('id', 'car_category');
+        return view('car.admin.car.index',['cars' => $cars])->with('catList', $catList);
+    }
+
+    public  function search(Request $request){
+        $search = $request->get('search');
+        $cars = CarDetails::with('category')->where('model', 'like', '%'.$search.'%')->Paginate(10);
+        $catList = DB::table('car_categories')->pluck('id', 'car_category');
+        return view('car.admin.car.index',['cars' => $cars])->with('catList', $catList);
+    }
+
 }

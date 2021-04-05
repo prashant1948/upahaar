@@ -85,7 +85,7 @@ class JobController extends Controller
 
 
         $job->save();
-        return redirect()->back();
+        return redirect('/jobs');
     }
 
     /**
@@ -164,14 +164,14 @@ class JobController extends Controller
         $sort = $request->get('sort');
         $jobs = Job::with('category')->where('category_id', 'like', '%'.$sort.'%')->Paginate(10);
         $catList = DB::table('job_categories')->pluck('id', 'job_category');
-        return view('jobs',['jobs' => $jobs])->with('catList', $catList);
+        return view('Job.admin.job.index',['jobs' => $jobs])->with('catList', $catList);
     }
 
     public  function search(Request $request){
         $search = $request->get('search');
         $jobs = Job::with('category')->where('name', 'like', '%'.$search.'%')->Paginate(10);
         $catList = DB::table('job_categories')->pluck('id', 'job_category');
-        return view('jobs',['items' => $jobs])->with('catList', $catList);
+        return view('Job.admin.job.index',['jobs' => $jobs])->with('catList', $catList);
     }
 
     public function application($id){
@@ -193,6 +193,8 @@ class JobController extends Controller
         $application = JobApplications::with('user','job')->get();
         return view('Job.admin.job.applicants',compact('application'));
     }
+
+
 
 
 }

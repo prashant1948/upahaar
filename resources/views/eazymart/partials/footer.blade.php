@@ -42,87 +42,87 @@
         <!-- footer third section -->
         <div class="footer-info w3-agileits-info">
             <!-- footer categories -->
-            <div class="col-sm-5 address-right">
-                <div class="col-xs-6 footer-grids">
-                    <h3>Categories</h3>
-                    <ul>
-                        <li>
-                            <a href="product.html">Grocery</a>
-                        </li>
-                        <li>
-                            <a href="product.html">Fruits</a>
-                        </li>
-                        <li>
-                            <a href="product.html">Soft Drinks</a>
-                        </li>
-                        <li>
-                            <a href="product2.html">Dishwashers</a>
-                        </li>
-                        <li>
-                            <a href="product.html">Biscuits & Cookies</a>
-                        </li>
-                        <li>
-                            <a href="product2.html">Baby Diapers</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="col-xs-6 footer-grids agile-secomk">
-                    <ul>
-                        <li>
-                            <a href="product.html">Snacks & Beverages</a>
-                        </li>
-                        <li>
-                            <a href="product.html">Bread & Bakery</a>
-                        </li>
-                        <li>
-                            <a href="product.html">Sweets</a>
-                        </li>
-                        <li>
-                            <a href="product.html">Chocolates & Biscuits</a>
-                        </li>
-                        <li>
-                            <a href="product2.html">Personal Care</a>
-                        </li>
-                        <li>
-                            <a href="product.html">Dried Fruits & Nuts</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="clearfix"></div>
-            </div>
+{{--            <div class="col-sm-5 address-right">--}}
+{{--                <div class="col-xs-6 footer-grids">--}}
+{{--                    <h3>Categories</h3>--}}
+{{--                    <ul>--}}
+{{--                        <li>--}}
+{{--                            <a href="product.html">Grocery</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="product.html">Fruits</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="product.html">Soft Drinks</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="product2.html">Dishwashers</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="product.html">Biscuits & Cookies</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="product2.html">Baby Diapers</a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--                <div class="col-xs-6 footer-grids agile-secomk">--}}
+{{--                    <ul>--}}
+{{--                        <li>--}}
+{{--                            <a href="product.html">Snacks & Beverages</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="product.html">Bread & Bakery</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="product.html">Sweets</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="product.html">Chocolates & Biscuits</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="product2.html">Personal Care</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="product.html">Dried Fruits & Nuts</a>--}}
+{{--                        </li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--                <div class="clearfix"></div>--}}
+{{--            </div>--}}
             <!-- //footer categories -->
             <!-- quick links -->
-            <div class="col-sm-5 address-right">
+            <div class="col-sm-10 address-right">
                 <div class="col-xs-6 footer-grids">
                     <h3>Quick Links</h3>
                     <ul>
                         <li>
-                            <a href="about.html">About Us</a>
+                            <a href="/about">About Us</a>
                         </li>
                         <li>
-                            <a href="contact.html">Contact Us</a>
+                            <a href="/contact">Contact Us</a>
                         </li>
 
-                        <li>
-                            <a href="terms.html">Terms of use</a>
-                        </li>
-                        <li>
-                            <a href="privacy.html">Privacy Policy</a>
-                        </li>
+{{--                        <li>--}}
+{{--                            <a href="terms.html">Terms of use</a>--}}
+{{--                        </li>--}}
+{{--                        <li>--}}
+{{--                            <a href="privacy.html">Privacy Policy</a>--}}
+{{--                        </li>--}}
                     </ul>
                 </div>
                 <div class="col-xs-6 footer-grids">
                     <h3>Get in Touch</h3>
                     <ul>
                         <li>
-                            <i class="fa fa-map-marker"></i> Manamaiju, Balaju, Nepal.</li>
+                            <i class="fa fa-map-marker"></i> Pulchok, Lalitpur, Nepal.</li>
                         <li>
-                            <i class="fa fa-phone"></i> Telephone : 52124213</li>
+                            <i class="fa fa-phone"></i> Telephone : 0000000</li>
                         <li>
                             <i class="fa fa-fax"></i> FAX : +1 888 888 4444 </li>
                         <li>
                             <i class="fa fa-envelope-o"></i>
-                            <a href="mailto:example@mail.com"> eazymart@gmail.com</a>
+                            <a href="mailto:example@mail.com"> multiservice@gmail.com</a>
                         </li>
                     </ul>
                 </div>
@@ -319,7 +319,7 @@
 <!-- copyright -->
 <div class="copy-right">
     <div class="container">
-        <p>© 2020 Eazy mart. All rights reserved | Design by
+        <p>© 2020 multi service. All rights reserved | Design by
             <a href="http://letitgrownepal.com"> Let IT Grow</a>
         </p>
     </div>

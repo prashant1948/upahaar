@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Job;
 
 
+use App\car\CarCategories;
 use App\Department;
 use App\Http\Controllers\Controller;
 use App\Job\Job;
@@ -23,7 +24,7 @@ class JobCategoriesController extends Controller
     public function index()
     {
         $jobcategories = JobCategories::all();
-        return view('Job.admin.carcategory.index',['jobcategories' => $jobcategories]);
+        return view('Job.admin.jobcategory.index',['jobcategories' => $jobcategories]);
     }
 
     /**
@@ -33,7 +34,7 @@ class JobCategoriesController extends Controller
      */
     public function create()
     {
-        return view('Job.admin.carcategory.create');
+        return view('Job.admin.jobcategory.create');
     }
 
     /**
@@ -51,7 +52,7 @@ class JobCategoriesController extends Controller
         $job_category = new JobCategories();
         $job_category->job_category = $request->input('job_category');
         $job_category->save();
-        return redirect('/carcategory');
+        return redirect('/jobcategory');
     }
 
     /**
@@ -74,7 +75,7 @@ class JobCategoriesController extends Controller
     public function edit($id)
     {
         $job_category = JobCategories::find($id);
-        return view('Job.admin.carcategory.edit', compact('job_category'));
+        return view('Job.admin.jobcategory.edit', compact('job_category'));
     }
 
     /**
@@ -89,7 +90,7 @@ class JobCategoriesController extends Controller
         $job_category = JobCategories::find($id);
         $job_category->job_category = request('job_category');
         $job_category->save();
-        return redirect('/carcategory');
+        return redirect('/jobcategory');
     }
 
     /**

@@ -35,7 +35,7 @@
                             <td>{{$c}}</td>
                             <td>{{$b->job_category}}</td>
                             <td>
-                            <a href="{{route('carcategory.edit',$b->id)}}"><i class="fa fa-lg fa-edit"></i></a>
+                            <a href="{{route('jobcategory.edit',$b->id)}}"><i class="fa fa-lg fa-edit"></i></a>
                              @method('DELETE')
                              <a onclick="return confirm('Do you want to delete')" href="{{route('job_category.destroy',$b->id)}}"><i class="fa fa-lg fa-minus-circle" style="color:red"></i></a>
                             </td>
