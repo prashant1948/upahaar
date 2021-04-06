@@ -50,6 +50,12 @@
                 @else
                     @if (Auth::user()->isStaff())
                         <li><a class="nav-link"  href="/admin/dashboard">Dashboard</a></li>
+                        <li>
+                            <a href="" class="nav-link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                @csrf
+                            </form>
+                        </li>
                     @endif
                 @endif
             </ul>
