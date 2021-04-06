@@ -15,9 +15,9 @@ class AdminSeeder extends Seeder
     {
         DB::table('users')->insert([
             'name' => 'Admin',
-            'email' => 'admin@easymartnepal.com',
+            'email' => 'admin@multiservice.com',
             'user_role' => '1',
-            'password' => bcrypt('easymart1234'),
+            'password' => bcrypt('multiservice1234'),
             'email_verified_at' => now(),
             'remember_token' => Str::random(10),
 

@@ -14,6 +14,11 @@
 
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
 
+    <link href="{{asset('eazy/css/style.css')}}" rel="stylesheet" type="text/css" media="all"/>
+
+    <!--pop-up-box-->
+    <link href="{{asset('eazy/css/popuo-box.css')}}" rel="stylesheet" type="text/css" media="all" />
+
     <link rel="stylesheet" href="{{asset('css/multi.css')}}">
 
     <!-- Icons/Glyphs -->
@@ -38,11 +43,68 @@
                 <li class="nav-item"><a class="nav-link" id="active1" href="#section1">Home</a></li>
                 <li class="nav-item"><a class="nav-link" id="active2" href="#section2">Our Services</a></li>
                 <li class="nav-item"><a class="nav-link" id="active3" href="#section3">Contact</a></li>
+                @guest
+                <li class="nav-item"><a class="nav-link" href="#" data-toggle="modal" data-target="#myModal1">
+                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> Log In </a></li>
+
+                @else
+                    @if (Auth::user()->isStaff())
+                        <li><a class="nav-link"  href="/admin/dashboard">Dashboard</a></li>
+                    @endif
+                @endif
             </ul>
         </div>
 
     </div>
 </nav>
+
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body modal-body-sub_agile">
+                <div class="main-mailposi">
+                    <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                </div>
+                <div class="modal_body_left modal_body_left1">
+                    <h3 class="agileinfo_sign">Sign In</h3>
+{{--                    <p>--}}
+{{--                        Sign In now, Let's start your Grocery Shopping. Don't have an account?--}}
+{{--                        <a href="#" data-toggle="modal" data-target="#myModal2">--}}
+{{--                            Sign Up Now</a>--}}
+{{--                    </p>--}}
+                    <form method="POST" action="{{ route('login') }}">
+                        @csrf
+                        <div class="styled-input agile-styled-input-top">
+                            <input type="email" class="le-input" name="email" value="{{ old('email') }}" required autofocus>
+                            @error('email')
+                            <span class="red-text" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="styled-input">
+                            <input type="password" class="le-input" name="password" value="{{ old('password') }}" required>
+                            @error('password')
+                            <span class="red-text" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
+                        </div>
+                        <input type="submit" value="Sign In">
+                    </form>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- //Modal content-->
+    </div>
+</div>
+
 <section class="hero" id="section1">
     <div class="content">
         <div class="row justify-content-center align-items-center">
@@ -144,5 +206,23 @@
 <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 <script src="{{asset('js/popper.min.js')}}"></script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
+<!-- popup modal (for signin & signup)-->
+<script src="{{asset('eazy/js/jquery.magnific-popup.js')}}"></script>
+<script>
+    $(document).ready(function () {
+        $('.popup-with-zoom-anim').magnificPopup({
+            type: 'inline',
+            fixedContentPos: false,
+            fixedBgPos: true,
+            overflowY: 'auto',
+            closeBtnInside: true,
+            preloader: false,
+            midClick: true,
+            removalDelay: 300,
+            mainClass: 'my-mfp-zoom-in'
+        });
+
+    });
+</script>
 </body>
 </html>
