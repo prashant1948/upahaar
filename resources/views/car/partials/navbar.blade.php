@@ -258,7 +258,7 @@
 <!-- //Modal2 -->
 <!-- //signup Model -->
 <!-- Modal3 -->
-<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
@@ -270,31 +270,37 @@
                     <span class="fa fa-envelope-o" aria-hidden="true"></span>
                 </div>
                 <div class="modal_body_left modal_body_left1">
-                    <h3 class="agileinfo_sign">Sign In </h3>
-                    <p>
-                        Sign In now, Let's start your Grocery Shopping. Don't have an account?
-                        <a href="#" data-toggle="modal" data-target="#myModal2">
-                            Sign Up Now</a>
-                    </p>
-                    <form method="POST" action="{{ route('login') }}">
+                    <h3 class="agileinfo_sign">Add Details</h3>
+
+                    <form method="POST" action="{{ url('/car/add/' . $car->id) }}" enctype="multipart/form-data">
                         @csrf
                         <div class="styled-input agile-styled-input-top">
-                            <input type="email" class="le-input" name="email" placeholder="E-mail" value="{{ old('email') }}" required autofocus>
-                            @error('email')
+                            <label for="from_date">Rental Date:</label>
+                            <input type="date" class="le-input" name="from_date" placeholder="From" required autofocus>
+                            @error('from_date')
                             <span class="red-text" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div>
+                        </div><br>
                         <div class="styled-input">
-                            <input type="password" class="le-input" placeholder="Password" name="password" value="{{ old('password') }}" required>
-                            @error('password')
+                            <label for="end_date">Return Date:</label>
+                            <input type="date" class="le-input" placeholder="To" name="end_date" required>
+                            @error('end_date')
                             <span class="red-text" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
+                        </div></br>
+
+                        <div class="styled-input">
+                            <label for="with_driver">Driver Required?</label>
+                            <select class="form-control input-lg" name="with_driver">
+                                <option value="yes">Yes</option>
+                                <option value="no">No</option>
+                            </select>
                         </div>
-                        <input type="submit" value="Sign In">
+                        <input type="submit" name="submit" value="Rent" class="button"/>
                     </form>
                     <div class="clearfix"></div>
                 </div>

@@ -179,7 +179,7 @@
                             </div>
                         @else
                             <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal4">
-                                <a href="{{ url('/job/add/' . $job->id) }}"><input type="submit" name="submit" value="Apply" class="button"/></a>
+                                <input type="submit" name="submit" value="Apply" class="button"/>
                             </div>
                         @endif
                     </div>

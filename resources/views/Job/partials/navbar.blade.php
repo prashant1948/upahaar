@@ -261,52 +261,53 @@
 <!-- //Modal2 -->
 <!-- //signup Model -->
 <!-- Modal3 -->
-{{--<div class="modal fade" id="myModal3" tabindex="-1" role="dialog">--}}
-{{--    <div class="modal-dialog">--}}
-{{--        <!-- Modal content-->--}}
-{{--        <div class="modal-content">--}}
-{{--            <div class="modal-header">--}}
-{{--                <button type="button" class="close" data-dismiss="modal">&times;</button>--}}
-{{--            </div>--}}
-{{--            <div class="modal-body modal-body-sub_agile">--}}
-{{--                <div class="main-mailposi">--}}
-{{--                    <span class="fa fa-envelope-o" aria-hidden="true"></span>--}}
-{{--                </div>--}}
-{{--                <div class="modal_body_left modal_body_left1">--}}
-{{--                    <h3 class="agileinfo_sign">Sign In </h3>--}}
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog">
+    <div class="modal-dialog">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+            </div>
+            <div class="modal-body modal-body-sub_agile">
+                <div class="main-mailposi">
+                    <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                </div>
+                <div class="modal_body_left modal_body_left1">
+                    <h3 class="agileinfo_sign">Upload your cv </h3>
 {{--                    <p>--}}
 {{--                        Sign In now, Let's start your Grocery Shopping. Don't have an account?--}}
 {{--                        <a href="#" data-toggle="modal" data-target="#myModal2">--}}
 {{--                            Sign Up Now</a>--}}
 {{--                    </p>--}}
-{{--                    <form method="POST" action="{{ route('login') }}">--}}
-{{--                        @csrf--}}
-{{--                        <div class="styled-input agile-styled-input-top">--}}
-{{--                            <input type="email" class="le-input" name="email" placeholder="E-mail" value="{{ old('email') }}" required autofocus>--}}
-{{--                            @error('email')--}}
-{{--                            <span class="red-text" role="alert">--}}
-{{--                                <strong>{{ $message }}</strong>--}}
-{{--                            </span>--}}
-{{--                            @enderror--}}
-{{--                        </div>--}}
-{{--                        <div class="styled-input">--}}
-{{--                            <input type="password" class="le-input" placeholder="Password" name="password" value="{{ old('password') }}" required>--}}
-{{--                            @error('password')--}}
-{{--                            <span class="red-text" role="alert">--}}
-{{--                                    <strong>{{ $message }}</strong>--}}
-{{--                                </span>--}}
-{{--                            @enderror--}}
-{{--                        </div>--}}
-{{--                        <input type="submit" value="Sign In">--}}
-{{--                    </form>--}}
-{{--                    <div class="clearfix"></div>--}}
-{{--                </div>--}}
-{{--                <div class="clearfix"></div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        <!-- //Modal content-->--}}
-{{--    </div>--}}
-{{--</div>--}}
+                    <form method="POST" action="{{ url('/job/add/' . $job->id) }}" enctype="multipart/form-data">
+                        @csrf
+                        <div class="styled-input agile-styled-input-top">
+                            <input type="text" class="le-input" name="expected_salary" placeholder="Expected Salary" required autofocus>
+                            @error('expected_salary')
+                            <span class="red-text" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="styled-input">
+                            <input type="file" class="le-input" placeholder="Password" name="cv" required>
+                            @error('cv')
+                            <span class="red-text" role="alert">
+                                    <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+{{--                        <a href="{{ url('/job/add/' . $job->id) }}"><input type="submit" name="submit" value="Apply" class="button"/><input type="submit" value="Sign In"></a>--}}
+                        <input type="submit" name="submit" value="Apply" class="button"/>
+                    </form>
+                    <div class="clearfix"></div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+        <!-- //Modal content-->
+    </div>
+</div>
 <!-- //Modal3 -->
 <!-- //header-bot -->
 <!-- navigation -->

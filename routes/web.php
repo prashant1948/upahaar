@@ -147,7 +147,7 @@ Route::get('/jobs/destroy/{id}', 'Job\JobController@destroy')->name('jobb.destro
 
 Route::get('/postjob', 'Job\JobController@postJob')->name('postJob.create');
 
-Route::get('/job/add/{id}', 'Job\JobController@application');
+Route::post('/job/add/{id}', 'Job\JobController@application');
 
 Route::get('/jobapplicants', 'Job\JobController@applicationDetails')->name('jobapplicants');
 
@@ -176,7 +176,7 @@ Route::get('/carcategory/destroy/{id}', 'Car\CarCategoriesController@destroy')->
 Route::resource('/cars', 'Car\CarDetailsController');
 Route::get('/cars/destroy/{id}', 'Car\CarDetailsController@destroy')->name('car.destroy');
 
-Route::get('/car/add/{id}', 'Car\CarDetailsController@rent');
+Route::post('/car/add/{id}', 'Car\CarDetailsController@rent');
 
 Route::get('/carapplicants', 'Car\CarDetailsController@rentDetails')->name('carapplicants');
 

@@ -180,7 +180,7 @@
                             </div>
                         @else
                             <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal4">
-                                <a href="{{ url('/car/add/' . $car->id) }}"><input type="submit" name="submit" value="Rent" class="button" /></a>
+                                <input type="submit" name="submit" value="Rent" class="button" />
                             </div>
                         @endif
                     </div>

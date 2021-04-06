@@ -16,6 +16,7 @@ use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class JobController extends Controller
 {
@@ -174,14 +175,29 @@ class JobController extends Controller
         return view('Job.admin.job.index',['jobs' => $jobs])->with('catList', $catList);
     }
 
-    public function application($id){
+    public function application(Request $request, $id){
+
         if (Auth::check()) {
+            if($request->hasFile('cv')){
+                $filenameWithExt = $request->file('cv')->getClientOriginalName();
+                $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+                $extension = $request->file('cv')->getClientOriginalExtension();
+                $fileNameToStore = $filename.'_'.time().".".$extension;
+                $path = $request->file('cv')->storeAs('public/images/cv', $fileNameToStore);
+            } else {
+                $fileNameToStore = 'no-image.jpg';
+            }
+
             $job = Job::find($id)->value('id');
 
             $application = new JobApplications();
             $application->user_id = Auth::id();
             $application->job_id = $job;
+            $application->cv = $fileNameToStore;
+            $application->expected_salary = $request->input('expected_salary');
             $application->save();
+
+            Alert::success('Thank you', 'You have applied successfully');
 
             return redirect()->back();
 

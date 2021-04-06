@@ -13,6 +13,7 @@ use App\Job\JobApplications;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use RealRashid\SweetAlert\Facades\Alert;
 
 class CarDetailsController extends Controller
 {
@@ -133,14 +134,19 @@ class CarDetailsController extends Controller
         return redirect('/cars');
     }
 
-    public function rent($id){
+    public function rent(Request $request, $id){
         if (Auth::check()) {
             $car = CarDetails::find($id)->value('id');
 
             $rent = new Rent();
             $rent->user_id = Auth::id();
             $rent->car_id = $car;
+            $rent->from_date = $request->input('from_date');
+            $rent->end_date = $request->input('end_date');
+            $rent->with_driver = $request->input('with_driver');
             $rent->save();
+
+            Alert::success('Thank you', 'Vehicle has been booked. We will contact you soon.');
 
             return redirect()->back();
         }else {

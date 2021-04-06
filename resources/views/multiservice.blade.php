@@ -90,8 +90,8 @@
                             <input type="password" class="le-input" name="password" value="{{ old('password') }}" required>
                             @error('password')
                             <span class="red-text" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
                         <input type="submit" value="Sign In">
