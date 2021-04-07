@@ -45,10 +45,10 @@ class JobCategoriesController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'job_category' => 'required',
-        ]);
-
+////        $this->validate($request, [
+////            'job_category' => 'required',
+////        ]);
+//
         $job_category = new JobCategories();
         $job_category->job_category = $request->input('job_category');
         $job_category->save();

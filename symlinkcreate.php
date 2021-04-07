@@ -1,2 +1,2 @@
 <?php
-symlink('/home/letitgro/communitymart.letitgrownepal.com/ecommerceGrocery-master/storage/app/public', '/home/letitgro/communitymart.letitgrownepal.com/storage');
+symlink('/home/letitgro/multiservices.letitgrownepal.com/multi_service/storage/app/public', '/home/letitgro/multiservices.letitgrownepal.com/storage');

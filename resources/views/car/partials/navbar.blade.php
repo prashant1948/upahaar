@@ -185,7 +185,7 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
                         <div class="styled-input agile-styled-input-top">
-                            <input type="email" class="le-input" name="email" value="{{ old('email') }}" required autofocus>
+                            <input type="email" class="le-input" name="email" value="{{ old('email') }}" placeholder="Email Address" required autofocus>
                             @error('email')
                             <span class="red-text" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -193,7 +193,7 @@
                             @enderror
                         </div>
                         <div class="styled-input">
-                            <input type="password" class="le-input" name="password" value="{{ old('password') }}" required>
+                            <input type="password" class="le-input" name="password" value="{{ old('password') }}" placeholder="Password" required>
                             @error('password')
                             <span class="red-text" role="alert">
                                     <strong>{{ $message }}</strong>

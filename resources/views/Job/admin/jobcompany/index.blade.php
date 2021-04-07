@@ -5,7 +5,7 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 @if (Auth::user()->isAdmin())
-                    <h3 class="m-0 text-dark pl-2">Frontend Slider Content</h3>
+                    <h3 class="m-0 text-dark pl-2">Companies</h3>
                 @endif
             </div>
         </div>

@@ -1,39 +1,74 @@
 @extends('layouts.eazyCommon')
 @section('content')
+
+    <style>
+        /*    .......categories..................*/
+
+        .categories ul{
+            list-style-type: none;
+            margin: 0;
+            justify-content: space-evenly;
+            padding: 0;
+            overflow: hidden;
+            background-color: #1accfd;
+        }
+        @media (max-width:750px){
+            .categories ul{
+                font-size: 10px;
+                justify-content: space-evenly;
+            }}
+
+        .categories li {
+            float: left;
+        }
+
+        .categories li a {
+            display: block;
+            color: white;
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        .categories li a:hover {
+            background-color: #111111;
+        }
+        </style>
 <!-- banner -->
-<div id="myCarousel" class="carousel slide" data-ride="carousel">
+{{--<div id="myCarousel" class="carousel slide" data-ride="carousel">--}}
 
-    <ol class="carousel-indicators">
-    @foreach( $frontEnd as $front )
-    <!-- Indicators-->
-        <li data-target="#myCarousel" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>
-    @endforeach
-    </ol>
-    <div class="carousel-inner" role="listbox">
-        @foreach( $frontEnd as $front )
-        <div class="item {{ $loop->first ? ' active' : '' }}" style="background-image: url('{{ ('/storage/images/slider/' . $front->image) }}')">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h3><span>{{$front->heading}}</span></h3>
-                    <p><span>{{$front->message}}</span></p>
+{{--    <ol class="carousel-indicators">--}}
+{{--    @foreach( $frontEnd as $front )--}}
+{{--    <!-- Indicators-->--}}
+{{--        <li data-target="#myCarousel" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>--}}
+{{--    @endforeach--}}
+{{--    </ol>--}}
+{{--    <div class="carousel-inner" role="listbox">--}}
+{{--        @foreach( $frontEnd as $front )--}}
+{{--        <div class="item {{ $loop->first ? ' active' : '' }}" style="background-image: url('{{ ('/storage/images/slider/' . $front->image) }}')">--}}
+{{--            <div class="container">--}}
+{{--                <div class="carousel-caption">--}}
+{{--                    <h3><span>{{$front->heading}}</span></h3>--}}
+{{--                    <p><span>{{$front->message}}</span></p>--}}
 {{--                    <a class="button2" href="product.html">Shop Now </a>--}}
-                </div>
-            </div>
-        </div>
-        @endforeach
-    </div>
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--        @endforeach--}}
+{{--    </div>--}}
+{{--    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">--}}
+{{--        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>--}}
+{{--        <span class="sr-only">Previous</span>--}}
+{{--    </a>--}}
+{{--    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">--}}
+{{--        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>--}}
+{{--        <span class="sr-only">Next</span>--}}
+{{--    </a>--}}
 
-</div>
+{{--</div>--}}
 <!-- //banner -->
-<!-- Modal4 -->
+
+
 <div class="modal fade" id="myModal4" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
@@ -87,7 +122,7 @@
                     <div class="col-md-4 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
-                                <img alt="" src="/storage/images/products/{{$f->image}}"/>
+                                <a href="/singleMart/{{$f->id}}"><img alt="" src="/storage/images/products/{{$f->image}}"/></a>
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
                                         <a href="/singleMart/{{$f->id}}" class="link-product-add-cart">Quick View</a>

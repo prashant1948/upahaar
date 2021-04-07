@@ -251,6 +251,19 @@ class IndexController extends Controller
         return view('eazymart.single');
     }
     public function multi() {
-        return view('multiservice');
+        $top_sales = Product::where('top_sales', '=', 1)
+            ->orderBy('created_at', 'desc')
+            ->take(10)
+            ->get();
+        $jobs = DB::table('jobs')
+            ->select('jobs.id','jobs.name','jobs.salary','jobs.job_type','job_companies.name AS company_name','job_companies.logo','job_companies.address as company_address')
+            ->join('job_companies', 'job_companies.id', '=', 'jobs.company_id')
+            ->orderBy('id', 'desc')
+            ->take(3)
+            ->get();
+        $cars = CarDetails::with('category')->orderBy('id', 'desc')
+            ->take(3)
+            ->get();
+        return view('multiservice',compact('top_sales','jobs','cars'));
     }
 }

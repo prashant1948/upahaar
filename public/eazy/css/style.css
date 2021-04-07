@@ -11,6 +11,7 @@ body {
     background: #fff;
     font-family: "Open Sans", sans-serif;
 }
+
 body a {
     text-decoration: none;
     transition: 0.5s all;
@@ -387,6 +388,13 @@ button.w3view-cart {
     margin: 0 10px 10px 10px;
     border-radius: 4px;
 }
+
+.ban-top1 {
+    /*border: 1px solid rgba(0, 0, 0, 0.22);*/
+    margin: 0 10px 10px 10px;
+    /*border-radius: 4px;*/
+}
+
 .dropdown-menu.columns-3 {
     min-width: 673px;
     padding: 30px 30px;

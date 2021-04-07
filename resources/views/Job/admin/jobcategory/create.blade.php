@@ -19,7 +19,7 @@
 
     <div class="col-md-10 offset-md-1 col-sm-12">
 
-        <form action="{{route('jobcategory.store')}}" method="POST" enctype="multipart/form-data">
+        <form action="{{route('jobcategory.store')}}" method="POST">
             @csrf
             <div class="form-group">
                 <label for="job_category">Job Category</label>
