@@ -13,15 +13,15 @@
     <meta name="robots" content="all">
 
 
-    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">
-
-
-{{--    <link href="{{asset('eazy/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />--}}
-
-    <link href="{{asset('eazy/css/style.css')}}" rel="stylesheet" type="text/css" media="all"/>
-
+{{--    <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css')}}">--}}
+    <link href="{{asset('eazy/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{asset('eazy/css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
+    <link href="{{asset('eazy/css/font-awesome.css')}}" rel="stylesheet">
     <!--pop-up-box-->
     <link href="{{asset('eazy/css/popuo-box.css')}}" rel="stylesheet" type="text/css" media="all" />
+    <!--//pop-up-box-->
+    <!-- price range -->
+    <link rel="stylesheet" type="text/css" href="{{asset('eazy/css/jquery-ui1.css')}}">
 
     <link rel="stylesheet" href="{{asset('css/multi.css')}}">
 
@@ -117,16 +117,40 @@
     </div>
 </div>
 
-{{--<section class="hero" id="section1">--}}
-{{--    <div class="content">--}}
-{{--        <div class="row justify-content-center align-items-center">--}}
-{{--            <div class="sign">--}}
-{{--                <span class="fast-flicker">M</span>ulti<span class="flicker">service</span>Application--}}
-{{--            </div>--}}
-{{--            <h1>Multi Service Application</h1>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</section>--}}
+@if($banner)
+    @if($banner->section == "ecommerce")
+        <a href="/ecommerce"><section class="hero" id="section1" style="background-image: url('{{ ('/storage/images/banner/' . $banner->banner1) }}')">
+            <p><span class="badge badge-danger notify-badge">{{$banner->discount1}}</span></p>
+        {{--            <div class="sign">--}}
+        {{--                <span class="fast-flicker">M</span>ulti<span class="flicker">service</span>Application--}}
+        {{--            </div>--}}
+        {{--            <h1>Multi Service Application</h1>--}}
+
+        </section>
+        </a>
+    @elseif($banner->section == "job")
+        <a href="/indexJob"><section class="hero" id="section1" style="background-image: url('{{ ('/storage/images/banner/' . $banner->banner1) }}')">
+            <p><span class="badge badge-danger notify-badge">{{$banner->discount1}}</span></p>
+            {{--            <div class="sign">--}}
+            {{--                <span class="fast-flicker">M</span>ulti<span class="flicker">service</span>Application--}}
+            {{--            </div>--}}
+            {{--            <h1>Multi Service Application</h1>--}}
+
+        </section>
+        </a>
+
+    @else
+        <a href="/indexCar"><section class="hero" id="section1" style="background-image: url('{{ ('/storage/images/banner/' . $banner->banner1) }}')">
+            <p><span class="badge badge-danger notify-badge">{{$banner->discount1}}</span></p>
+            {{--            <div class="sign">--}}
+            {{--                <span class="fast-flicker">M</span>ulti<span class="flicker">service</span>Application--}}
+            {{--            </div>--}}
+            {{--            <h1>Multi Service Application</h1>--}}
+
+        </section>
+        </a>
+    @endif
+@endif
 
 
 <section class="header-product content1 pt-5" id="section2">

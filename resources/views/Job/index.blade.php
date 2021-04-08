@@ -163,12 +163,12 @@
                 <div class="row">
                     <div class="col-md-2 col-sm-2">
                         <div class="company-logo">
-                            <img src="/storage/images/jobCompanyLogo/{{$job->logo}}" class="img-responsive" alt="" />
+                            <img src="/storage/images/jobCompanyLogo/{{$job->logo}}" class="img-responsive" alt=""/>
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-8">
                         <div class="company-content">
-                            <h3>{{$job->name}}<span class="full-time">{{$job->job_type}}</span></h3>
+                            <a href="/singleJob/{{$job->id}}"><h3>{{$job->name}}<span class="full-time">{{$job->job_type}}</span></h3></a>
                             <p><span class="company-name"><i class="fa fa-briefcase"></i>{{$job->company_name}}</span><span class="company-location"><i class="fa fa-map-marker"></i> {{$job->company_address}}</span><span class="package"><i class="fa fa-money"></i>{{$job->salary}}</span></p>
                         </div>
                     </div>

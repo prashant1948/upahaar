@@ -69,6 +69,16 @@
                 </select>
             </div>
 
+            <div class="form-group">
+                <label for="posted_date">Posted At:</label>
+                <input type="date" class="form-control" name="posted_date" required>
+            </div>
+
+            <div class="form-group">
+                <label for="apply_before">Apply Before:</label>
+                <input type="date" class="form-control" name="apply_before" required>
+            </div>
+
             <input class="form-control btn btn-primary mb-4" type="submit" value="Submit">
         </form>
 

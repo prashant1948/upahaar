@@ -4,21 +4,21 @@
 
 
 <!-- banner-2 -->
-<div class="page-head_agile_info_w3l">
+{{--<div class="page-head_agile_info_w3l">--}}
 
-</div>
+{{--</div>--}}
 <!-- //banner-2 -->
 <!-- page -->
 <div class="services-breadcrumb">
     <div class="agile_inner_breadcrumb">
         <div class="container">
-            <ul class="w3_short">
-                <li>
-                    <a href="index.html">Home</a>
-                    <i>|</i>
-                </li>
-                <li>Single Product Page</li>
-            </ul>
+{{--            <ul class="w3_short">--}}
+{{--                <li>--}}
+{{--                    <a href="index.html">Home</a>--}}
+{{--                    <i>|</i>--}}
+{{--                </li>--}}
+{{--                <li>Single Product Page</li>--}}
+{{--            </ul>--}}
         </div>
     </div>
 </div>
@@ -39,13 +39,16 @@
             <div class="grid images_3_of_2">
                 <div class="flexslider">
                     <ul class="slides img-hover-zoom--slowmo">
-                        <img src="/storage/images/products/{{$product->image}}" id="currentImage" class="active"/>
+                        <img src="/storage/images/products/{{$product->image}}" id="currentImage" class="active" width="120px" height="120px"/>
                     </ul>
                     <div class="clearfix"></div>
                 </div>
             </div>
 
             <div class="product-section-images">
+                <div class="product-section-thumbnail selected">
+                    <img src="/storage/Images/products/{{$product->image}}" alt="" class="img-fluid"/>
+                </div>
                 @foreach($productImg as $product)
                     <div class="product-section-thumbnail selected">
                         <img src="/storage/Images/product_gallery/{{$product->image}}" alt="" class="img-fluid"/>

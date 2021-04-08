@@ -77,6 +77,8 @@ class JobController extends Controller
         $job->salary = $request->input('salary');
         $job->job_type = $request->input('job_type');
         $job->category_id = $request->input('category_id');
+        $job->posted_date = $request->input('posted_date');
+        $job->apply_before = $request->input('apply_before');
 
         if (Auth::user()->isAdmin()) {
             $job->company_id = $request->input('company_id');
@@ -130,6 +132,8 @@ class JobController extends Controller
         $job->vacancy = $request->input('vacancy');
         $job->salary = $request->input('salary');
         $job->job_type = $request->input('job_type');
+        $job->posted_date = $request->input('posted_date');
+        $job->apply_before = $request->input('apply_before');
         $job->category_id = $request->input('category_id');
 
         if (Auth::user()->isAdmin()) {
@@ -208,6 +212,12 @@ class JobController extends Controller
     public function applicationDetails(){
         $application = JobApplications::with('user','job')->get();
         return view('Job.admin.job.applicants',compact('application'));
+    }
+
+    public function destroyApplicants($id)
+    {
+        $job= JobApplications::find($id)->delete();
+        return redirect()->back();
     }
 
 

@@ -4,9 +4,10 @@
     font-family: 'Archivo', sans-serif;
 }
 
-html {
-    scroll-behavior: smooth;
-}
+body{overflow-x:hidden;}
+/*html {*/
+/*    scroll-behavior: smooth;*/
+/*}*/
 
 * {
     margin: 0;
@@ -36,23 +37,23 @@ html {
 /*    margin-right: 15%;*/
 /*}*/
 
-.logo{
-    flex: 1 1 auto;
-    margin-left: 10%;
-}
+/*.logo{*/
+/*    flex: 1 1 auto;*/
+/*    margin-left: 10%;*/
+/*}*/
 
-img{
-    width: 15%;
-}
+/*img{*/
+/*    width: 15%;*/
+/*}*/
 
-a{
+.product-cards a{
     margin: 15px;
     color: #fefffa;
     text-decoration: none;
     font-family: 'Montserrat Alternates', sans-serif;
 }
 
-a:hover{
+.product-cards a:hover{
     color: #fff;
 }
 
@@ -61,7 +62,7 @@ a:hover{
 /*linear-gradient(to bottom, rgba(110, 110, 110, 0.73), rgba(159, 137, 137, 0.52)),*/
     background-image:url('../images/background.jpg');
     width: 100%;
-    height: 90vh;
+    height: 30vh;
     background-repeat: no-repeat;
     background-position:center;
     background-size: cover;
@@ -74,8 +75,15 @@ a:hover{
     display: flex;
     align-items: center;
     justify-content: space-around;
+    text-align:center;
     flex-wrap: wrap;
     flex-direction: row;
+}
+.hero span{
+    font-size: 25px;
+}
+.inner{
+    margin:auto;
 }
 
 .content1, .content2{
@@ -131,10 +139,7 @@ p{
 
 /*products*/
 
-@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500&display=swap');
-*{
-    font-family: 'Archivo', sans-serif;
-}
+
 
 .product-cards h2 {
     font-size: 1.1rem;
@@ -454,9 +459,9 @@ p {
     min-height: 100%;
 }
 
-.header {
-    width: 100%;
-}
+/*.header {*/
+/*    width: 100%;*/
+/*}*/
 
 /* Preloader */
 

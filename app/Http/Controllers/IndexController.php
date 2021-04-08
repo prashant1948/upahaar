@@ -8,7 +8,9 @@ use App\car\CarDetails;
 use App\checkout;
 use App\Frontend;
 use App\Job\Job;
+use App\Job\JobCategories;
 use App\PopUp;
+use App\ProductImage;
 use App\User;
 use Illuminate\Http\Request;
 use App\Department;
@@ -264,6 +266,16 @@ class IndexController extends Controller
         $cars = CarDetails::with('category')->orderBy('id', 'desc')
             ->take(3)
             ->get();
-        return view('multiservice',compact('top_sales','jobs','cars'));
+        $banner = Banner::first();
+        return view('multiservice',compact('top_sales','jobs','cars','banner'));
     }
+
+    public function showJob(Request $request, $id) {
+        $job = Job::find($id);
+        $departments = JobCategories::all();
+        $jobs = Job::get();
+//        $productImg = ProductImage::with('products')->where('p_id','=',$product->id)->get();
+        return view('Job.single', compact('job', 'departments','jobs'));
+    }
+
 }

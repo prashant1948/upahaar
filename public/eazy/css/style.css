@@ -1671,7 +1671,8 @@ ul.w3_short {
 }
 .company-logo img{
     margin:0 auto;
-    max-width:100px
+    width:100px;
+    height:100px;
 }
 .company-content{
 }
@@ -4870,6 +4871,7 @@ select.form-control.option-w3ls {
     .header-bot {
         padding: 3px 0 9px;
     }
+
     .header {
         padding: 0 0.5em;
     }
@@ -5407,3 +5409,5 @@ table .thumb img {
 .selected{
     border:1px solid black;
 }
+
+

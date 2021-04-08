@@ -4,6 +4,7 @@
 <section id="category-grid">
     <div class="container">
 
+
             <!-- ========================================= BREADCRUMB ========================================= -->
 
         <div class="col-xs-12 col-sm-12 ">
@@ -99,5 +100,6 @@
         </div><!-- /.col -->
         <!-- ========================================= CONTENT : END ========================================= -->
     </div><!-- /.container -->
+
 </section><!-- /#category-grid -->
 @endsection

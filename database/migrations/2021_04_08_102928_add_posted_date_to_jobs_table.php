@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class AddDaysToRentsTable extends Migration
+class AddPostedDateToJobsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class AddDaysToRentsTable extends Migration
      */
     public function up()
     {
-        Schema::table('rents', function (Blueprint $table) {
-            $table->date('from_date');
-            $table->date('end_date')->nullable();
-            $table->string('with_driver')->default('yes');
-
+        Schema::table('jobs', function (Blueprint $table) {
+            $table->date('posted_date');
+            $table->date('apply_before');
         });
     }
 
@@ -28,7 +26,7 @@ class AddDaysToRentsTable extends Migration
      */
     public function down()
     {
-        Schema::table('rents', function (Blueprint $table) {
+        Schema::table('jobs', function (Blueprint $table) {
             //
         });
     }

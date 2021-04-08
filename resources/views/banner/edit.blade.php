@@ -29,13 +29,17 @@
                 <label for="discount1">Discount 1</label>
                 <input type="text" class="form-control" name="discount1" value="{{old('discount1', $banner->discount1)}}">
             </div>
+{{--            <div class="form-group">--}}
+{{--                <label for="banner2">Banner 2</label>--}}
+{{--                <input type="file" name="banner2" value="{{old('banner2', $banner->banner2)}}">--}}
+{{--            </div>--}}
             <div class="form-group">
-                <label for="banner2">Banner 2</label>
-                <input type="file" name="banner2" value="{{old('banner2', $banner->banner2)}}">
-            </div>
-            <div class="form-group">
-                <label for="discount2">Discount 2</label>
-                <input type="text" class="form-control" name="discount2" value="{{old('discount2', $banner->discount2)}}">
+                <label for="section">Section Type:</label>
+                <select name="section">
+                    <option value="ecommerce">Ecommerce</option>
+                    <option value="job">Job Portal</option>
+                    <option value="rental">Rental</option>
+                </select>
             </div>
 
             <input class="form-control btn btn-primary mb-4" type="submit" value="Submit">

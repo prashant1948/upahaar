@@ -27,7 +27,7 @@
                     <th>Name</th>
                     <th>Email</th>
                     <th>Job</th>
-{{--                    <th>Action</th>--}}
+                    <th>Action</th>
                 </tr>
                 @foreach ($application as $b)
                     <tr  class="text-center">
@@ -38,11 +38,11 @@
                         <td>{{$b->user->name}}</td>
                         <td>{{$b->user->email}}</td>
                         <td>{{$b->job->name}}</td>
-{{--                        <td>--}}
+                        <td>
                             {{--                            <a href="{{route('jobs.edit',$b->id)}}"><i class="fa fa-lg fa-edit"></i></a>--}}
-{{--                            @method('DELETE')--}}
-{{--                            <a onclick="return confirm('Do you want to delete')" href="{{route('app.destroy',$b->id)}}"><i class="fa fa-lg fa-minus-circle" style="color:red"></i></a>--}}
-{{--                        </td>--}}
+                            @method('DELETE')
+                            <a onclick="return confirm('Do you want to delete')" href="{{route('jobApplicants.destroy',$b->id)}}"><i class="fa fa-lg fa-minus-circle" style="color:red"></i></a>
+                        </td>
                     </tr>
                 @endforeach
             </table>

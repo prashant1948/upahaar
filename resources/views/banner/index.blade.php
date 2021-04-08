@@ -26,8 +26,8 @@
                     <th>Sn</th>
                     <th>Banner 1</th>
                     <th>Discount 1</th>
-                    <th>Banner 2</th>
-                    <th>Discount 2</th>
+                    <th>Section</th>
+{{--                    <th>Discount 2</th>--}}
                     <th>Action</th>
                 </tr>
                     @foreach ($banner as $b)
@@ -38,8 +38,8 @@
                             <td>{{$c}}</td>
                             <td>{{$b->banner1}}</td>
                             <td>{{$b->discount1}}</td>
-                            <td>{{$b->banner2}}</td>
-                            <td>{{$b->discount2}}</td>
+                            <td>{{$b->section}}</td>
+{{--                            <td>{{$b->discount2}}</td>--}}
                             <td>
                             <a href="{{route('banner.edit',$b->id)}}"><i class="fa fa-lg fa-edit"></i></a>
                              @method('DELETE')

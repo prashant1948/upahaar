@@ -62,6 +62,8 @@
                     <th>Job Type</th>
                     <th>Category</th>
                     <th>Company</th>
+                    <th>Posted</th>
+                    <th>Apply Before</th>
                     <th>Action</th>
                 </tr>
                     @foreach ($jobs as $b)
@@ -77,6 +79,8 @@
                             <td>{{$b->job_type}}</td>
                             <td>{{$b->category->job_category}}</td>
                             <td>{{$b->company->name}}</td>
+                            <td>{{$b->posted_date}}</td>
+                            <td>{{$b->apply_before}}</td>
                             <td>
 {{--                            <a href="{{route('jobs.edit',$b->id)}}"><i class="fa fa-lg fa-edit"></i></a>--}}
                              @method('DELETE')

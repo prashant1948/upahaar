@@ -29,13 +29,21 @@
                 <label for="discount1">Discount 1</label>
                 <input type="text" class="form-control" name="discount1">
             </div>
+{{--            <div class="form-group">--}}
+{{--                <label for="banner2">Banner 2:</label><br>--}}
+{{--                <input type="file" name="banner2">--}}
+{{--            </div>--}}
+{{--            <div class="form-group">--}}
+{{--                <label for="section">Section</label>--}}
+{{--                <input type="text" class="form-control" name="discount2">--}}
+{{--            </div>--}}
             <div class="form-group">
-                <label for="banner2">Banner 2:</label><br>
-                <input type="file" name="banner2">
-            </div>
-            <div class="form-group">
-                <label for="discount2">Discount 2</label>
-                <input type="text" class="form-control" name="discount2">
+                <label for="section">Section Type:</label>
+                <select name="section">
+                    <option value="ecommerce">Ecommerce</option>
+                    <option value="job">Job Portal</option>
+                    <option value="rental">Rental</option>
+                </select>
             </div>
 
             <input class="form-control btn btn-primary mb-4" type="submit" value="Submit">
