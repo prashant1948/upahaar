@@ -172,6 +172,11 @@ Route::get('/singleJob/{id}', 'IndexController@showJob');
 Route::get('/singleJobCompany/{id}', 'IndexController@showJobCompany');
 
 Route::get('/jobApplicants/destroy/{id}', 'Job\JobController@destroyApplicants')->name('jobApplicants.destroy');
+
+Route::get('/buyNow/{id}', 'CartController@buyNow');
+
+Route::get('/checkoutBuy/{id}', 'CartController@checkoutFormMartBuy');
+Route::post('/checkoutBuy', 'CartController@checkoutBuy');
 //Car
 Route::get('/indexCar', 'IndexController@car')->name('car.index');
 

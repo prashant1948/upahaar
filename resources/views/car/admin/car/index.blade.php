@@ -5,7 +5,7 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 @if (Auth::user()->isAdmin())
-                    <h3 class="m-0 text-dark pl-2">Cars</h3>
+                    <h3 class="m-0 text-dark pl-2">Rental Services</h3>
                 @endif
             </div>
         </div>
@@ -55,10 +55,10 @@
                 @endphp
                 <tr class="text-center">
                     <th>Sn</th>
-                    <th>Model</th>
+                    <th>Rental Name</th>
                     <th>Image</th>
                     <th>Description</th>
-                    <th>Seats</th>
+                    <th>Allotment</th>
                     <th>Category</th>
                     <th>Action</th>
                 </tr>

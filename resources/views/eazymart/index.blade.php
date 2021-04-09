@@ -125,7 +125,7 @@
                                 <a href="/singleMart/{{$f->id}}"><img alt="" src="/storage/images/products/{{$f->image}}"/></a>
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
-                                        <a href="/singleMart/{{$f->id}}" class="link-product-add-cart">Quick View</a>
+                                        <a href="{{ url('buyNow/' . $f->id) }}" class="link-product-add-cart">Buy Now</a>
                                     </div>
                                 </div>
                                 <span class="product-new-top">New</span>
@@ -183,7 +183,7 @@
                                 <img alt="" src="/storage/images/products/{{$f->image}}"/>
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
-                                        <a href="/singleMart/{{$f->id}}" class="link-product-add-cart">Quick View</a>
+                                        <a href="{{ url('buyNow/' . $f->id) }}" class="link-product-add-cart">Buy Now</a>
                                     </div>
                                 </div>
                                 <span class="product-new-top">New</span>
@@ -227,7 +227,7 @@
                                         <img alt="" src="/storage/images/products/{{$f->image}}"/>
                                         <div class="men-cart-pro">
                                             <div class="inner-men-cart-pro">
-                                                <a href="/singleMart/{{$f->id}}" class="link-product-add-cart">Quick View</a>
+                                                <a href="{{ url('buyNow/' . $f->id) }}" class="link-product-add-cart">Buy Now</a>
                                             </div>
                                         </div>
                                     </div>

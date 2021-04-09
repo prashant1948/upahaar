@@ -2,10 +2,10 @@
 @section('content')
     <!-- //navigation -->
     <!-- banner-2 -->
-{{--    <div class="page-head_agile_info_w3l">--}}
+    {{--    <div class="page-head_agile_info_w3l">--}}
 
-{{--    </div>--}}
-{{--    <!-- //banner-2 -->--}}
+    {{--    </div>--}}
+    {{--    <!-- //banner-2 -->--}}
     <!-- page -->
     <div class="services-breadcrumb">
         <div class="agile_inner_breadcrumb">
@@ -25,32 +25,32 @@
     <div class="privacy">
         <div class="container">
             <!-- tittle heading -->
-            <h3 class="tittle-w3l">Cart Details
-                <span class="heading-style">
-					<i></i>
-					<i></i>
-					<i></i>
-				</span>
-            </h3>
+{{--            <h3 class="tittle-w3l">Cart Details--}}
+{{--                <span class="heading-style">--}}
+{{--					<i></i>--}}
+{{--					<i></i>--}}
+{{--					<i></i>--}}
+{{--				</span>--}}
+{{--            </h3>--}}
             <!-- //tittle heading -->
 
-            <div id="cart-page">
-                <div class="container">
-                    <div class="alert alert-warning" id="form-message" hidden>
-                        <strong>Warning!</strong> Cart is empty!! <br>
-                        Add to cart to checkout
-                    </div>
+{{--            <div id="cart-page">--}}
+{{--                <div class="container">--}}
+{{--                    <div class="alert alert-warning" id="form-message" hidden>--}}
+{{--                        <strong>Warning!</strong> Cart is empty!! <br>--}}
+{{--                        Add to cart to checkout--}}
+{{--                    </div>--}}
 
-                    <div class="section col-xs-12 col-sm-12 col-md-12" id="cart-list">
+{{--                    <div class="section col-xs-12 col-sm-12 col-md-12" id="cart-list">--}}
 
-                    </div>
-                </div>
-            </div>
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
 
             <div class="checkout-left">
                 <div class="address_form_agile">
                     <h4>Checkout Form</h4>
-                    <form action="/checkout" method="POST" class="creditly-card-form agileinfo_form">
+                    <form action="/checkoutBuy" method="POST" class="creditly-card-form agileinfo_form">
                         @csrf
                         <div class="creditly-wrapper wthree, w3_agileits_wrapper">
                             <div class="information-wrapper">
@@ -73,7 +73,7 @@
 
                                         <div class="clear"> </div>
                                     </div>
-                                    <input type="hidden" name="cart_id" value="{{$cart_id}}">
+                                    <input type="hidden" name="buy_id" value="{{$buy}}">
 
 
 
@@ -91,3 +91,4 @@
 
     <!-- //checkout page -->
 @endsection
+

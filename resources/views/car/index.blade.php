@@ -145,7 +145,7 @@
 <div class="ads-grid">
     <div class="container">
         <!-- tittle heading -->
-        <h3 class="tittle-w3l">Rent a Vehicle
+        <h3 class="tittle-w3l">Rental Service
             <span class="heading-style">
 					<i></i>
 					<i></i>
@@ -169,7 +169,7 @@
                     <div class="col-md-8 col-sm-8">
                         <div class="company-content">
                             <h3>{{$car->model}}<span class="full-time">{{$car->category->car_category}}</span></h3>
-                            <p><span class="company-name"><i class="fa fa-seat"></i>{{$car->seats}} Seater</span><span class="company-location"><i class="fa fa-car"></i> {{$car->description}}</span></p>
+                            <p><span class="company-name"><i class="fa fa-seat"></i>{{$car->seats}} Seater</span><span class="company-location"><i class="fa fa-cog"></i> {{$car->description}}</span></p>
 {{--                            <span class="package"><i class="fa fa-money"></i>{{$car->model}}</span>--}}
                         </div>
                     </div>

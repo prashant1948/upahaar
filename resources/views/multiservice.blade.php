@@ -187,7 +187,7 @@
                         <div class="card">
                             <div class="overlay">
                                 <img src="{{asset('images/car.png')}}"/>
-                                <h2>Vehicle Rental</h2>
+                                <h2>Rental Service</h2>
                                 <p>We provide you with the best product. We assure you the quality.</p>
                             </div>
                         </div>
@@ -291,7 +291,7 @@
     <div class="ads-grid">
         <div class="container">
             <!-- tittle heading -->
-            <h3 class="tittle-w3l">Rent a Vehicle
+            <h3 class="tittle-w3l">Rental Service
                 <span class="heading-style">
 					<i></i>
 					<i></i>

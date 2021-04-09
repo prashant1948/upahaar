@@ -274,13 +274,22 @@ class IndexController extends Controller
     public function showJob(Request $request, $id) {
         $job = Job::find($id);
         $departments = JobCategories::all();
-        $jobs = Job::get();
+        $jobs = DB::table('jobs')
+            ->select('jobs.id','jobs.name','jobs.salary','jobs.job_type','job_companies.id AS company_id','job_companies.name AS company_name','job_companies.logo','job_companies.address as company_address')
+            ->join('job_companies', 'job_companies.id', '=', 'jobs.company_id')
+            ->get();
 //        $productImg = ProductImage::with('products')->where('p_id','=',$product->id)->get();
         return view('Job.single', compact('job', 'departments','jobs'));
     }
     public function showJobCompany(Request $request, $id) {
         $company = JobCompany::find($id);
-        return view('Job.companySingle', compact('company'));
+        $job = Job::find($id);
+        $departments = JobCategories::all();
+        $jobs = DB::table('jobs')
+            ->select('jobs.id','jobs.name','jobs.salary','jobs.job_type','job_companies.id AS company_id','job_companies.name AS company_name','job_companies.logo','job_companies.address as company_address')
+            ->join('job_companies', 'job_companies.id', '=', 'jobs.company_id')
+            ->get();
+        return view('Job.companySingle', compact('company','jobs','job','departments'));
     }
 
 }

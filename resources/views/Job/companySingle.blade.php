@@ -1,4 +1,4 @@
-@extends('layouts.eazyCommon')
+@extends('Job.layout.master')
 @section('content')
 
 

@@ -20,7 +20,7 @@ class CreateCheckoutsTable extends Migration
             $table->string('address');
             $table->unsignedBigInteger('phone_no');
             $table->string('status')->default('pending');
-            $table->unsignedBigInteger('cart_id');
+            $table->unsignedBigInteger('cart_id')->nullable();
             $table->timestamps();
         });
     }

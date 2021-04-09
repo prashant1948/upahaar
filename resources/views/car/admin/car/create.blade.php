@@ -6,7 +6,7 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 @if (Auth::user()->isAdmin())
-                    <h3 class="m-0 text-dark pl-2">Add Car</h3>
+                    <h3 class="m-0 text-dark pl-2">Add Rental Service</h3>
                 @endif
             </div>
         </div>
@@ -22,7 +22,7 @@
         <form action="{{route('cars.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="name">Car Model:</label>
+                <label for="name">Rental Name:</label>
                 <input type="text" class="form-control" name="model" required>
             </div>
 
@@ -32,12 +32,12 @@
             </div>
 
             <div class="form-group">
-                <label for="brand">Car Description:</label>
+                <label for="brand">Description:</label>
                 <textarea class="form-control" name="description" rows="5"></textarea>
             </div>
 
             <div class="form-group">
-                <label for="vacancy">Seats:</label>
+                <label for="vacancy">Allotment:</label>
                 <input type="number" class="form-control" name="seats" required>
             </div>
 

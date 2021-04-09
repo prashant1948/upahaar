@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\BuyNow;
 use App\User;
 use Illuminate\Http\Request;
 use App\Cart;
@@ -153,10 +154,26 @@ class CartController extends Controller
             ['checkout', '=', 0]
         ])->get();
 
+
         return view('main.checkout', ['cart_id' => $cart[0]->id]);
     }
 
-    public function checkout(Request $request) {
+    public function buyNow($id){
+        $product = Product::find($id);
+        if (Auth::check()){
+            $buy = new BuyNow();
+            $buy->user_id = Auth::user()->id;
+            $buy->product_id = $product->id;
+            $buy->save();
+
+            return redirect('/checkoutBuy/{$id}');
+        }
+        Alert::info('Not Logged In', 'Please Log In.');
+        return redirect()->back();
+    }
+
+    public function checkout(Request $request,$id) {
+
         $this->validate($request, [
             'name' => 'required',
             'address' => 'required',
@@ -170,6 +187,8 @@ class CartController extends Controller
         $checkout->phone_no = $request->input('phone_no');
         $checkout->cart_id = $request->input('cart_id');
 
+
+
         $cart = Cart::find($request->input('cart_id'));
         $cart->checkout = 1;
 
@@ -179,9 +198,29 @@ class CartController extends Controller
             $checkout->save();
             $cart->save();
             Alert::success('Thank you', 'Your order is being processed');
-            return redirect('/');
+            return redirect()->back();
         }
     }
+    public function checkoutBuy(Request $request) {
+
+        $this->validate($request, [
+            'name' => 'required',
+            'address' => 'required',
+            'phone_no' => 'required'
+        ]);
+
+        $checkout = new Checkout();
+        $checkout->name = $request->input('name');
+        $checkout->email = $request->input('email');
+        $checkout->address = $request->input('address');
+        $checkout->phone_no = $request->input('phone_no');
+        $checkout->buy_id = $request->input('buy_id');
+
+        $checkout->save();
+        Alert::success('Thank you', 'Your order is being processed');
+        return redirect()->back();
+    }
+
 
     public function checkoutFormMart() {
         $cart = Cart::where([
@@ -189,6 +228,16 @@ class CartController extends Controller
             ['checkout', '=', 0]
         ])->get();
 
+//        $buy = BuyNow::where([
+//            ['user_id', '=', Auth::id()],
+//        ])->get();
+
+
         return view('eazymart.checkout', ['cart_id' => $cart[0]->id]);
+    }
+    public function checkoutFormMartBuy($id) {
+        $buy = BuyNow::find($id);
+
+        return view('eazymart.checkoutBuy',compact('buy'));
     }
 }

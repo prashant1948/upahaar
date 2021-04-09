@@ -74,6 +74,7 @@
                                         <div class="clear"> </div>
                                     </div>
                                     <input type="hidden" name="cart_id" value="{{$cart_id}}">
+
                                 </div>
                                 <button class="submit check_out" id="checkout-button">Checkout</button>
                             </div>
