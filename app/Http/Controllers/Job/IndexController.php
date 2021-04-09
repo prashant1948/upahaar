@@ -22,7 +22,7 @@ class IndexController extends Controller
 {
     public function index() {
         $jobs = DB::table('jobs')
-            ->select('jobs.id','jobs.name','jobs.salary','jobs.job_type','job_companies.name AS company_name','job_companies.logo','job_companies.address as company_address')
+            ->select('jobs.id','jobs.name','jobs.salary','jobs.job_type','job_companies.id AS company_id','job_companies.name AS company_name','job_companies.logo','job_companies.address as company_address')
             ->join('job_companies', 'job_companies.id', '=', 'jobs.company_id')
             ->get();
 

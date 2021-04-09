@@ -163,7 +163,7 @@
                 <div class="row">
                     <div class="col-md-2 col-sm-2">
                         <div class="company-logo">
-                            <img src="/storage/images/jobCompanyLogo/{{$job->logo}}" class="img-responsive" alt=""/>
+                            <a href="/singleJobCompany/{{$job->company_id}}"><img src="/storage/images/jobCompanyLogo/{{$job->logo}}" class="img-responsive" alt=""/></a>
                         </div>
                     </div>
                     <div class="col-md-8 col-sm-8">

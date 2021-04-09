@@ -169,6 +169,8 @@ Route::get('/jobCat/{jobCat}', 'Job\JobCategoriesController@showJobCat');
 
 Route::get('/singleJob/{id}', 'IndexController@showJob');
 
+Route::get('/singleJobCompany/{id}', 'IndexController@showJobCompany');
+
 Route::get('/jobApplicants/destroy/{id}', 'Job\JobController@destroyApplicants')->name('jobApplicants.destroy');
 //Car
 Route::get('/indexCar', 'IndexController@car')->name('car.index');

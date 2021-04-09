@@ -9,6 +9,7 @@ use App\checkout;
 use App\Frontend;
 use App\Job\Job;
 use App\Job\JobCategories;
+use App\Job\JobCompany;
 use App\PopUp;
 use App\ProductImage;
 use App\User;
@@ -276,6 +277,10 @@ class IndexController extends Controller
         $jobs = Job::get();
 //        $productImg = ProductImage::with('products')->where('p_id','=',$product->id)->get();
         return view('Job.single', compact('job', 'departments','jobs'));
+    }
+    public function showJobCompany(Request $request, $id) {
+        $company = JobCompany::find($id);
+        return view('Job.companySingle', compact('company'));
     }
 
 }
