@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\AboutUs;
 use App\Banner;
+use App\car\CarCategories;
 use App\car\CarDetails;
 use App\checkout;
 use App\Frontend;
@@ -208,15 +209,14 @@ class IndexController extends Controller
             'chips' => $chips,
             'auth'=> 0
         ]);
-
-
     }
+
     public function car(){
-        $cars = CarDetails::with('category')->get();
-        return view('car.index', [
-            'cars' => $cars
-        ]);
+        $catList = CarCategories::with('cars')->get();
+
+        return view('car.index', compact('catList'));
     }
+
     public function searchJob(Request $request) {
         $jobs = Job::where('name', 'LIKE', '%'.$request->input('query').'%')
             ->get();

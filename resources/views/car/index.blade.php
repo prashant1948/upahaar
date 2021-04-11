@@ -153,40 +153,100 @@
             </span>
         </h3>
 
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            @foreach($catList as $menu_item)
+                <li role="presentation" class="{{ $loop->first ? 'active' : '' }}"><a href="#tab-{{ $menu_item->id }}" aria-controls="home" role="tab" data-toggle="tab">{{ $menu_item->car_category }}</a></li>
+            @endforeach
+        </ul>
+
+        <div class="tab-content">
+            <div class="companies">
+                @foreach($catList as $item)
+            <div id="#tab-{{ $item->id }}" class="tab-pane fade in {{ $loop->first ? 'active' : '' }}">
+{{--                <h3>{{$car->category->car_category}}</h3>--}}
+                @foreach($item->cars as $car)
+                <div class="company-list">
+                    <div class="row">
+                        <div class="col-md-2 col-sm-2">
+                            <div class="company-logo">
+                                <img src="/storage/images/carDetails/{{$car->image}}" class="img-responsive" alt="" />
+                            </div>
+                        </div>
+                        <div class="col-md-8 col-sm-8">
+                            <div class="company-content">
+                                <h3>{{$car->model}}<span class="full-time">{{$car->category->car_category}}</span></h3>
+                                <p><span class="company-name"><i class="fa fa-seat"></i>{{$car->seats}} Seater</span><span class="company-location"><i class="fa fa-cog"></i> {{$car->description}}</span></p>
+                                {{--                            <span class="package"><i class="fa fa-money"></i>{{$car->model}}</span>--}}
+                            </div>
+                        </div>
+                        <div class="col-md-2 col-sm-2 pt-2">
+                            @if(!Auth::user())
+                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal1">
+                                    <input type="submit" name="submit" value="Rent" class="button" />
+                                </div>
+                            @else
+                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal4">
+                                    <input type="submit" name="submit" value="Rent" class="button" />
+                                </div>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+
+            </div>
+            @endforeach
+{{--            <div id="menu1" class="tab-pane fade">--}}
+{{--                <h3>Menu 1</h3>--}}
+{{--                <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>--}}
+{{--            </div>--}}
+{{--            <div id="menu2" class="tab-pane fade">--}}
+{{--                <h3>Menu 2</h3>--}}
+{{--                <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>--}}
+{{--            </div>--}}
+{{--            <div id="menu3" class="tab-pane fade">--}}
+{{--                <h3>Menu 3</h3>--}}
+{{--                <p>Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.</p>--}}
+{{--            </div>--}}
+        </div>
+        </div>
+
 {{--        <div class="row heading">--}}
 {{--            <h2>Find Popular Jobs</h2>--}}
 {{--            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do</p>--}}
 {{--        </div>--}}
-        <div class="companies">
-            @foreach($cars as $car)
-            <div class="company-list">
-                <div class="row">
-                    <div class="col-md-2 col-sm-2">
-                        <div class="company-logo">
-                            <img src="/storage/images/carDetails/{{$car->image}}" class="img-responsive" alt="" />
-                        </div>
-                    </div>
-                    <div class="col-md-8 col-sm-8">
-                        <div class="company-content">
-                            <h3>{{$car->model}}<span class="full-time">{{$car->category->car_category}}</span></h3>
-                            <p><span class="company-name"><i class="fa fa-seat"></i>{{$car->seats}} Seater</span><span class="company-location"><i class="fa fa-cog"></i> {{$car->description}}</span></p>
+{{--        <div class="companies">--}}
+{{--            @foreach($cars as $car)--}}
+{{--            <div class="company-list">--}}
+{{--                <div class="row">--}}
+{{--                    <div class="col-md-2 col-sm-2">--}}
+{{--                        <div class="company-logo">--}}
+{{--                            <img src="/storage/images/carDetails/{{$car->image}}" class="img-responsive" alt="" />--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-md-8 col-sm-8">--}}
+{{--                        <div class="company-content">--}}
+{{--                            <h3>{{$car->model}}<span class="full-time">{{$car->category->car_category}}</span></h3>--}}
+{{--                            <p><span class="company-name"><i class="fa fa-seat"></i>{{$car->seats}} Seater</span><span class="company-location"><i class="fa fa-cog"></i> {{$car->description}}</span></p>--}}
 {{--                            <span class="package"><i class="fa fa-money"></i>{{$car->model}}</span>--}}
-                        </div>
-                    </div>
-                    <div class="col-md-2 col-sm-2 pt-2">
-                        @if(!Auth::user())
-                            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal1">
-                                <input type="submit" name="submit" value="Rent" class="button" />
-                            </div>
-                        @else
-                            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal4">
-                                <input type="submit" name="submit" value="Rent" class="button" />
-                            </div>
-                        @endif
-                    </div>
-                </div>
-            </div>
-            @endforeach
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                    <div class="col-md-2 col-sm-2 pt-2">--}}
+{{--                        @if(!Auth::user())--}}
+{{--                            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal1">--}}
+{{--                                <input type="submit" name="submit" value="Rent" class="button" />--}}
+{{--                            </div>--}}
+{{--                        @else--}}
+{{--                            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal4">--}}
+{{--                                <input type="submit" name="submit" value="Rent" class="button" />--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            @endforeach--}}
 
 {{--            <div class="company-list">--}}
 {{--                <div class="row">--}}

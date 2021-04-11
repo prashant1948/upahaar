@@ -201,6 +201,12 @@
                                 </span>
                             @enderror
                         </div>
+
+                            <a href="{{ url('auth/google') }}" class="btn btn-danger btn-block">
+
+                                <strong><i class="fa fa-google"></i> Login With Google</strong>
+
+                            </a>
                         <input type="submit" value="Sign In">
                         {{--                        <p>Have't Any Account <a href="{{route('job.register')}}">Create An Account</a></p>--}}
 {{--                        <p>Want to post a job? <a href="{{route('job_company.create')}}">Create Company Account</a></p>--}}

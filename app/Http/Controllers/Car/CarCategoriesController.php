@@ -24,7 +24,7 @@ class CarCategoriesController extends Controller
     public function index()
     {
         $carcategories = CarCategories::all();
-        return view('Car.admin.carcategory.index',['carcategories' => $carcategories]);
+        return view('car.admin.carcategory.index',['carcategories' => $carcategories]);
     }
 
     /**
@@ -34,7 +34,7 @@ class CarCategoriesController extends Controller
      */
     public function create()
     {
-        return view('Car.admin.carcategory.create');
+        return view('car.admin.carcategory.create');
     }
 
     /**
@@ -75,7 +75,7 @@ class CarCategoriesController extends Controller
     public function edit($id)
     {
         $car_category = CarCategories::find($id);
-        return view('Car.admin.carcategory.edit', compact('car_category'));
+        return view('car.admin.carcategory.edit', compact('car_category'));
     }
 
 

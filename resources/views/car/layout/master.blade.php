@@ -27,6 +27,8 @@
     <!--//pop-up-box-->
     <!-- price range -->
     <link rel="stylesheet" type="text/css" href="{{asset('eazy/css/jquery-ui1.css')}}">
+
+    <link href="{{asset('job/css/rentalTabs.css')}}" rel="stylesheet" type="text/css" media="all" />
     <!-- fonts -->
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
 

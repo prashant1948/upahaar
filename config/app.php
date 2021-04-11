@@ -165,6 +165,8 @@ return [
 
         RealRashid\SweetAlert\SweetAlertServiceProvider::class,
 
+        Laravel\Socialite\SocialiteServiceProvider::class,
+
         /*
          * Package Service Providers...
          */
@@ -231,6 +233,7 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
+        'Socialite' => Laravel\Socialite\Facades\Socialite::class,
 
     ],
 

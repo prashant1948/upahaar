@@ -201,3 +201,8 @@ Route::get('/carCat/{carCat}', 'Car\CarCategoriesController@showCarCat');
 
 Route::get('/carSort','Car\CarDetailsController@sort')->name('sort');
 Route::get('/carSearch','Car\CarDetailsController@search')->name('search');
+
+
+Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
+
+Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');

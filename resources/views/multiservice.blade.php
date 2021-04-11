@@ -28,7 +28,11 @@
     <!-- Icons/Glyphs -->
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
 
-
+    <style>
+        body{
+            overflow-x: hidden;
+        }
+    </style>
 
 </head>
 
@@ -105,6 +109,11 @@
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
+                        </div>
+                        <div class="styled-input">
+                            <a href="{{ url('auth/google') }}" class="btn btn-lg btn-success btn-block">
+                                <strong><i class="fa fa-google"></i>Login With Google</strong>
+                            </a>
                         </div>
                         <input type="submit" value="Sign In">
                     </form>

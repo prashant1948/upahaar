@@ -8,6 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class CarDetails extends Model
 {
     public function category() {
-        return $this->belongsTo(CarCategories::class);
+        return $this->belongsTo(CarCategories::class, 'category_id', 'id');
     }
 }
