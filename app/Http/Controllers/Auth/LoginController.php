@@ -70,4 +70,36 @@ class LoginController extends Controller
 
 
     }
+
+    public function redirectToFacebook()
+    {
+        return Socialite::driver('facebook')->redirect();
+    }
+
+    public function handleFacebookCallback()
+    {
+        $userFB = Socialite::driver('facebook')->stateless()->user();
+        $authUserFB = $this->findOrCreateUserFacebook($userFB);
+        Auth::login($authUserFB, true);
+        return redirect('/')->with('success', 'Logged in successfully');
+    }
+    public function findOrCreateUserFacebook($userFB)
+    {
+        $authUserFB = User::where(['email' => $userFB->getEmail()])->first();
+        if ($authUserFB) {
+            return $authUserFB;
+        }
+        return User::create([
+
+            'name'     => $userFB->offsetGet('name'),
+            'email'    => $userFB->email,
+            'password'    => 'facebook1234',
+            'facebook_id' => $userFB->id,
+
+
+        ]);
+
+
+
+    }
 }

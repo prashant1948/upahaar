@@ -202,10 +202,13 @@
                             @enderror
                         </div>
 
-                            <a href="{{ url('auth/google') }}" class="btn btn-danger btn-block">
+                            <a href="{{ url('auth/google') }}" class="btn btn-danger">
 
                                 <strong><i class="fa fa-google"></i> Login With Google</strong>
 
+                            </a>
+                            <a href="{{ url('auth/facebook') }}" class="btn btn-primary">
+                                <strong><i class="fa fa-facebook"></i>  Login With Facebook</strong>
                             </a>
                         <input type="submit" value="Sign In">
                         {{--                        <p>Have't Any Account <a href="{{route('job.register')}}">Create An Account</a></p>--}}

@@ -206,3 +206,7 @@ Route::get('/carSearch','Car\CarDetailsController@search')->name('search');
 Route::get('auth/google', 'Auth\LoginController@redirectToGoogle');
 
 Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
+
+Route::get('auth/facebook', 'Auth\LoginController@redirectToFacebook');
+
+Route::get('auth/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
