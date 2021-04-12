@@ -213,8 +213,11 @@ class IndexController extends Controller
 
     public function car(){
         $catList = CarCategories::with('cars')->get();
+        $cars = CarDetails::all()->groupBy('category_id');
+//        dd($cars);
 
-        return view('car.index', compact('catList'));
+
+        return view('car.index', compact('catList','cars'));
     }
 
     public function searchJob(Request $request) {
