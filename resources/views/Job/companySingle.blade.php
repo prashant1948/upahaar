@@ -1,27 +1,18 @@
 @extends('Job.layout.master')
 @section('content')
 
-
-
-    <!-- banner-2 -->
-    {{--<div class="page-head_agile_info_w3l">--}}
-
-    {{--</div>--}}
-    <!-- //banner-2 -->
-    <!-- page -->
-    <div class="services-breadcrumb">
-        <div class="agile_inner_breadcrumb">
-            <div class="container">
-                {{--            <ul class="w3_short">--}}
-                {{--                <li>--}}
-                {{--                    <a href="index.html">Home</a>--}}
-                {{--                    <i>|</i>--}}
-                {{--                </li>--}}
-                {{--                <li>Single Product Page</li>--}}
-                {{--            </ul>--}}
+    <div class="page-head_agile_info_w3l" style="overflow: hidden;">
+        <div class="row" style="height:20vh;">
+            <div class="col-lg-2 col-md-2 col-12">
+                <img src="/storage/images/jobCompanyLogo/{{$company->logo}}"/>
+            </div>
+            <div class="col-lg-4 col-12">
+                <h3>{{$company->name}}</h3>
             </div>
         </div>
     </div>
+    <!-- page -->
+
     <!-- //page -->
     <!-- Single Page -->
     <div class="banner-bootom-w3-agileits">
@@ -35,29 +26,8 @@
 				</span>
             </h3>
             <!-- //tittle heading -->
-            <div class="col-md-5 single-right-left">
-                <div class="grid images_3_of_2">
-                    <div class="flexslider">
-                        <ul class="slides img-hover-zoom--slowmo">
-                            <img src="/storage/images/jobCompanyLogo/{{$company->logo}}" id="currentImage" class="active" width="120px" height="120px"/>
-                        </ul>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
 
-                {{--                <div class="product-section-images">--}}
-                {{--                    <div class="product-section-thumbnail selected">--}}
-                {{--                        <img src="/storage/Images/products/{{$product->image}}" alt="" class="img-fluid"/>--}}
-                {{--                    </div>--}}
-                {{--                    @foreach($productImg as $product)--}}
-                {{--                        <div class="product-section-thumbnail selected">--}}
-                {{--                            <img src="/storage/Images/product_gallery/{{$product->image}}" alt="" class="img-fluid"/>--}}
-                {{--                        </div>--}}
-                {{--                    @endforeach--}}
-                {{--                </div>--}}
-
-            </div>
-            <div class="col-md-7 single-right-left simpleCart_shelfItem">
+            <div class="col-md-12 single-right-left simpleCart_shelfItem">
                 <h3>{{$company->name}}</h3>
                 <p><i class="fa fa-location-arrow"></i>{{$company->address}}<p>
 

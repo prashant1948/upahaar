@@ -101,5 +101,7 @@
             <!-- ========================================= CONTENT : END ========================================= -->
         </div><!-- /.container -->
     </section><!-- /#category-grid -->
+    <!-- Inner Banner -->
+
 @endsection
 

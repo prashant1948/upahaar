@@ -66,12 +66,8 @@
 
                     <div class="clearfix"></div>
                 </div>
-
-
-
-
-
             @endif
         </div>
+
         <!-- //Single Page -->
 @endsection

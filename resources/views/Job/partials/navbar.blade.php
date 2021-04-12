@@ -261,6 +261,7 @@
 <!-- //Modal2 -->
 <!-- //signup Model -->
 <!-- Modal3 -->
+
 <div class="modal fade" id="myModal4" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
@@ -308,6 +309,7 @@
         <!-- //Modal content-->
     </div>
 </div>
+
 <!-- //Modal3 -->
 <!-- //header-bot -->
 <!-- navigation -->

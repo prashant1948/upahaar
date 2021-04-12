@@ -210,3 +210,4 @@ Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
 Route::get('auth/facebook', 'Auth\LoginController@redirectToFacebook');
 
 Route::get('auth/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
+ Route::get('/magnify','IndexController@magnify');

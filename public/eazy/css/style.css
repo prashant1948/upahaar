@@ -1556,13 +1556,27 @@ p.footer-main span {
 /*-- //bottom-to-top --*/
 /* contact page */
 .page-head_agile_info_w3l {
-    background: url(../images/banner2.jpg) no-repeat;
+    background: navy;
     background-size: cover;
     -webkit-background-size: cover;
     -o-background-size: cover;
     -ms-background-size: cover;
     -moz-background-size: cover;
     min-height: 300px;
+}
+.page-head_agile_info_w3l h3{
+    color:white;
+    margin: 50px;
+    margin-top: 100px;
+    padding-top:10px;
+}
+.page-head_agile_info_w3l img{
+    width: 150px;
+    margin:50px;
+    height: 150px;
+    position: absolute;
+    border-radius:100%;
+    background: lightgrey;
 }
 ul.w3_short li {
     display: inline-block;

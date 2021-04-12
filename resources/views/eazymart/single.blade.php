@@ -1,13 +1,5 @@
 @extends('layouts.eazyCommon')
 @section('content')
-
-
-
-<!-- banner-2 -->
-{{--<div class="page-head_agile_info_w3l">--}}
-
-{{--</div>--}}
-<!-- //banner-2 -->
 <!-- page -->
 <div class="services-breadcrumb">
     <div class="agile_inner_breadcrumb">
@@ -38,8 +30,11 @@
         <div class="col-md-5 single-right-left ">
             <div class="grid images_3_of_2">
                 <div class="flexslider">
-                    <ul class="slides img-hover-zoom--slowmo">
-                        <img src="/storage/images/products/{{$product->image}}" id="currentImage" class="active" width="120px" height="120px"/>
+                    <ul class="slides">
+                        <div class="zoom-area">
+                                <div class="large"></div>
+                            <img src="/storage/images/products/{{$product->image}}" id="currentImage" class="active small" width="200px" height="200px"/>
+                        </div>
                     </ul>
                     <div class="clearfix"></div>
                 </div>
@@ -113,10 +108,14 @@
 
                 currentImage.classList.remove('active');
 
+
                 currentImage.addEventListener('transitioned',() => {
                     currentImage.src = this.querySelector('img').src;
                     currentImage.classList.add('active');
+
                 })
+
+                $(".large").css("background","url('" + currentImage.src + "') no-repeat");
 
                 images.forEach((element) => element.classList.remove('selected'));
                 this.classList.add('selected');

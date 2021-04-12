@@ -191,8 +191,9 @@ class JobController extends Controller
             } else {
                 $fileNameToStore = 'no-image.jpg';
             }
-
-            $job = Job::find($id)->value('id');
+            if($id) {
+                $job = Job::find($id)->value('id');
+            }
 
             $application = new JobApplications();
             $application->user_id = Auth::id();

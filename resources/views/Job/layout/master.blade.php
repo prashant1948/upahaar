@@ -56,6 +56,7 @@
 {{--</div>--}}
 
 @yield('content')
+
 {{--<!-- newsletter -->--}}
 {{--<div class="footer-top">--}}
 {{--    <div class="container-fluid">--}}

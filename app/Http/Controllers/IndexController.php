@@ -295,4 +295,8 @@ class IndexController extends Controller
         return view('Job.companySingle', compact('company','jobs','job','departments'));
     }
 
+    public function magnify(){
+        return view('magnify');
+    }
+
 }

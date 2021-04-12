@@ -8,6 +8,7 @@ use App\AboutUs;
 use App\Banner;
 use App\checkout;
 use App\Frontend;
+use App\Job\Job;
 use App\PopUp;
 use App\User;
 use Illuminate\Http\Request;
