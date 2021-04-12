@@ -2,12 +2,14 @@
 @section('content')
 
     <div class="page-head_agile_info_w3l" style="overflow: hidden;">
-        <div class="row" style="height:20vh;">
+        <div class="row" style="height:15vh;">
             <div class="col-lg-2 col-md-2 col-12">
                 <img src="/storage/images/jobCompanyLogo/{{$company->logo}}"/>
             </div>
             <div class="col-lg-4 col-12">
                 <h3>{{$company->name}}</h3>
+                <h5><i class="fa fa-location-arrow"></i>{{$company->address}}</h5>
+                <h5><i class="fa fa-envelope-square"></i> {{$company->email}}</h5>
             </div>
         </div>
     </div>
@@ -28,73 +30,42 @@
             <!-- //tittle heading -->
 
             <div class="col-md-12 single-right-left simpleCart_shelfItem">
-                <h3>{{$company->name}}</h3>
-                <p><i class="fa fa-location-arrow"></i>{{$company->address}}<p>
-
-                {{--                <div class="availability"><label>Availability:</label>--}}
-                {{--                    @if ($product->quantity>0)--}}
-                {{--                        <span class="available">  in stock</span>--}}
-                {{--                    @else--}}
-                {{--                        <span class="not-available">  Out of Stock</span>--}}
-                {{--                    @endif--}}
-                {{--                </div>--}}
-{{--                <p>--}}
-{{--                    <span class="color:green">Posted At: {{$job->posted_date}}</span>--}}
-{{--                </p>--}}
-{{--                <p>--}}
-{{--                    <span class="color:red">Apply Before: {{$job->apply_before}}</span>--}}
-{{--                </p>--}}
-
-                <div class="product-single-w3l">
-                    <p>
-                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>
-                        <label>Description</label>
-                    <ul>
-                        <li>
-                            {{$company->description}}
-                        </li>
-                        <li>
-                            <i class="fa fa-envelope-square"></i> {{$company->email}}
-                        </li>
-                    </ul>
-
+                <p>{{$company->description}}</p>
+                <div class="companies">
+                    @foreach($jobs as $job)
+                        <div class="company-list">
+                            <div class="row">
+                                <div class="col-md-2 col-sm-2">
+                                    <div class="company-logo">
+                                        <a href="/singleJobCompany/{{$job->company_id}}"><img src="/storage/images/jobCompanyLogo/{{$job->logo}}" class="img-responsive" alt=""/></a>
+                                    </div>
+                                </div>
+                                <div class="col-md-8 col-sm-8">
+                                    <div class="company-content">
+                                        <a href="/singleJob/{{$job->id}}"><h3>{{$job->name}}<span class="full-time">{{$job->job_type}}</span></h3></a>
+                                        <p><span class="company-name"><i class="fa fa-briefcase"></i>{{$job->company_name}}</span><span class="package"><i class="fa fa-money"></i>{{$job->salary}}</span></p>
+                                    </div>
+                                </div>
+                                <div class="col-md-2 col-sm-2 pt-2">
+                                    @if(!Auth::user())
+                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal1">
+                                            <input type="submit" name="submit" value="Apply" class="button"/>
+                                        </div>
+                                    @else
+                                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal4">
+                                            <input type="submit" name="submit" value="Apply" class="button"/>
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
-{{--                                <div class="occasion-cart">--}}
-{{--                --}}{{----}}{{--                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">--}}
-{{--                --}}{{--                        <input type="submit" name="submit" value="Add to Cart" onclick="addToCart({{$product->id}}, '<?php echo csrf_token() ?>')" class="button"/>--}}
-{{--                --}}{{--                    </div>--}}
-{{--                --}}{{--                </div>--}}
-{{--            </div>--}}
             <div class="clearfix"> </div>
         </div>
     </div>
     <!-- //Single Page -->
 @endsection
-{{--javascript for showing image and change image to zoom on click--}}
-@section('javascript')
-    <script>
-        (function(){
-            const currentImage = document.querySelector('#currentImage');
-            const images = document.querySelectorAll('.product-section-thumbnail');
 
-            images.forEach((element) => element.addEventListener('click',thumbnailClick));
-
-            function thumbnailClick(e){
-                currentImage.src = this.querySelector('img').src;
-
-                currentImage.classList.remove('active');
-
-                currentImage.addEventListener('transitioned',() => {
-                    currentImage.src = this.querySelector('img').src;
-                    currentImage.classList.add('active');
-                })
-
-                images.forEach((element) => element.classList.remove('selected'));
-                this.classList.add('selected');
-            }
-
-        })();
-    </script>
-@endsection
 
 

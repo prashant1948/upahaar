@@ -52,7 +52,7 @@
             <!-- //header lists -->
             <!-- search -->
             <div class="agileits_search">
-                <form class="form" action="/job/search/all" method="POST">
+                <form class="form" action="/search/all" method="POST">
                     @csrf
                     <input id="searchJob" name="query" type="search" placeholder="How can we help you today?" required="">
                     <button type="submit" class="btn btn-default" aria-label="Left Align">

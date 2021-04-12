@@ -237,13 +237,36 @@ class IndexController extends Controller
         $cars = CarDetails::where('model', 'LIKE', '%'.$request->input('query').'%')
             ->get();
 
-        return view('Car.car_search', compact('cars'));
+        return view('car.car_search', compact('cars'));
     }
     public function liveCarSearch(Request $request) {
         $search = $request->get('query');
         $data = CarDetails::where('model', 'LIKE', '%'.$search.'%')
             ->get();
         return response()->json($data);
+    }
+
+    public function searchAll(Request $request)
+    {
+        $cars = CarDetails::where('model', 'LIKE', '%' . $request->input('query') . '%')
+                ->get();
+        $jobs = Job::where('name', 'LIKE', '%'.$request->input('query').'%')
+            ->get();
+        $products = Product::where('name', 'LIKE', '%'.$request->input('query').'%')
+            ->orWhere('brand', 'LIKE', '%'.$request->input('query').'%')
+            ->orWhere('tags', 'LIKE', '%'.$request->input('query').'%')->get();
+
+
+        if(count($cars) >= 1){
+            return view('car.car_search',compact('cars'));
+        }
+        elseif(count($jobs) >= 1){
+            return view('Job.job_search',compact('jobs'));
+        }
+        else{
+            return view('eazymart.product_search',compact('products'));
+        }
+
     }
 
     public function aboutMart() {

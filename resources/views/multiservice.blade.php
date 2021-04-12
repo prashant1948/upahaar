@@ -29,9 +29,13 @@
     <link rel="stylesheet" href="/assets/css/font-awesome.min.css">
 
     <style>
-        body{
-            overflow-x: hidden;
+        body:not(.modal-open){
+            padding-right: 0 !important;
         }
+        /*.show{*/
+        /*    padding-left: 0 !important;*/
+        /*}*/
+
     </style>
 
 </head>

@@ -23,7 +23,7 @@
 
         <div class="tab-content">
             <div id="tab-home" class="tab-pane fade in home">
-                <h4 class="pt-3">Explore Variety of Rental Service</h4>
+                <p>Explore Variety of Rental Service</p>
             </div>
             @foreach($cars as $category_id => $item)
             <div id="tab-{{ $category_id }}" class="tab-pane fade in">

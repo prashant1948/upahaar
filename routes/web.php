@@ -193,6 +193,9 @@ Route::get('/carapplicants', 'Car\CarDetailsController@rentDetails')->name('cara
 
 Route::post('/car/search/all', 'IndexController@searchCar');
 
+
+Route::post('/search/all', 'IndexController@searchAll');
+
 Route::get('liveCarSearch','IndexController@liveCarSearch')->name('liveCarSearch');
 
 Route::get('/carCat', 'Car\CarCategoriesController@getCarCategories');

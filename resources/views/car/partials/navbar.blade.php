@@ -272,6 +272,7 @@
                 <div class="modal_body_left modal_body_left1">
                     <h3 class="agileinfo_sign">Add Details</h3>
 
+                    @if(count($cars) >= 1)
                     <form method="POST" action="{{ url('/car/add/' . $car->id) }}" enctype="multipart/form-data">
                         @csrf
                         <div class="styled-input agile-styled-input-top">
@@ -302,6 +303,8 @@
                         </div>
                         <input type="submit" name="submit" value="Rent" class="button"/>
                     </form>
+                    @endif
+
                     <div class="clearfix"></div>
                 </div>
                 <div class="clearfix"></div>

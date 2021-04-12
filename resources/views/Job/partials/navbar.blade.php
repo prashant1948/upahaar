@@ -280,6 +280,7 @@
 {{--                        <a href="#" data-toggle="modal" data-target="#myModal2">--}}
 {{--                            Sign Up Now</a>--}}
 {{--                    </p>--}}
+                    @if((count($jobs) >= 1))
                     <form method="POST" action="{{ url('/job/add/' . $job->id) }}" enctype="multipart/form-data">
                         @csrf
                         <div class="styled-input agile-styled-input-top">
@@ -301,6 +302,7 @@
 {{--                        <a href="{{ url('/job/add/' . $job->id) }}"><input type="submit" name="submit" value="Apply" class="button"/><input type="submit" value="Sign In"></a>--}}
                         <input type="submit" name="submit" value="Apply" class="button"/>
                     </form>
+                    @endif
                     <div class="clearfix"></div>
                 </div>
                 <div class="clearfix"></div>

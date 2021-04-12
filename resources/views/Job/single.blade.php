@@ -59,7 +59,7 @@
             </div>
             <div class="col-md-7 single-right-left simpleCart_shelfItem">
                 <h3>{{$job->name}}</h3>
-                <p>{{$job->company->name}}<p>
+                <p><i class="fa fa-building"></i> {{$job->company->name}}<p>
 
 {{--                <div class="availability"><label>Availability:</label>--}}
 {{--                    @if ($product->quantity>0)--}}
@@ -69,15 +69,14 @@
 {{--                    @endif--}}
 {{--                </div>--}}
                 <p>
-                    <span class="color:green">Posted At: {{$job->posted_date}}</span>
+                    <span class="color:green"><i class="fa fa-calendar"></i> Posted At: {{$job->posted_date}}</span>
                 </p>
                 <p>
-                    <span class="color:red">Apply Before: {{$job->apply_before}}</span>
+                    <span class="color:red"><i class="fa fa-calendar"></i> Apply Before: {{$job->apply_before}}</span>
                 </p>
 
                 <div class="product-single-w3l">
                     <p>
-                        <i class="fa fa-hand-o-right" aria-hidden="true"></i>
                         <label>Description</label>
                     <ul>
                         <li>
