@@ -15,6 +15,7 @@ use App\PopUp;
 use App\ProductImage;
 use App\User;
 use Illuminate\Http\Request;
+
 use App\Department;
 use App\Product;
 use App\Cart;
@@ -312,14 +313,16 @@ class IndexController extends Controller
         $job = Job::find($id);
         $departments = JobCategories::all();
         $jobs = DB::table('jobs')
-            ->select('jobs.id','jobs.name','jobs.salary','jobs.job_type','job_companies.id AS company_id','job_companies.name AS company_name','job_companies.logo','job_companies.address as company_address')
+            ->select('jobs.id','jobs.name','jobs.salary','jobs.job_type','jobs.apply_before','jobs.tags','job_companies.id AS company_id','job_companies.name AS company_name','job_companies.logo','job_companies.address as company_address')
             ->join('job_companies', 'job_companies.id', '=', 'jobs.company_id')
             ->get();
         return view('Job.companySingle', compact('company','jobs','job','departments'));
     }
 
-    public function magnify(){
-        return view('magnify');
+    public function magnify(Request $request){
+        $url = url()->current();
+
+        return view('magnify',compact('url'));
     }
 
 }

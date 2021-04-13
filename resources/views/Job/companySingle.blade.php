@@ -2,7 +2,7 @@
 @section('content')
 
     <div class="page-head_agile_info_w3l" style="overflow: hidden;">
-        <div class="row" style="height:15vh;">
+        <div class="row">
             <div class="col-lg-2 col-md-2 col-12">
                 <img src="/storage/images/jobCompanyLogo/{{$company->logo}}"/>
             </div>
@@ -44,9 +44,16 @@
                                     <div class="company-content">
                                         <a href="/singleJob/{{$job->id}}"><h3>{{$job->name}}<span class="full-time">{{$job->job_type}}</span></h3></a>
                                         <p><span class="company-name"><i class="fa fa-briefcase"></i>{{$job->company_name}}</span><span class="package"><i class="fa fa-money"></i>{{$job->salary}}</span></p>
+                                        <p><i class="fa fa-bookmark"></i>Tags: {{$job->tags}}</p>
                                     </div>
+                                    @if($job->apply_before > \Carbon\Carbon::today())
+                                        <span class="badge badge-success">Hot Job</span>
+                                    @else
+                                        <span class="badge badge-danger">Expired</span>
+                                    @endif
+
                                 </div>
-                                <div class="col-md-2 col-sm-2 pt-2">
+                                <div class="col-md-2 col-sm-2 text-center">
                                     @if(!Auth::user())
                                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal1">
                                             <input type="submit" name="submit" value="Apply" class="button"/>

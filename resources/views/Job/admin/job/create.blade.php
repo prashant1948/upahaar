@@ -39,6 +39,7 @@
                 <input type="text" class="form-control" name="salary" required>
             </div>
 
+
             <div class="form-group">
                 <label for="job_type">Job Type:</label>
                 <select name="job_type">
@@ -77,6 +78,10 @@
             <div class="form-group">
                 <label for="apply_before">Apply Before:</label>
                 <input type="date" class="form-control" name="apply_before" required>
+            </div>
+            <div class="form-group">
+                <label for="salary">Tags:</label>
+                <input type="text" class="form-control" name="tags" required>
             </div>
 
             <input class="form-control btn btn-primary mb-4" type="submit" value="Submit">

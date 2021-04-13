@@ -75,6 +75,7 @@ class JobController extends Controller
         $job->description = $request->input('description');
         $job->vacancy = $request->input('vacancy');
         $job->salary = $request->input('salary');
+        $job->tags = $request->input('tags');
         $job->job_type = $request->input('job_type');
         $job->category_id = $request->input('category_id');
         $job->posted_date = $request->input('posted_date');
@@ -132,6 +133,7 @@ class JobController extends Controller
         $job->vacancy = $request->input('vacancy');
         $job->salary = $request->input('salary');
         $job->job_type = $request->input('job_type');
+        $job->tags = $request->input('tags');
         $job->posted_date = $request->input('posted_date');
         $job->apply_before = $request->input('apply_before');
         $job->category_id = $request->input('category_id');
