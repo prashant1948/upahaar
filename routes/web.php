@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/ecommerce', 'IndexController@indexMart');
+Route::get('/ecommerce', 'IndexController@indexMart')->name('ecommerce');
 Route::get('/', 'IndexController@multi');
 //Route::get('/index', 'IndexController@index');
 //Route::get('/home', 'IndexController@home')->name('home');
@@ -173,9 +173,9 @@ Route::get('/singleJobCompany/{id}', 'IndexController@showJobCompany');
 
 Route::get('/jobApplicants/destroy/{id}', 'Job\JobController@destroyApplicants')->name('jobApplicants.destroy');
 
-Route::get('/buyNow/{id}', 'CartController@buyNow');
+Route::get('/buyNow/{id}', 'CartController@buyNow')->name('buyNow');
 
-Route::get('/checkoutBuy/{id}', 'CartController@checkoutFormMartBuy');
+Route::get('/checkoutBuy/{id}', 'CartController@checkoutFormMartBuy')->name('checkoutBuy');
 Route::post('/checkoutBuy', 'CartController@checkoutBuy');
 //Car
 Route::get('/indexCar', 'IndexController@car')->name('car.index');

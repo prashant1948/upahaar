@@ -42,11 +42,11 @@
 
             <div class="product-section-images">
                 <div class="product-section-thumbnail selected">
-                    <img src="/storage/Images/products/{{$product->image}}" alt="" class="img-fluid"/>
+                    <img src="/storage/images/products/{{$product->image}}" alt="" class="img-fluid"/>
                 </div>
                 @foreach($productImg as $product)
                     <div class="product-section-thumbnail selected">
-                        <img src="/storage/Images/product_gallery/{{$product->image}}" alt="" class="img-fluid"/>
+                        <img src="/storage/images/product_gallery/{{$product->image}}" alt="" class="img-fluid"/>
                     </div>
                 @endforeach
             </div>

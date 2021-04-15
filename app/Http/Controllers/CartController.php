@@ -9,6 +9,8 @@ use App\Cart;
 use App\CartItem;
 use App\Product;
 use App\Checkout;
+use Illuminate\Support\Facades\Redirect;
+use Illuminate\Support\Facades\Session;
 Use RealRashid\SweetAlert\Facades\Alert;
 use Auth;
 
@@ -35,6 +37,7 @@ class CartController extends Controller
 
 
     public function addToCart(Request $request){
+
         if (Auth::check()) {
             $cart = Cart::where([
                 ['user_id', '=', Auth::id()],
@@ -62,6 +65,8 @@ class CartController extends Controller
                 $cart->save();
                 $this->createCartItem($product->id, $cart->id);
 
+
+
 //                $cart->grand_total += $product->rate;
 
                 $houseNumber = User::where('id','=',Auth::id())->value('house_number');
@@ -79,6 +84,8 @@ class CartController extends Controller
             }
             return $this->getCart($request);
         }else {
+            $product = Product::find($request->input('product'));
+            Session::put('productSession',$product);
             return response()->json(array("error" => "Unauthorized error"), 401);
         }
     }
@@ -166,8 +173,10 @@ class CartController extends Controller
             $buy->product_id = $product->id;
             $buy->save();
 
-            return redirect('/checkoutBuy/{$id}');
+            return redirect('/checkoutBuy/'.$id);
         }
+        Session::put('buyID', $id);
+
         Alert::info('Not Logged In', 'Please Log In.');
         return redirect()->back();
     }

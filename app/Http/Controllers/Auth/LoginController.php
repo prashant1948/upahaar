@@ -3,10 +3,13 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
+use App\Product;
 use App\Providers\RouteServiceProvider;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Session;
 use Laravel\Socialite\Facades\Socialite;
 
 class LoginController extends Controller
@@ -31,12 +34,19 @@ class LoginController extends Controller
      */
     protected $redirectTo = RouteServiceProvider::HOME;
 
-//    protected function authenticated(Request $request, $user)
-//    {
-//        if()
-//
-//        return redirect('/');
-//    }
+    protected function authenticated(Request $request)
+    {
+        if (Session::has('buyID')) {
+            $buyID =  Session::get('buyID');
+            $request->session()->forget('buyID');
+            $this->redirectTo = url('/checkoutBuy/'.$buyID);
+        }
+        if (Session::has('productSession')) {
+            $productSessionID =  Session::get('productSession');
+            $request->session()->forget('productSession');
+            $this->redirectTo = url('/ecommerce')->with(['productSessionID' => $productSessionID]);
+        }
+    }
     /**
      * Create a new controller instance.
      *
@@ -46,6 +56,7 @@ class LoginController extends Controller
     {
         $this->middleware('guest')->except('logout');
     }
+
 
     public function redirectToGoogle()
     {
@@ -67,7 +78,7 @@ class LoginController extends Controller
             return $authUser;
         }
         return User::create([
-            'name'     => $user->offsetGet('given_name') + $user->offsetGet('family_name'),
+            'name'     => $user->offsetGet('given_name').' '.$user->offsetGet('family_name'),
             'email'    => $user->email,
             'password'    => 'google1234',
             'google_id' => $user->id
@@ -101,8 +112,6 @@ class LoginController extends Controller
             'email'    => $userFB->email,
             'password'    => 'facebook1234',
             'facebook_id' => $userFB->id,
-
-
         ]);
 
 

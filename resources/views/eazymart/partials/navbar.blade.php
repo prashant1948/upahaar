@@ -182,8 +182,12 @@
                         <a href="#" data-toggle="modal" data-target="#myModal2">
                             Sign Up Now</a>
                     </p>
+
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
+                        @if(Session::has('productSessionID'))
+                            <div class="alert">{{ Session::get('productSessionID') }}</div>
+                        @endif
                         <div class="styled-input agile-styled-input-top">
                             <input type="email" class="le-input" name="email" value="{{ old('email') }}" required autofocus>
                             @error('email')
@@ -196,8 +200,8 @@
                             <input type="password" class="le-input" name="password" value="{{ old('password') }}" required>
                             @error('password')
                             <span class="red-text" role="alert">
-                                    <strong>{{ $message }}</strong>
-                                </span>
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
 

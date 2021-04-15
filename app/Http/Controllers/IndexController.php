@@ -223,7 +223,7 @@ class IndexController extends Controller
 
     public function searchJob(Request $request) {
         $jobs = Job::where('name', 'LIKE', '%'.$request->input('query').'%')
-            ->get();
+            ->orWhere('tags', 'LIKE', '%'.$request->input('query').'%')->get();
 
         return view('Job.job_search', compact('jobs'));
     }
