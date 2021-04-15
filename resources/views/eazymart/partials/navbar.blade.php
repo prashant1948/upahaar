@@ -185,11 +185,11 @@
 
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
-                        @if(Session::has('productSessionID'))
-                            <div class="alert">{{ Session::get('productSessionID') }}</div>
-                        @endif
+{{--                        @if(Session::has('productSessionID'))--}}
+{{--                            <div class="alert">{{ Session::get('productSessionID') }}</div>--}}
+{{--                        @endif--}}
                         <div class="styled-input agile-styled-input-top">
-                            <input type="email" class="le-input" name="email" value="{{ old('email') }}" required autofocus>
+                            <input type="email" class="le-input" placeholder="Email Address" name="email" value="{{ old('email') }}" required autofocus>
                             @error('email')
                             <span class="red-text" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -197,7 +197,7 @@
                             @enderror
                         </div>
                         <div class="styled-input">
-                            <input type="password" class="le-input" name="password" value="{{ old('password') }}" required>
+                            <input type="password" class="le-input" name="password" placeholder="Password" value="{{ old('password') }}" required>
                             @error('password')
                             <span class="red-text" role="alert">
                                 <strong>{{ $message }}</strong>

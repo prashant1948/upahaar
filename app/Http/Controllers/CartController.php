@@ -177,7 +177,7 @@ class CartController extends Controller
         }
         Session::put('buyID', $id);
 
-        Alert::info('Not Logged In', 'Please Log In.');
+//        Alert::info('Not Logged In', 'Please Log In.');
         return redirect()->back();
     }
 

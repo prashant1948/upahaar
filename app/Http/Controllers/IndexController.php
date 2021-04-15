@@ -150,9 +150,9 @@ class IndexController extends Controller
         $dairy= Product::select()->where('dept_id', $dairyDepartment)->take(6)->get();
         $fruits= Product::select()->where('dept_id', $fruitDepartment)->get();
         $bakery= Product::select()->where('dept_id', $bakeryDepartment)->take(6)->get();
-        $chips= Product::select()->where('dept_id', $chipsDepartment)->take(3)->get();
-        $nuts= Product::select()->where('dept_id', $nutsDepartment)->take(3)->get();
-        $oil= Product::select()->where('dept_id', $oilDepartment)->take(3)->get();
+        $chips= Product::select()->where('dept_id', $chipsDepartment)->take(6)->get();
+        $nuts= Product::select()->where('dept_id', $nutsDepartment)->take(6)->get();
+        $oil= Product::select()->where('dept_id', $oilDepartment)->take(6)->get();
 
         $frontEnd = Frontend::orderBy('created_at', 'desc')->get();
 

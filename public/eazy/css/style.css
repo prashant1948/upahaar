@@ -673,7 +673,7 @@ button.w3view-cart {
     margin-top: 2em;
 }
 .product-men img {
-    max-height: 100px;
+    height: 100px;
     max-width: 100px;
 }
 #cart-list .amount {

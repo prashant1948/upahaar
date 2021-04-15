@@ -119,13 +119,17 @@
                 <div class="product-sec1">
                     <h3 class="heading-tittle">Nuts</h3>
                     @foreach ($nuts as $f)
-                    <div class="col-md-4 col-4 product-men">
+                    <div class="col-md-2 col-2 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
                                 <a href="/singleMart/{{$f->id}}"><img alt="" src="/storage/images/products/{{$f->image}}"/></a>
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
-                                        <a href="{{ url('buyNow/' . $f->id) }}" class="link-product-add-cart">Buy Now</a>
+                                        @if(!Auth::user())
+                                            <a class="link-product-add-cart" data-toggle="modal" data-target="#myModal1">Buy Now</a>
+                                        @else
+                                            <a href="{{ url('buyNow/' . $f->id) }}" class="link-product-add-cart">Buy Now</a>
+                                        @endif
                                     </div>
                                 </div>
                                 <span class="product-new-top">New</span>
@@ -177,13 +181,19 @@
                 <div class="product-sec1">
                     <h3 class="heading-tittle">Oils</h3>
                     @foreach ($oil as $f)
-                    <div class="col-md-4 col-4 product-men">
+                    <div class="col-md-2 col-2 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
                                 <img alt="" src="/storage/images/products/{{$f->image}}"/>
                                 <div class="men-cart-pro">
                                     <div class="inner-men-cart-pro">
-                                        <a href="{{ url('buyNow/' . $f->id) }}" class="link-product-add-cart">Buy Now</a>
+                                        <div class="inner-men-cart-pro">
+                                            @if(!Auth::user())
+                                                <a class="link-product-add-cart" data-toggle="modal" data-target="#myModal1">Buy Now</a>
+                                            @else
+                                                <a href="{{ url('buyNow/' . $f->id) }}" class="link-product-add-cart">Buy Now</a>
+                                            @endif
+                                        </div>
                                     </div>
                                 </div>
                                 <span class="product-new-top">New</span>
@@ -221,13 +231,19 @@
                     <h3 class="heading-tittle">Bakery</h3>
                     @foreach ($bakery as $f)
 
-                            <div class="col-md-4 col-4 product-men">
+                            <div class="col-md-2 col-2 product-men">
                                 <div class="men-pro-item simpleCart_shelfItem">
                                     <div class="men-thumb-item">
                                         <img alt="" src="/storage/images/products/{{$f->image}}"/>
                                         <div class="men-cart-pro">
                                             <div class="inner-men-cart-pro">
-                                                <a href="{{ url('buyNow/' . $f->id) }}" class="link-product-add-cart">Buy Now</a>
+                                                <div class="inner-men-cart-pro">
+                                                    @if(!Auth::user())
+                                                        <a class="link-product-add-cart" data-toggle="modal" data-target="#myModal1">Buy Now</a>
+                                                    @else
+                                                        <a href="{{ url('buyNow/' . $f->id) }}" class="link-product-add-cart">Buy Now</a>
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
