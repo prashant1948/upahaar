@@ -155,6 +155,7 @@ class IndexController extends Controller
         $oil= Product::select()->where('dept_id', $oilDepartment)->take(6)->get();
 
         $frontEnd = Frontend::orderBy('created_at', 'desc')->get();
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
 
         if (Auth::check()) {
             $cart = Cart::where([
@@ -186,6 +187,7 @@ class IndexController extends Controller
                 'fruits' => $fruits,
                 'bakery' => $bakery,
                 'chips' => $chips,
+                'departmentsLists' => $departmentsLists,
                 'grand_total' => $grand_total,
                 'carts' => $carts
             ]);
@@ -207,6 +209,7 @@ class IndexController extends Controller
             'nuts' => $nuts,
             'fruits' => $fruits,
             'bakery' => $bakery,
+            'departmentsLists' => $departmentsLists,
             'chips' => $chips,
             'auth'=> 0
         ]);

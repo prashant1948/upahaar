@@ -31,3 +31,48 @@
 {
     display: block;
 }
+
+
+
+
+
+/*nav*/
+body,html {
+    font: 12px/1.4 'Open Sans', arial, sans-serif;
+}
+
+.departments li {
+    display: table-cell;
+    position: relative;
+    padding:0;
+}
+.departments li a {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 0.1em;
+    font-size: 12px;
+    display: inline-block;
+    position: relative;
+}
+.departments li a:after {
+    background: none repeat scroll 0 0 transparent;
+    bottom: 0;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 50%;
+    position: absolute;
+    background: orangered;
+    transition: width 0.3s ease 0s, left 0.3s ease 0s;
+    width: 0;
+}
+.departments a:hover:after {
+    width: 100%;
+    left: 0;
+}
+@media screen and (max-height: 300px) {
+    .departments ul {
+        margin-top: 40px;
+    }
+}

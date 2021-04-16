@@ -1,39 +1,7 @@
 @extends('layouts.eazyCommon')
 @section('content')
 
-    <style>
-        /*    .......categories..................*/
 
-        .categories ul{
-            list-style-type: none;
-            margin: 0;
-            justify-content: space-evenly;
-            padding: 0;
-            overflow: hidden;
-            background-color: #1accfd;
-        }
-        @media (max-width:750px){
-            .categories ul{
-                font-size: 10px;
-                justify-content: space-evenly;
-            }}
-
-        .categories li {
-            float: left;
-        }
-
-        .categories li a {
-            display: block;
-            color: white;
-            text-align: center;
-            padding: 16px;
-            text-decoration: none;
-        }
-
-        .categories li a:hover {
-            background-color: #111111;
-        }
-        </style>
 <!-- banner -->
 {{--<div id="myCarousel" class="carousel slide" data-ride="carousel">--}}
 

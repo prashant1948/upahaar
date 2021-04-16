@@ -38,6 +38,59 @@
             overflow-y:auto;
             overflow-x:hidden;
         }
+
+             /*    .......departments..................*/
+
+         .departments ul{
+             list-style-type: none;
+             margin: 0;
+             justify-content: space-evenly;
+             padding: 0;
+             overflow: hidden;
+             border: 1px solid #E6E7EB;
+             width:100%;
+         }
+        @media (max-width:750px){
+            .departments ul{
+                font-size: 10px;
+                justify-content: space-evenly;
+            }}
+
+        .departments li {
+            float: left;
+            width:15%;
+        }
+
+        .departments li a {
+            display: block;
+            color: black;
+            text-align: center;
+            font-size: 12px;
+            /*padding: 10px 20px;*/
+            text-decoration: none;
+        }
+
+        .departments li a:hover {
+            color:orangered;
+            background: white;
+            /*text-decoration: underline orangered;*/
+        }
+        #agileinfo-nav_search {
+            outline: none;
+            border: none;
+            color: #000;
+            font-size: 14px;
+            background: white;
+            padding: 15px 10px;
+            width: 100%;
+            letter-spacing: 1px;
+        }
+
+        .ban-top {
+            margin: 0 10px 10px 10px;
+            border: none !important;
+        }
+
     </style>
 
 </head>

@@ -41,11 +41,11 @@ class LoginController extends Controller
             $request->session()->forget('buyID');
             $this->redirectTo = url('/checkoutBuy/'.$buyID);
         }
-        if (Session::has('productSession')) {
-            $productSessionID =  Session::get('productSession');
-            $request->session()->forget('productSession');
-            $this->redirectTo = url('/ecommerce')->with(['productSessionID' => $productSessionID]);
-        }
+//        if (Session::has('productSession')) {
+//            $productSessionID =  Session::get('productSession');
+//            $request->session()->forget('productSession');
+//            $this->redirectTo = url('/ecommerce')->with(['productSessionID' => $productSessionID]);
+//        }
     }
     /**
      * Create a new controller instance.

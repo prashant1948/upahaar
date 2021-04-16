@@ -313,34 +313,55 @@
 <!-- //header-bot -->
 <!-- navigation -->
 
+<div class="col-12">
+    <div class="col-lg-2 col-md-2 col-12">
+        <div class="ban-top">
+            <div class="container">
+                <div class="agileits-navi_search ecommerce">
+                    <div id="agileinfo-nav_search">
+                        <ul class="inline">
+                            <li class="dropdown le-dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                    <i class="fa fa-list"></i>All Categories
+                                </a>
+                                <ul class="dropdown-menu" id="departmentList">
 
-<div class="ban-top1">
-
-
-        <div class="top_nav_left">
-            <nav class="navbar navbar-default">
-                <div class="container-fluid">
-
-
-                    <!-- Brand and toggle get grouped for better mobile display -->
-                    <div class="navbar-header">
-                        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
-                                aria-expanded="false">
-                            <span class="sr-only">Toggle navigation</span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                            <span class="icon-bar"></span>
-                        </button>
-                    </div>
-                    <!-- Collect the nav links, forms, and other content for toggling -->
-                    <div class="collapse navbar-collapse menu--shylock categories" id="bs-example-navbar-collapse-1">
-                        <ul class="nav navbar-nav menu__list" id="departmentList">
-
+                                </ul>
+                            </li>
                         </ul>
                     </div>
                 </div>
-            </nav>
+            </div>
         </div>
+    </div>
+    <div class="col-lg-10 col-md-10 col-12">
 
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                    aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse menu--shylock departments" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav menu__list">
+                @foreach ($departmentsLists as $department)
+                    <li class="dropdown menu-item">
+                        <a href="/departmentMart/{{$department->id}}" >{{$department->department_name}}</a>
+                    </li><!-- /.menu-item -->
+                @endforeach
+            </ul>
+        </div>
+    </div>
 </div>
+
+
+
+
+
+
 <!-- //navigation -->

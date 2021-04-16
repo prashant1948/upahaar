@@ -283,11 +283,11 @@ h3.agileinfo_sign span {
     background: none;
 }
 .navbar-nav > li {
-    margin: 0 9px;
+    margin: 0;
 }
-.navbar-nav > li > a {
-    padding: 15px 16px;
-}
+/*.navbar-nav > li > a {*/
+/*    padding: 15px 16px;*/
+/*}*/
 .navbar-collapse {
     padding-right: 0;
     padding-left: 0;
@@ -362,7 +362,7 @@ ul.multi-column-dropdown li a:hover {
 }
 .box_1 {
     text-align: center;
-    margin-top: 14px;
+    /*margin-top: 14px;*/
 }
 a.simpleCart_empty {
     color: #fff;
@@ -375,9 +375,9 @@ button.w3view-cart {
     outline: none;
     border: none;
     background: #ff5722;
-    width: 48px;
-    height: 43px;
-    font-size: 24px;
+    width: 40px;
+    height: 30px;
+    font-size: 15px;
     color: #fff;
 }
 /*-- //cart details--*/
@@ -3349,6 +3349,9 @@ select.form-control.option-w3ls {
     #agileinfo-nav_search {
         font-size: 13px;
     }
+    .ecommerce #agileinfo-nav_search {
+        background: white !important;
+    }
     a.nav-stylehead {
         font-size: 14px;
     }
@@ -3631,8 +3634,13 @@ select.form-control.option-w3ls {
         min-width: 127px;
     }
     .ban-top {
-        margin: 0 0px 10px 0px;
+        margin: 0;
     }
+    .navbar > .container-fluid{
+        padding:0 !important;
+        margin:0 !important;
+    }
+
     .contact-form.wthree {
         width: 93%;
         padding: 40px 30px;
