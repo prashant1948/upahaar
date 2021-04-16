@@ -1,6 +1,8 @@
 @extends('layouts.eazyCommon')
 @section('content')
+    <div class="page-ecommerce_agile_info_w3l">
 
+    </div>
 
 <!-- banner -->
 {{--<div id="myCarousel" class="carousel slide" data-ride="carousel">--}}

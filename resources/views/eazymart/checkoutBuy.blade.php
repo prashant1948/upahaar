@@ -7,18 +7,9 @@
     {{--    </div>--}}
     {{--    <!-- //banner-2 -->--}}
     <!-- page -->
-    <div class="services-breadcrumb">
-        <div class="agile_inner_breadcrumb">
-            <div class="container">
-                <ul class="w3_short">
-                    <li>
-                        <a href="index.html">Home</a>
-                        <i>|</i>
-                    </li>
-                    <li>Checkout</li>
-                </ul>
-            </div>
-        </div>
+{{--    --}}
+    <div class="page-ecommerce_agile_info_w3l">
+
     </div>
     <!-- //page -->
     <!-- checkout page -->

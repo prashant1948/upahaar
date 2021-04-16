@@ -1,33 +1,42 @@
 @extends('layouts.eazyCommon')
 
 @section('content')
+<div class="page-ecommerce_agile_info_w3l">
+
+</div>
 <section id="category-grid">
     <div class="container">
-
 
             <!-- ========================================= BREADCRUMB ========================================= -->
 
         <div class="col-xs-12 col-sm-12 ">
             <section id="gaming">
                 <div class="grid-list-products">
-                    <h2 class="section-title">{{$current_department->department_name}}</h2>
 
-                    <div class="control-bar">
-                        <div id="item-count" class="le-select">
-                            <select id="countItems">
-                                <?php
-                                    $itemNumbers = [9, 18, 27];
-                                    foreach ($itemNumbers as $i) {
-                                        if ($i == $items) {
-                                            echo "<option value='".$i."' selected>".$i." per page</option>";
-                                        } else {
-                                            echo "<option value='".$i."'>".$i." per page</option>";
-                                        }
-                                    }
-                                    ?>
-                            </select>
-                        </div>
-                    </div><!-- /.control-bar -->
+                    <h3 class="tittle-w3l">{{$current_department->department_name}}
+                        <span class="heading-style">
+                            <i></i>
+                            <i></i>
+                            <i></i>
+				        </span>
+                    </h3>
+
+{{--                    <div class="control-bar">--}}
+{{--                        <div id="item-count" class="le-select">--}}
+{{--                            <select id="countItems">--}}
+{{--                                <?php--}}
+{{--                                    $itemNumbers = [9, 18, 27];--}}
+{{--                                    foreach ($itemNumbers as $i) {--}}
+{{--                                        if ($i == $items) {--}}
+{{--                                            echo "<option value='".$i."' selected>".$i." per page</option>";--}}
+{{--                                        } else {--}}
+{{--                                            echo "<option value='".$i."'>".$i." per page</option>";--}}
+{{--                                        }--}}
+{{--                                    }--}}
+{{--                                    ?>--}}
+{{--                            </select>--}}
+{{--                        </div>--}}
+{{--                    </div><!-- /.control-bar -->--}}
 
                     <div class="tab-content">
                         @if($products)
@@ -39,7 +48,12 @@
                                                 <img alt="" src="/storage/images/products/{{$f->image}}"/>
                                                 <div class="men-cart-pro">
                                                     <div class="inner-men-cart-pro">
-                                                        <a href="/singleMart/{{$f->id}}" class="link-product-add-cart">Quick View</a>
+                                                        @if(!Auth::user())
+                                                            <a class="link-product-add-cart" data-toggle="modal" data-target="#myModal1">Buy Now</a>
+                                                        @else
+                                                            <a href="{{ url('buyNow/' . $f->id) }}" class="link-product-add-cart">Buy Now</a>
+                                                        @endif
+{{--                                                        <a href="/singleMart/{{$f->id}}" class="link-product-add-cart">Quick View</a>--}}
                                                     </div>
                                                 </div>
                                                 <span class="product-new-top">New</span>

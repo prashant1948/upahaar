@@ -14,6 +14,9 @@
         </div>
     </div>
 </div>
+<div class="page-ecommerce_agile_info_w3l">
+
+</div>
 <!-- //page -->
 <!-- Single Page -->
 <div class="banner-bootom-w3-agileits">
@@ -84,9 +87,15 @@
                 </p>
             </div>
             <div class="occasion-cart">
-                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                    <input type="submit" name="submit" value="Add to Cart" onclick="addToCart({{$product->id}}, '<?php echo csrf_token() ?>')" class="button"/>
-                </div>
+                @if(!Auth::user())
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal1">
+                        <input type="submit" name="submit" onclick="addToCart({{$product->id}}, '<?php echo csrf_token() ?>')" value="Add to cart" class="button" />
+                    </div>
+                @else
+                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal4">
+                        <input type="submit" name="submit" onclick="addToCart({{$product->id}}, '<?php echo csrf_token() ?>')" value="Add to cart" class="button" />
+                    </div>
+                @endif
             </div>
         </div>
         <div class="clearfix"> </div>

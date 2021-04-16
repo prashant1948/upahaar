@@ -42,8 +42,9 @@ class ProductsController extends Controller
         $products = Product::where('dept_id', $id)->paginate($items);
         $departments = Department::all();
         $current_department = Department::find($id);
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
 //        $productsDisplay = Product::get();
-        return view('eazymart.products_department', compact('products', 'departments', 'current_department', 'items'));
+        return view('eazymart.products_department', compact('products', 'departments', 'current_department', 'items','departmentsLists'));
     }
 
     public function searchProducts(Request $request) {
@@ -51,7 +52,8 @@ class ProductsController extends Controller
                     ->orWhere('brand', 'LIKE', '%'.$request->input('query').'%')
                     ->orWhere('tags', 'LIKE', '%'.$request->input('query').'%')->get();
         $departments = Department::all();
-        return view('main.products_search', compact('products', 'departments'));
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
+        return view('main.products_search', compact('products', 'departments','departmentsLists'));
     }
     public function searchProductsMart(Request $request) {
         $products = Product::where('name', 'LIKE', '%'.$request->input('query').'%')
@@ -59,7 +61,8 @@ class ProductsController extends Controller
             ->orWhere('tags', 'LIKE', '%'.$request->input('query').'%')->get();
 
         $departments = Department::all();
-        return view('eazymart.product_search', compact('products', 'departments'));
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
+        return view('eazymart.product_search', compact('products', 'departments','departmentsLists'));
     }
     public function livesearch(Request $request) {
         $search = $request->get('query');
@@ -75,15 +78,17 @@ class ProductsController extends Controller
         $products = Product::where('brand', 'LIKE', '%'.$tag.'%')
                     ->orWhere('tags', 'LIKE', '%'.$tag.'%')->get();
         $departments = Department::all();
-        return view('main.products_search', compact('products', 'departments'));
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
+        return view('main.products_search', compact('products', 'departments','departmentsLists'));
     }
 
     public function showProductsMart(Request $request, $id) {
         $product = Product::find($id);
         $departments = Department::all();
         $products = Product::get();
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
         $productImg = ProductImage::with('products')->where('p_id','=',$product->id)->get();
-        return view('eazymart.single', compact('product', 'departments','products','productImg'));
+        return view('eazymart.single', compact('product', 'departments','products','productImg','departmentsLists'));
     }
 
 

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\BuyNow;
+use App\Department;
 use App\User;
 use Illuminate\Http\Request;
 use App\Cart;
@@ -167,13 +168,14 @@ class CartController extends Controller
 
     public function buyNow($id){
         $product = Product::find($id);
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
         if (Auth::check()){
             $buy = new BuyNow();
             $buy->user_id = Auth::user()->id;
             $buy->product_id = $product->id;
             $buy->save();
 
-            return redirect('/checkoutBuy/'.$id);
+            return redirect('/checkoutBuy/'.$id)->with(['departmentsLists'=>$departmentsLists]);
         }
         Session::put('buyID', $id);
 
@@ -236,17 +238,21 @@ class CartController extends Controller
             ['user_id', '=', Auth::id()],
             ['checkout', '=', 0]
         ])->get();
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
+
+
 
 //        $buy = BuyNow::where([
 //            ['user_id', '=', Auth::id()],
 //        ])->get();
 
 
-        return view('eazymart.checkout', ['cart_id' => $cart[0]->id]);
+        return view('eazymart.checkout',['cart_id' => $cart[0]->id,'departmentsLists'=>$departmentsLists]);
     }
     public function checkoutFormMartBuy($id) {
         $buy = BuyNow::find($id);
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
 
-        return view('eazymart.checkoutBuy',compact('buy'));
+        return view('eazymart.checkoutBuy',compact('buy','departmentsLists'));
     }
 }
