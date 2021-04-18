@@ -383,7 +383,12 @@
 
 <!-- //for bootstrap working -->
 <!-- //js-files -->
-
+<script>
+    if (sessionStorage.getItem('productIdToAdd')){
+        addToCart(sessionStorage.getItem('productIdToAdd'), '<?php echo csrf_token() ?>');
+        sessionStorage.removeItem("productIdToAdd");
+    }
+</script>
 
 </body>
 

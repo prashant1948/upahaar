@@ -7,6 +7,7 @@ use App\Job\JobCompany;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
 
@@ -130,6 +131,10 @@ class JobCompanyController extends Controller
     }
 
     public function company(){
-        return view('Job.create');
+        $jobs = DB::table('jobs')
+            ->select('jobs.id','jobs.name','jobs.salary','jobs.job_type','job_companies.id AS company_id','job_companies.name AS company_name','job_companies.logo','job_companies.address as company_address')
+            ->join('job_companies', 'job_companies.id', '=', 'jobs.company_id')
+            ->get();
+        return view('Job.create',compact('jobs'));
     }
 }

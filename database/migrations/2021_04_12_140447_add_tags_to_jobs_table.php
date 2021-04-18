@@ -14,7 +14,7 @@ class AddTagsToJobsTable extends Migration
     public function up()
     {
         Schema::table('jobs', function (Blueprint $table) {
-            $table->string('tags')->default('Job');j
+            $table->string('tags')->default('Job');
         });
     }
 

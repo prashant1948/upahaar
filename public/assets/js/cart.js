@@ -85,6 +85,7 @@ function addToCart(product, csrf) {
         },
         error: function (data) {
             if (data.status == 401) {
+                sessionStorage.setItem("productIdToAdd", product);
                 $('#message').slideToggle(200);
                 $('#message').delay(2000).fadeOut(200);
             }

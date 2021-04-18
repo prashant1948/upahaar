@@ -85,8 +85,6 @@ class CartController extends Controller
             }
             return $this->getCart($request);
         }else {
-            $product = Product::find($request->input('product'));
-            Session::put('productSession',$product);
             return response()->json(array("error" => "Unauthorized error"), 401);
         }
     }

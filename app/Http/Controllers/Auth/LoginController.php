@@ -37,15 +37,12 @@ class LoginController extends Controller
     protected function authenticated(Request $request)
     {
         if (Session::has('buyID')) {
-            $buyID =  Session::get('buyID');
+            $buyID = Session::get('buyID');
             $request->session()->forget('buyID');
-            $this->redirectTo = url('/checkoutBuy/'.$buyID);
+            $this->redirectTo = url('/checkoutBuy/' . $buyID);
         }
-//        if (Session::has('productSession')) {
-//            $productSessionID =  Session::get('productSession');
-//            $request->session()->forget('productSession');
-//            $this->redirectTo = url('/ecommerce')->with(['productSessionID' => $productSessionID]);
-//        }
+        return redirect()->back();
+
     }
     /**
      * Create a new controller instance.
@@ -116,5 +113,10 @@ class LoginController extends Controller
 
 
 
+    }
+    public function logout()
+    {
+        Auth::logout();
+        return redirect()->back();
     }
 }

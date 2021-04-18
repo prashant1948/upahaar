@@ -298,7 +298,7 @@ class IndexController extends Controller
             ->take(3)
             ->get();
         $banner = Banner::first();
-        return view('multiservice',compact('top_sales','jobs','cars','banner'));
+        return view('multi.index',compact('top_sales','jobs','cars','banner'));
     }
 
     public function showJob(Request $request, $id) {

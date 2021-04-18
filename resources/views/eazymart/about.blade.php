@@ -1,4 +1,4 @@
-@extends('layouts.eazyCommon')
+@extends('multiservice')
 @section('content')
 <!-- banner-2 -->
 {{--<div class="page-head_agile_info_w3l">--}}

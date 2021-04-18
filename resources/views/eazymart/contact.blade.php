@@ -1,4 +1,4 @@
-@extends('layouts.eazyCommon')
+@extends('multiservice')
 @section('content')
 <!-- banner-2 -->
 {{--logi--}}
