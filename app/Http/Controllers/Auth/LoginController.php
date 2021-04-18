@@ -36,8 +36,8 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request)
     {
-        if (Session::has('buyID')) {
-            $buyID = Session::get('buyID');
+        if($request->session()->has('buyID')){
+            $buyID = $request->session()->get('buyID');
             $request->session()->forget('buyID');
             $this->redirectTo = url('/checkoutBuy/' . $buyID);
         }

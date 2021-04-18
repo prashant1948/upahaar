@@ -164,7 +164,7 @@ class CartController extends Controller
         return view('main.checkout', ['cart_id' => $cart[0]->id]);
     }
 
-    public function buyNow($id){
+    public function buyNow(Request $request, $id){
         $product = Product::find($id);
         $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
         if (Auth::check()){
@@ -177,7 +177,7 @@ class CartController extends Controller
         }
         Session::put('buyID', $id);
 
-//        Alert::info('Not Logged In', 'Please Log In.');
+        Alert::info('Not Logged In', 'Please Log In.');
         return redirect()->back();
     }
 
