@@ -209,12 +209,12 @@
                                             <div class="inner-men-cart-pro">
                                                 <div class="inner-men-cart-pro">
                                                     @if(!Auth::user())
-                                                        <a class="link-product-add-cart" data-toggle="modal" data-id="{{$f->id}}" data-target="#myModal1">Buy Now</a>
+                                                        <a class="link-product-add-cart" data-toggle="modal" data-target="#myModal1">Buy Now</a>
                                                     @else
                                                         <a href="{{ url('buyNow/' . $f->id) }}" class="link-product-add-cart">Buy Now</a>
                                                     @endif
                                                 </div>
-                                            </div>m
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="item-info-product ">
