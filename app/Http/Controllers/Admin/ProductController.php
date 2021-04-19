@@ -26,7 +26,8 @@ class ProductController extends Controller
             $items = Product::latest()->Paginate(10);
             $catList = DB::table('departments')->pluck('id', 'department_name');
         } else {
-            $items = Product::where('vendor_id', Auth::user()->vendor_id)->get();
+            $catList = DB::table('departments')->pluck('id', 'department_name');
+            $items = Product::where('vendor_id', Auth::user()->vendor_id)->latest()->Paginate(10);
         }
         return view('admin.itemList',['items' => $items,'catList' => $catList]);
     }
@@ -66,11 +67,11 @@ class ProductController extends Controller
         $product->brand = $request->input('brand');
         $product->discount = $request->input('discount');
 
-//        if (Auth::user()->isAdmin()) {
-//            $product->vendor_id = $request->input('vendor_id');
-//        } else {
-//            $product->vendor_id = Auth::user()->vendor_id;
-//        }
+        if (Auth::user()->isAdmin()) {
+            $product->vendor_id = $request->input('vendor_id');
+        } else {
+            $product->vendor_id = Auth::user()->vendor_id;
+        }
         $product->description = $request->input('description');
         $product->quantity = $request->input('quantity');
         $product->rate = $request->input('rate');
@@ -112,11 +113,11 @@ class ProductController extends Controller
 
         $product->discount = $request->input('discount');
 
-//        if (Auth::user()->isAdmin()) {
-//            $product->vendor_id = $request->input('vendor_id');
-//        } else {
-//            $product->vendor_id = Auth::user()->vendor_id;
-//        }
+        if (Auth::user()->isAdmin()) {
+            $product->vendor_id = $request->input('vendor_id');
+        } else {
+            $product->vendor_id = Auth::user()->vendor_id;
+        }
         $product->description = $request->input('description');
         $product->quantity = $request->input('quantity');
         $product->rate = $request->input('rate');

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Vendor;
 
@@ -24,6 +26,15 @@ class VendorController extends Controller
         $vendor = new Vendor();
         $vendor->name = $request->input('name');
         $vendor->save();
+        $user = new User();
+
+        $user->name = $vendor->name;
+        $user->email = $request->input('email');
+        $user->password = $request->input('password');
+        $user->user_role = 2;
+        $user->vendor_id = $vendor->id;
+        $user->created_at = Carbon::now();
+        $user->save();
 
         return $this->vendorList();
     }

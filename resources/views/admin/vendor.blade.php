@@ -16,7 +16,16 @@
         <h3 class="m-0 text-dark pl-2">Add Vendor</h3>
         <form class="form-inline" action="" method="POST">
             @csrf
-            <input type="text" class="form-control mb-2 mr-sm-2" name="name" placeholder="Vendor Name">
+            <input type="text" class="form-control mb-2 mr-sm-4" name="name" placeholder="Vendor Name">
+
+            <input type="email" class="form-control mb-2 mr-sm-4" placeholder="E-mail" name="email" required="">
+
+            <input type="text" class="form-control mb-2 mr-sm-4" name="user_role" hidden>
+
+            <input type="password" class="form-control mb-2 mr-sm-4" placeholder="Password" name="password" id="password1" required="">
+
+            <input type="password" class="form-control mb-2 mr-sm-4" placeholder="Confirm Password" name="password_confirmation" id="password2" required="">
+
             <button type="submit" class="btn btn-primary mb-2">Add Vendor</button>
         </form>
     </div>
