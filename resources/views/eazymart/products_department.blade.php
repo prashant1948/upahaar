@@ -56,7 +56,11 @@
 {{--                                                        <a href="/singleMart/{{$f->id}}" class="link-product-add-cart">Quick View</a>--}}
                                                     </div>
                                                 </div>
+                                                @if($f->prev_price)
+                                                    <span class="product-new-top-discount">Rs. {{$f->prev_price - $f->rate}} Off</span>
+                                                @else{
                                                 <span class="product-new-top">New</span>
+                                                @endif
                                             </div>
                                             <div class="item-info-product ">
                                                 <h4>

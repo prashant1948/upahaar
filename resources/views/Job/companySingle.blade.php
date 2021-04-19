@@ -42,9 +42,10 @@
                                 </div>
                                 <div class="col-md-8 col-sm-8">
                                     <div class="company-content">
-                                        <a href="/singleJob/{{$job->id}}"><h3>{{$job->name}}<span class="full-time">{{$job->job_type}}</span></h3></a>
+
+                                        <a href="/singleJob/{{$job->id}}"><h3>{{$job->name}}</h3></a>
                                         <p><span class="company-name"><i class="fa fa-briefcase"></i>{{$job->company_name}}</span><span class="package"><i class="fa fa-money"></i>{{$job->salary}}</span></p>
-                                        <p><i class="fa fa-bookmark"></i>Tags: {{$job->tags}}</p>
+                                        <p><i class="fa fa-bookmark"></i>Tags: {{$job->tags}} <span class="label label-success" style="font-size:10px">{{$job->job_type}}</span></p>
                                     </div>
                                     @if($job->apply_before > \Carbon\Carbon::today())
                                         <span class="badge badge-success">Hot Job</span>

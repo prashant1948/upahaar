@@ -34,7 +34,7 @@
         <!-- //tittle heading -->
         @if($products)
             <div class="product-sec1">
-                <h3 class="heading-tittle">Nuts</h3>
+{{--                <h3 class="heading-tittle">Nuts</h3>--}}
                 @foreach ($products as $f)
                     <div class="col-md-4 product-men">
                         <div class="men-pro-item simpleCart_shelfItem">

@@ -102,7 +102,13 @@
                                         @endif
                                     </div>
                                 </div>
-                                <span class="product-new-top">New</span>
+                                @if($f->prev_price)
+                                    <span class="product-new-top-discount">Rs. {{$f->prev_price - $f->rate}} Off</span>
+                                @else{
+                                     <span class="product-new-top">New</span>
+                                @endif
+
+
                             </div>
 
                             <div class="item-info-product">
@@ -166,7 +172,11 @@
                                         </div>
                                     </div>
                                 </div>
+                                @if($f->prev_price)
+                                    <span class="product-new-top-discount">Rs. {{$f->prev_price - $f->rate}} Off</span>
+                                @else{
                                 <span class="product-new-top">New</span>
+                                @endif
                             </div>
                             <div class="item-info-product">
                                 <h4>
@@ -216,6 +226,11 @@
                                                 </div>
                                             </div>
                                         </div>
+                                        @if($f->prev_price)
+                                            <span class="product-new-top-discount">Rs. {{$f->prev_price - $f->rate}} Off</span>
+                                        @else{
+                                        <span class="product-new-top">New</span>
+                                        @endif
                                     </div>
                                     <div class="item-info-product ">
                                         <h4>
@@ -270,8 +285,9 @@
                     <div class="w3l-specilamk">
                         <div class="speioffer-agile">
                             <a href="/singleMart/{{$f->id}}">
-                                <img alt="" src="/storage/images/products/{{$f->image}}"/>
+                                <img alt="" src="/storage/images/products/{{$f->image}}" style="width:70px;height:70px"/>
                             </a>
+
                         </div>
                         <div class="product-name-w3l">
                             <h4>
@@ -279,7 +295,11 @@
                             </h4>
                             <div class="w3l-pricehkj">
                                 <h6>Rs.{{$f->rate}}</h6>
-                                <p>Save {{$f->discount}} %</p>
+                                @if($f->discount)
+                                    <span class="badge badge-danger">Save {{$f->discount}} %</span>
+                                @else
+                                    <span class="badge badge-success">New</span>
+                                @endif
                             </div>
                             @if(!Auth::user())
                                 <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal1">

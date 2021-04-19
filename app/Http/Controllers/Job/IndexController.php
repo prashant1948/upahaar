@@ -27,8 +27,8 @@ class IndexController extends Controller
             ->join('job_companies', 'job_companies.id', '=', 'jobs.company_id')
             ->get();
 
-        return view('Job.index', [
 
+        return view('Job.index', [
             'jobs' => $jobs
         ]);
     }

@@ -180,6 +180,7 @@ label {
 }
 .header-bot {
     padding: 15px 0 20px;
+    text-align: center;
 }
 /*-- //logo --*/
 /*-- model_signin --*/
@@ -726,6 +727,19 @@ button.w3view-cart {
     border-radius: 50%;
     line-height: 3.3;
 }
+.product-new-top-discount {
+    background: red;
+    color: #fff;
+    right: 0;
+    position: absolute;
+    top: 0;
+    width: 50px;
+    font-size: 9px;
+    height: 50px;
+    text-align: center;
+    border-radius: 50%;
+    line-height: 5.3;
+}
 .inner-men-cart-pro {
     height: 100%;
     position: relative;
@@ -745,7 +759,7 @@ button.w3view-cart {
     width: 100%;
     bottom: -60px;
     left: 0;
-    font-size: 10px;
+    font-size: 8px;
     position: absolute;
     transition: all 0.5s ease-out 0s;
 }
@@ -753,8 +767,8 @@ button.w3view-cart {
     background: #ff5722;
     color: #fff;
     display: inline-block;
-    height: 40px;
-    line-height: 40px;
+    height: 30px;
+    line-height: 30px;
     text-transform: uppercase;
     transition: all 0.5s ease-out 0s;
 }
@@ -1050,13 +1064,14 @@ h3.heading-tittle {
     margin: 12px 0;
 }
 span.item_price {
-    font-size: 18px;
+    font-size: 16px;
     color: #d60404;
 }
 .info-product-price del {
     font-weight: 300;
     margin-left: 13px;
-    font-size: 15px;
+    font-size: 11px;
+    color:red;
 }
 .product-sec1.product-sec2 {
     background: url(../images/bg1.jpg) no-repeat 0px 0px;
@@ -1264,6 +1279,7 @@ h3.tittle-w3l:after {
 }
 .product-name-w3l {
     margin-top: 20px;
+    text-align: center;
 }
 /*-- //special-offers --*/
 
@@ -1698,6 +1714,7 @@ ul.w3_short {
 .company-logo img{
     margin:0 auto;
     width:100px;
+    border-radius: 100%;
     height:100px;
 }
 .company-content{
@@ -2059,7 +2076,7 @@ h3.bars {
     background-color: #03a9f4;
 }
 .badge-success {
-    background-color: #22cdf3;
+    background-color: #79f365;
 }
 .badge-warning {
     background-color: #ffc107;
@@ -4226,13 +4243,13 @@ select.form-control.option-w3ls {
         font-size: 12px;
     }
     .product-name-w3l h4 a {
-        font-size: 14px;
+        font-size: 13px;
     }
     .w3l-pricehkj h6 {
-        font-size: 17px;
+        font-size: 14px;
     }
     .w3l-pricehkj p {
-        font-size: 14px;
+        font-size: 12px;
     }
     .w3l-pricehkj {
         margin: 10px 0 16px;
@@ -4409,11 +4426,11 @@ select.form-control.option-w3ls {
         min-height: 234px;
     }
     .product-name-w3l h4 a {
-        font-size: 16px;
+        font-size: 12px;
         letter-spacing: 1px;
     }
     .w3l-pricehkj h6 {
-        font-size: 18px;
+        font-size: 15px;
     }
     .nbs-flexisel-nav-right,
     .nbs-flexisel-nav-left {
@@ -5348,8 +5365,8 @@ select.form-control.option-w3ls {
 .count {
     position: absolute;
     color: #fff;
-    top: 5px;
-    right: 55px;
+    top: -2px;
+    right: 70px;
     border-radius: 100px;
     width: 15px;
     height: 15px;
@@ -5448,6 +5465,76 @@ table .thumb img {
 
 .selected{
     border:1px solid black;
+}
+@media (max-width: 568px) {
+    .company-list{
+        padding:10px 20px;
+    }
+    .company-content h3 {
+        font-size: 15px;
+        font-weight: 400;
+        margin-bottom: 10px;
+        margin-top: 7px;
+    }
+    .company-content p span {
+        font-size: 12px;
+        margin-right: 20px;
+        margin-bottom: 10px;
+    }
+    .top-cart-holder{
+        margin-top: 15px;
+    }
+    .agileits-navi_search{
+        width:50%;
+    }
+    .navbar-toggle{
+        visibility: hidden;
+    }
+    .page-ecommerce_agile_info_w3l{
+        margin-top: 0px;
+    }
+    .product-new-top-discount{
+        width: 40px;
+        font-size: 9px;
+        height: 40px;
+        text-align: center;
+        border-radius: 50%;
+        line-height: 4.3;
+    }
+
+
+    .product-name-w3l .snipcart-details input.button{
+        padding: 10px 0;
+    }
+    .page-head_agile_info_w3l img {
+        width: 80px;
+        margin: 40px;
+        height: 80px;
+        position: absolute;
+        border-radius: 100%;
+        background: lightgrey
+    }
+    .page-head_agile_info_w3l h3 {
+        color: white;
+        margin: 10px;
+        margin-left: 170px;
+        margin-top: 40px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+    .page-head_agile_info_w3l h5 {
+        color: white;
+        margin-left: 170px;
+        padding-bottom: 10px;
+
+    }
+    .company-logo img{
+        margin:0 auto;
+        width:90px;
+        border-radius: 100%;
+        height:80px;
+    }
+
 }
 
 

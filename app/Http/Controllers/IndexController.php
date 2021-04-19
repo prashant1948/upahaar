@@ -153,7 +153,6 @@ class IndexController extends Controller
         $chips= Product::select()->where('dept_id', $chipsDepartment)->take(6)->get();
         $nuts= Product::select()->where('dept_id', $nutsDepartment)->take(6)->get();
         $oil= Product::select()->where('dept_id', $oilDepartment)->take(6)->get();
-
         $frontEnd = Frontend::orderBy('created_at', 'desc')->get();
         $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
 
@@ -260,15 +259,17 @@ class IndexController extends Controller
             ->orWhere('brand', 'LIKE', '%'.$request->input('query').'%')
             ->orWhere('tags', 'LIKE', '%'.$request->input('query').'%')->get();
 
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
+
 
         if(count($cars) >= 1){
-            return view('car.car_search',compact('cars'));
+            return view('car.car_search',compact('cars','departmentsLists'));
         }
         elseif(count($jobs) >= 1){
-            return view('Job.job_search',compact('jobs'));
+            return view('Job.job_search',compact('jobs','departmentsLists'));
         }
         else{
-            return view('eazymart.product_search',compact('products'));
+            return view('eazymart.product_search',compact('products','departmentsLists'));
         }
 
     }

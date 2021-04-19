@@ -99,9 +99,23 @@
                         <li>
                             <div class="w3l-specilamk">
                                 <div class="speioffer-agile">
-                                    <a href="/singleMart/{{$f->id}}">
-                                        <img alt="" src="/storage/images/products/{{$f->image}}" style="width:70px;height:70px"/>
-                                    </a>
+                                    <div class="men-thumb-item">
+                                        <a href="/singleMart/{{$f->id}}">
+                                            <img alt="" src="/storage/images/products/{{$f->image}}" style="width:80px;height:80px"/>
+                                        </a>
+
+                                        <div class="men-cart-pro">
+                                            <div class="inner-men-cart-pro">
+                                                @if(!Auth::user())
+                                                    <a class="link-product-add-cart" data-toggle="modal" data-target="#myModal1">Buy Now</a>
+                                                @else
+                                                    <a href="{{ url('buyNow/' . $f->id) }}" class="link-product-add-cart">Buy Now</a>
+                                                @endif
+                                                {{--                                                        <a href="/singleMart/{{$f->id}}" class="link-product-add-cart">Quick View</a>--}}
+                                            </div>
+                                        </div>
+                                    </div>
+
                                 </div>
                                 <div class="product-name-w3l">
                                     <h4>
@@ -109,7 +123,11 @@
                                     </h4>
                                     <div class="w3l-pricehkj">
                                         <h6>Rs.{{$f->rate}}</h6>
-                                        <p>Save {{$f->discount}} %</p>
+                                        @if($f->discount)
+                                        <span class="badge badge-danger">Save {{$f->discount}} %</span>
+                                        @else
+                                            <span class="badge badge-success">New</span>
+                                        @endif
                                     </div>
                                     @if(!Auth::user())
                                         <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal1">
@@ -142,18 +160,21 @@
             @foreach($jobs as $job)
                 <div class="company-list">
                     <div class="row">
-                        <div class="col-md-2 col-sm-2">
+                        <div class="col-md-2 col-sm-2 col-12">
                             <div class="company-logo p-3">
-                                <img src="/storage/images/jobCompanyLogo/{{$job->logo}}" class="img-responsive" alt="" style="width:50px;height:50px"/>
+                                <img src="/storage/images/jobCompanyLogo/{{$job->logo}}" class="img-responsive" alt=""/>
                             </div>
+
                         </div>
-                        <div class="col-md-8 col-sm-8">
+                        <div class="col-md-8 col-sm-8 col-12">
                             <div class="company-content">
-                                <h3>{{$job->name}}<span class="full-time">{{$job->job_type}}</span></h3>
+                                <span class="label label-success">{{$job->job_type}}</span>
+                                <h3>{{$job->name}}</h3>
                                 <p><span class="company-name"><i class="fa fa-briefcase"></i>{{$job->company_name}}</span><span class="company-location"><i class="fa fa-map-marker"></i> {{$job->company_address}}</span><span class="package"><i class="fa fa-money"></i>{{$job->salary}}</span></p>
+
                             </div>
                         </div>
-                        <div class="col-md-2 col-sm-2 pt-2">
+                        <div class="col-md-2 col-sm-2 col-12">
                             @if(!Auth::user())
                                 <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out pr-3" data-toggle="modal" data-target="#myModal1">
                                     <a href="/indexJob"><input type="submit" name="submit" value="Apply" class="button"/></a>
@@ -187,12 +208,14 @@
                         <div class="row">
                             <div class="col-md-2 col-sm-2">
                                 <div class="company-logo p-3">
-                                    <img src="/storage/images/carDetails/{{$car->image}}" class="img-responsive" alt=""  style="width:50px;height:50px"//>
+                                    <img src="/storage/images/carDetails/{{$car->image}}" class="img-responsive" alt=""  />
                                 </div>
+
                             </div>
                             <div class="col-md-8 col-sm-8">
                                 <div class="company-content">
-                                    <h3>{{$car->model}}<span class="full-time">{{$car->category->car_category}}</span></h3>
+                                    <span class="label label-success">{{$car->category->car_category}}</span>
+                                    <h3>{{$car->model}}</h3>
                                     <p><span class="company-name"><i class="fa fa-seat"></i>{{$car->seats}} Seater</span><span class="company-location"><i class="fa fa-cog"></i> {{$car->description}}</span></p>
                                     {{--                            <span class="package"><i class="fa fa-money"></i>{{$car->model}}</span>--}}
                                 </div>

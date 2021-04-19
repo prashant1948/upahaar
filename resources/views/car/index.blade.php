@@ -38,7 +38,8 @@
                         </div>
                         <div class="col-md-8 col-sm-8">
                             <div class="company-content">
-                                <h3>{{$car->model}}<span class="full-time">{{$car->category->car_category}}</span></h3>
+                                <span class="label label-success">{{$car->category->car_category}}</span>
+                                <h3>{{$car->model}}</h3>
                                 <p><span class="company-name"><i class="fa fa-seat"></i>{{$car->seats}} Seater</span><span class="company-location"><i class="fa fa-cog"></i> {{$car->description}}</span></p>
                                 {{--                            <span class="package"><i class="fa fa-money"></i>{{$car->model}}</span>--}}
                             </div>
