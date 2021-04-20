@@ -17,6 +17,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use RealRashid\SweetAlert\Facades\Alert;
+use function Sodium\compare;
 
 class JobController extends Controller
 {
@@ -69,6 +70,7 @@ class JobController extends Controller
 //            'company_id' => 'required',
 //
 //        ]);
+        $catList = DB::table('job_categories')->pluck('id', 'job_category');
 
         $job = new Job();
         $job->name = $request->input('name');
@@ -89,7 +91,8 @@ class JobController extends Controller
 
 
         $job->save();
-        return redirect('/jobs');
+        Alert::success('Congratulations', 'You have successfully posted a job.');
+        return redirect()->back();
     }
 
     /**
@@ -163,7 +166,11 @@ class JobController extends Controller
     {
         $job_category = JobCategories::all();
         $job_company = JobCompany::all();
-        return view('Job.postjob', compact('job_category', 'job_company'));
+        $jobs = DB::table('jobs')
+            ->select('jobs.id','jobs.name','jobs.salary','jobs.job_type','job_companies.id AS company_id','job_companies.name AS company_name','job_companies.logo','job_companies.address as company_address')
+            ->join('job_companies', 'job_companies.id', '=', 'jobs.company_id')
+            ->get();
+        return view('Job.postjob', compact('job_category', 'job_company','jobs'));
     }
 
 

@@ -34,6 +34,10 @@
                             <option value="freelance">Freelance</option>
                         </select>
                     </div>
+                    <div class="form-group">
+                        <label for="salary">Tags:</label>
+                        <input type="text" class="form-control input-lg" name="tags" required>
+                    </div>
 
                     @if (Auth::user()->isAdmin())
                         <div class="form-group">
@@ -53,6 +57,15 @@
                                 <option value="{{$department->id}}">{{$department->job_category}}</option>
                             @endforeach
                         </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="posted_date">Posted At:</label>
+                        <input type="date" class="form-control input-lg" name="posted_date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="apply_before">Apply Before:</label>
+                        <input type="date" class="form-control input-lg" name="apply_before" required>
                     </div>
 
                     <button type="submit" class="btn btn-primary">Post</button>

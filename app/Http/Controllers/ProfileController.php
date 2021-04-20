@@ -9,6 +9,7 @@ use App\Job\JobCompany;
 use App\Cart;
 use App\User;
 use Auth;
+use Illuminate\Support\Facades\DB;
 
 
 class ProfileController extends Controller
@@ -24,8 +25,13 @@ class ProfileController extends Controller
         return view('eazymart.profile', compact('profileCarts','barcode'));
     }
     public function showProfileJob(){
-        $job = Job::where('company_id','=', Auth::user()->job_company_id)->value('id');
+        $job = Job::where('company_id', '=', Auth::user()->job_company_id)->value('id');
+
         $jobapplicants = JobApplications::with('user','job')->where('job_id','=',$job)->get();
-        return view('Job.applicants', compact('jobapplicants','job'));
+        $jobs = DB::table('jobs')
+            ->select('jobs.id','jobs.name','jobs.salary','jobs.job_type','job_companies.id AS company_id','job_companies.name AS company_name','job_companies.logo','job_companies.address as company_address')
+            ->join('job_companies', 'job_companies.id', '=', 'jobs.company_id')
+            ->get();
+        return view('Job.applicants', compact('jobapplicants','job','jobs'));
     }
 }
