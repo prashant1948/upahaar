@@ -132,11 +132,12 @@
 @yield('content')
 
 {{--<section class="content2" id="section2">--}}
-<footer class="footer" id="footerDiv">
-    <div class="copyright">
-        <h6>Copyright @ 2021 - Let IT Grow Pvt. Ltd. All Rights Reserved</h6>
-    </div>
-</footer>
+@include('eazymart.partials.footer')
+{{--<footer class="footer" id="footerDiv">--}}
+{{--    <div class="copyright">--}}
+{{--        <h6>Copyright @ 2021 - Let IT Grow Pvt. Ltd. All Rights Reserved</h6>--}}
+{{--    </div>--}}
+{{--</footer>--}}
 
 <script src="{{asset('js/jquery-3.2.1.min.js')}}"></script>
 

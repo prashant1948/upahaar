@@ -113,6 +113,7 @@ class BannerController extends Controller
             $extension = $request->file('banner1')->getClientOriginalExtension();
             $fileNameToStore1 = $filename.'_'.time().".".$extension;
             $path = $request->file('banner1')->storeAs('public/images/banner', $fileNameToStore1);
+            Storage::delete('public/images/banner'.$banner->image);
         } else {
             $fileNameToStore1 = 'no-image.jpg';
         }
@@ -125,8 +126,9 @@ class BannerController extends Controller
 //        } else {
 //            $fileNameToStore2 = 'no-image.jpg';
 //        }
-
-        $banner->banner1 = $fileNameToStore1;
+        if($request->hasFile('banner1')) {
+            $banner->banner1 = $fileNameToStore1;
+        }
         $banner->discount1 = $request->input('discount1');
 //        $banner->banner2 = $fileNameToStore2;
         $banner->section = $request->input('section');

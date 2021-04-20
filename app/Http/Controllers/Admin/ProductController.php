@@ -98,16 +98,18 @@ class ProductController extends Controller
 
     public function update(Request $request, $id)
     {
+        $product = Product::find($id);
         if($request->hasFile('image')){
             $filenameWithExt = $request->file('image')->getClientOriginalName();
             $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
             $extension = $request->file('image')->getClientOriginalExtension();
             $fileNameToStore = $filename.'_'.time().".".$extension;
             $path = $request->file('image')->storeAs('public/images/products', $fileNameToStore);
+            Storage::delete('public/images/products/'.$product->image);
         } else {
             $fileNameToStore = 'no-image.jpg';
         }
-        $product = Product::find($id);
+
         $product->name = $request->input('name');
         $product->brand = $request->input('brand');
 
@@ -123,7 +125,9 @@ class ProductController extends Controller
         $product->rate = $request->input('rate');
         $product->prev_price = $request->input('prev_price');
         $product->availability = $request->input('availability');
-        $product->image = $fileNameToStore;
+        if($request->hasFile('image')) {
+            $product->image = $fileNameToStore;
+        }
         $product->sku = $request->input('sku');
         $product->tags = $request->input('tags');
         $product->featured = ($request->featured == "on") ? 1 : 0;

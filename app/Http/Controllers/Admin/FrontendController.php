@@ -110,12 +110,15 @@ class FrontendController extends Controller
             $extension = $request->file('image')->getClientOriginalExtension();
             $fileNameToStore = $filename.'_'.time().".".$extension;
             $path = $request->file('image')->storeAs('public/images/slider', $fileNameToStore);
+            Storage::delete('public/images/slider'.$frontEnd->image);
         } else {
             $fileNameToStore = 'no-image.jpg';
         }
         $frontEnd->heading = $request->input('heading');
         $frontEnd->message = $request->input('message');
-        $frontEnd->image = $fileNameToStore;
+        if($request->hasFile('image')) {
+            $frontEnd->image = $fileNameToStore;
+        }
         $frontEnd->save();
         return redirect('/frontend');
     }

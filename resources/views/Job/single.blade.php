@@ -89,6 +89,17 @@
 {{--                        <label>non-returnable.</label>--}}
 {{--                    </p>--}}
                 </div>
+                <div class="col-md-3 col-sm-3 col-12">
+                    @if(!Auth::user())
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal1">
+                            <input type="submit" name="submit" value="Apply" class="button"/>
+                        </div>
+                    @else
+                        <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal4">
+                            <input type="submit" name="submit" value="Apply" class="button"/>
+                        </div>
+                    @endif
+                </div>
 {{--                <div class="occasion-cart">--}}
 {{--                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">--}}
 {{--                        <input type="submit" name="submit" value="Add to Cart" onclick="addToCart({{$product->id}}, '<?php echo csrf_token() ?>')" class="button"/>--}}

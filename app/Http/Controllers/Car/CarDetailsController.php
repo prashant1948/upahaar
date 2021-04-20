@@ -109,13 +109,16 @@ class CarDetailsController extends Controller
             $extension = $request->file('image')->getClientOriginalExtension();
             $fileNameToStore1 = $filename.'_'.time().".".$extension;
             $path = $request->file('image')->storeAs('public/images/carDetails', $fileNameToStore1);
+            Storage::delete('public/images/carDetails'.$car->image);
         } else {
             $fileNameToStore1 = 'no-image.jpg';
-        }
+        }i
 
         $car->model = $request->input('model');
         $car->description = $request->input('description');
-        $car->image = $fileNameToStore1;
+        if($request->hasFile('image')) {
+            $car->image = $fileNameToStore1;
+        }
         $car->seats = $request->input('seats');
         $car->category_id = $request->input('category_id');
         $car->save();

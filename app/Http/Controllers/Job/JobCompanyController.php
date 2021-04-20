@@ -57,13 +57,16 @@ class JobCompanyController extends Controller
             $extension = $request->file('logo')->getClientOriginalExtension();
             $fileNameToStore1 = $filename.'_'.time().".".$extension;
             $path = $request->file('logo')->storeAs('public/images/jobCompanyLogo', $fileNameToStore1);
+
         } else {
             $fileNameToStore1 = 'no-image.jpg';
         }
         $job_company->name = $request->input('name');
         $job_company->description = $request->input('description');
         $job_company->email = $request->input('email');
-        $job_company->logo = $fileNameToStore1;
+        if($request->hasFile('logo')) {
+            $job_company->logo = $fileNameToStore1;
+        }
         $job_company->address = $request->input('address');
         $job_company->password = Hash::make($request->input('password'));
         $job_company->user_role = 4;

@@ -57,7 +57,10 @@
             </div>
             <div class="form-group">
                 <label for="image">Image:</label><br>
-                <input type="file" name="image" value="{{old('image', $items->image)}}">
+                <input type="file" name="image">
+                <div class="col-md-2 col-sm-2">
+                    <img src="/storage/images/products/{{$items->image}}" style=" height: auto; max-width:12em;" alt = "Image">
+                </div>
             </div>
             <div class="form-group">
                 <label for="tags">Tags:</label>
@@ -70,16 +73,16 @@
                     <option value="Out Of Stock">Out of Stock</option>
                 </select>
             </div>
-{{--            @if (Auth::user()->isAdmin())--}}
-{{--                <div class="form-group">--}}
-{{--                    <label for="dept_id">Vendor:</label>--}}
-{{--                    <select class="form-control" name="vendor_id">--}}
-{{--                        @foreach ($vendors as $vendor)--}}
-{{--                            <option value="{{$vendor->id}}">{{$vendor->name}}</option>--}}
-{{--                        @endforeach--}}
-{{--                    </select>--}}
-{{--                </div>--}}
-{{--            @endif--}}
+            @if (Auth::user()->isAdmin())
+                <div class="form-group">
+                    <label for="dept_id">Vendor:</label>
+                    <select class="form-control" name="vendor_id">
+                        @foreach ($vendors as $vendor)
+                            <option value="{{$vendor->id}}">{{$vendor->name}}</option>
+                        @endforeach
+                    </select>
+                </div>
+            @endif
             <label for="product_type">Product Type:</label>
             <div class="form-check">
                 <div>

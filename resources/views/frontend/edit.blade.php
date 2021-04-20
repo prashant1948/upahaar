@@ -32,6 +32,9 @@
             <div class="form-group">
                 <label for="image">Image:</label><br>
                 <input type="file" name="image">
+                <div class="col-md-2 col-sm-2">
+                    <img src="/storage/images/slider/{{$frontEnd->image}}" style=" height: auto; max-width:12em;" alt = "Image">
+                </div>
             </div>
 
             <input class="form-control btn btn-primary mb-4" type="submit" value="Submit">

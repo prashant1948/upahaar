@@ -57,7 +57,7 @@ label {
     font-weight: 600;
     padding: 8px;
     letter-spacing: 2px;
-    background: #1accfd;
+    background: #fd050a;
 }
 /* //top-header */
 /*-- header-bottom --*/
@@ -127,7 +127,7 @@ label {
     height: 42px;
     outline: none;
     box-shadow: none;
-    background: #1accfd;
+    background: #009811;
     padding: 0;
     border-radius: inherit;
     -webkit-appearance: none;
@@ -1525,7 +1525,7 @@ p.footer-main span {
 .copy-right {
     text-align: center;
     padding: 15px 0;
-    background: #ff5722;
+    background: #fd050a;
 }
 .copy-right p {
     color: #fff;
@@ -3470,6 +3470,7 @@ select.form-control.option-w3ls {
     }
     .w3l-grids-footer {
         padding: 25px 0;
+
     }
     .address-right {
         width: 50%;
@@ -4041,6 +4042,8 @@ select.form-control.option-w3ls {
     }
     .w3l-grids-footer {
         padding: 20px 0;
+        text-align: center;
+        align-items: center;
     }
     .address-right {
         width: 100%;
@@ -4519,7 +4522,7 @@ select.form-control.option-w3ls {
 }
 @media (max-width: 440px) {
     .agileits_search .btn-default {
-        width: 48px;
+        width: 68px;
     }
     .img-deals {
         width: 33%;
@@ -5531,13 +5534,22 @@ table .thumb img {
     }
     .company-logo img{
         margin:0 auto;
-        width:90px;
+        max-width:60px;
         border-radius: 100%;
-        height:80px;
+        height:60px;
     }
     .nav-tabs{
         font-size:14px;
     }
+
+    .agileits_search {
+        width:100%;
+    }
+    .top_nav_right{
+        width:100%;
+    }
+
+
 
 }
 

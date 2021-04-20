@@ -23,7 +23,10 @@
             @method('PATCH')
             <div class="form-group">
                 <label for="banner1">Banner 1</label>
-                <input type="file" name="banner1" value="{{old('banner1', $banner->banner1)}}">
+                <input type="file" name="banner1">
+                <div class="col-md-2 col-sm-2">
+                    <img src="/storage/images/banner/{{$banner->banner1}}" style=" height: auto; max-width:12em;" alt = "Image">
+                </div>
             </div>
             <div class="form-group">
                 <label for="discount1">Discount 1</label>

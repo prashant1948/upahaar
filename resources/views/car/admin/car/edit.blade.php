@@ -29,6 +29,9 @@
             <div class="form-group">
                 <label for="banner2">Image:</label><br>
                 <input type="file" name="image">
+                <div class="col-md-2 col-sm-2">
+                    <img src="/storage/images/carDetails/{{$cars->image}}" style=" height: auto; max-width:12em;" alt = "Image">
+                </div>
             </div>
 
             <div class="form-group">
