@@ -7,7 +7,7 @@
                     @if (Auth::user()->isAdmin())
                         <h3 class="m-0 text-dark pl-2">Rent Applicants</h3>
                     @endif
-                </div>
+                </div>n
             </div>
         </div>
     </div>

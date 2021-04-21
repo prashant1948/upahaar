@@ -154,7 +154,7 @@ class IndexController extends Controller
         $nuts= Product::select()->where('dept_id', $nutsDepartment)->take(6)->get();
         $oil= Product::select()->where('dept_id', $oilDepartment)->take(6)->get();
         $frontEnd = Frontend::orderBy('created_at', 'desc')->get();
-        $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(5)->get();
 
         if (Auth::check()) {
             $cart = Cart::where([
@@ -259,7 +259,7 @@ class IndexController extends Controller
             ->orWhere('brand', 'LIKE', '%'.$request->input('query').'%')
             ->orWhere('tags', 'LIKE', '%'.$request->input('query').'%')->get();
 
-        $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(5)->get();
 
 
         if(count($cars) >= 1){

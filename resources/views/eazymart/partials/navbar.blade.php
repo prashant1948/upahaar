@@ -9,7 +9,7 @@
 <div class="header-bot">
     <div class="header-bot_inner_wthreeinfo_header_mid">
         <!-- header-bot-->
-        <div class="col-md-4 logo_agile">
+        <div class="col-md-2 col-12 logo_agile">
             <h1>
                 <a href="/">
                     <img src="{{asset('eazy/images/upahaar.jpg')}}" alt="" style="max-height:80px;">
@@ -17,9 +17,18 @@
             </h1>
         </div>
         <!-- header-bot -->
-        <div class="col-md-8 header">
+        <div class="col-md-10 col-12 header">
             <!-- header lists -->
             <ul>
+                <div class="agileits_search">
+                    <form class="form" action="/products/search/all" method="POST">
+                        @csrf
+                        <input id="searchProduct" name="query" type="search" placeholder="How can we help you?" required="">
+                        <button type="submit" class="btn btn-default" aria-label="Left Align">
+                            <span class="fa fa-search" aria-hidden="true"></span>
+                        </button>
+                    </form>
+                </div>
                 <li>
                     <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
                 </li>
@@ -47,24 +56,10 @@
                         </form>
                     </li>
                     @endif
-            </ul>
-            <!-- //header lists -->
-            <!-- search -->
-            <div class="agileits_search">
-                <form class="form" action="/products/search/all" method="POST">
-                    @csrf
-                    <input id="searchProduct" name="query" type="search" placeholder="How can we help you today?" required="">
-                    <button type="submit" class="btn btn-default" aria-label="Left Align">
-                        <span class="fa fa-search" aria-hidden="true"></span>
-                    </button>
-                </form>
-            </div>
-            <!-- //search -->
-            <!-- cart details -->
-            <header>
-            <div class="top_nav_right">
-                <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-                    <div class="top-cart-holder dropdown animate-dropdown basket" id="cart-dropdown">
+
+                <div class="top_nav_right">
+                    <div class="wthreecartaits wthreecartaits2 cart cart box_1">
+                        <div class="top-cart-holder dropdown animate-dropdown basket" id="cart-dropdown">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#">
                                 @guest
                                     <a href="#" data-toggle="modal" data-target="#myModal1">
@@ -115,45 +110,53 @@
                             </a>
 
                             @if ($carts ?? '')
-                                    <ul class="dropdown-menu">
-                                        @foreach ($carts as $cart)
-                                            <li>
-                                                <div class="basket-item">
-                                                    <div class="row">
-                                                        <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                                            <div class="thumb" >
-                                                                <img alt="" src="/assets/images/products/{{$cart->product->image}}"/>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-xs-8 col-sm-8">
-                                                            <div class="title">{{$cart->product->name}}</div>
-                                                            <div class="price">Rs.{{$cart->product->rate}}</div>
-                                                        </div>
-                                                    </div>
-                                                    <a class="close-btn" href="#"></a>
-                                                </div>
-                                            </li>
-                                        @endforeach
-
-                                        <li class="checkout">
+                                <ul class="dropdown-menu">
+                                    @foreach ($carts as $cart)
+                                        <li>
                                             <div class="basket-item">
                                                 <div class="row">
-                                                    <div class="col-xs-12 col-sm-6">
-                                                        <a href="/checkoutMart" class="le-button">Checkout</a>
+                                                    <div class="col-xs-4 col-sm-4 no-margin text-center">
+                                                        <div class="thumb" >
+                                                            <img alt="" src="/assets/images/products/{{$cart->product->image}}"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-8 col-sm-8">
+                                                        <div class="title">{{$cart->product->name}}</div>
+                                                        <div class="price">Rs.{{$cart->product->rate}}</div>
                                                     </div>
                                                 </div>
+                                                <a class="close-btn" href="#"></a>
                                             </div>
                                         </li>
-                                    </ul>
+                                    @endforeach
+
+                                    <li class="checkout">
+                                        <div class="basket-item">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-6">
+                                                    <a href="/checkoutMart" class="le-button">Checkout</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
 
                             @endif
-{{--                        </div><!-- /.basket -->--}}
-                    </div><!-- /.top-cart-holder -->
-{{--                    </form>--}}
+                            {{--                        </div><!-- /.basket -->--}}
+                        </div><!-- /.top-cart-holder -->
+                        {{--                    </form>--}}
 
+                    </div>
                 </div>
-            </div>
-            </header>
+
+            </ul>
+            <!-- //header lists -->
+            <!-- search -->
+
+            <!-- //search -->
+            <!-- cart details -->
+
+
             <!-- //cart details -->
             <div class="clearfix"></div>
     </div>
@@ -349,6 +352,11 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse menu--shylock departments" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav menu__list">
+                <li class="active">
+                    <a class="nav-stylehead" href="/ecommerce">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
                 @foreach ($departmentsLists as $department)
                     <li class="dropdown menu-item">
                         <a href="/departmentMart/{{$department->id}}" >{{$department->department_name}}</a>
