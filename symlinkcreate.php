@@ -1,2 +1,2 @@
 <?php
-symlink('/home/letitgro/multiservices.letitgrownepal.com/multi_service/storage/app/public', '/home/letitgro/multiservices.letitgrownepal.com/storage');
+symlink('/home/upahaars/public_html/multi_service/storage/app/public', '/home/upahaars/public_html/storage');

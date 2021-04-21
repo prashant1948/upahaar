@@ -6,7 +6,7 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 @if (Auth::user()->isAdmin())
-                    <h3 class="m-0 text-dark pl-2">Add Car Category</h3>
+                    <h3 class="m-0 text-dark pl-2">Add Rental Category</h3>
                 @endif
             </div>
         </div>
@@ -22,7 +22,7 @@
         <form action="{{route('carcategory.store')}}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="car_category">Car Category</label>
+                <label for="car_category">Rental Category</label>
                 <input type="text" class="form-control" name="car_category">
             </div>
 

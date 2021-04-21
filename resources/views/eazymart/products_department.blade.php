@@ -1,9 +1,7 @@
 @extends('layouts.eazyCommon')
 
 @section('content')
-<div class="page-ecommerce_agile_info_w3l">
 
-</div>
 <section id="category-grid">
     <div class="container">
 
@@ -42,7 +40,8 @@
                         @if($products)
                             <div class="product-sec1">
                                 @foreach ($products as $f)
-                                    <div class="col-md-4 product-men">
+                                    <div class="col-md-4">
+                                        <div class="product-men">
                                         <div class="men-pro-item simpleCart_shelfItem">
                                             <div class="men-thumb-item">
                                                 <img alt="" src="/storage/images/products/{{$f->image}}"/>
@@ -74,6 +73,7 @@
                                                     <input type="submit" name="submit" onclick="addToCart({{$f->id}}, '<?php echo csrf_token() ?>')" value="Add to cart" class="button" />
                                                 </div>
                                             </div>
+                                        </div>
                                         </div>
                                     </div>
                                 @endforeach

@@ -7,23 +7,20 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendMail extends Mailable
+class SendProductNotificationUser extends Mailable
 {
     use Queueable, SerializesModels;
+    protected $info;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public $contactMessage;
-    public $contact;
-    public function __construct($contactMessage,$contact)
+    public function __construct($info)
     {
-        $this->contactMessage = $contactMessage;
-        $this->contact = $contact;
+        $this->info = $info;
     }
-
 
     /**
      * Build the message.
@@ -32,7 +29,7 @@ class SendMail extends Mailable
      */
     public function build()
     {
-        return $this->subject('Contact Message Upahaar Solutions')
-            ->view('mail.contact',compact($this));
+        return $this->subject('User Alert ')
+            ->view('mail.product_notification_user')->with('info', $this->info);
     }
 }

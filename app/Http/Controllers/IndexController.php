@@ -298,6 +298,7 @@ class IndexController extends Controller
         $cars = CarDetails::with('category')->orderBy('id', 'desc')
             ->take(3)
             ->get();
+
         $banner = Banner::first();
         return view('multi.index',compact('top_sales','jobs','cars','banner'));
     }

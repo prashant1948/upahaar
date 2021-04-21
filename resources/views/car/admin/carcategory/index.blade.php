@@ -5,7 +5,7 @@
         <div class="row mb-2">
             <div class="col-sm-6">
                 @if (Auth::user()->isAdmin())
-                    <h3 class="m-0 text-dark pl-2">Car Categories</h3>
+                    <h3 class="m-0 text-dark pl-2">Rental Categories</h3>
                 @endif
             </div>
         </div>
@@ -24,7 +24,7 @@
                 @endphp
                 <tr class="text-center">
                     <th>Sn</th>
-                    <th>Car Category</th>
+                    <th>Rental Category</th>
                     <th>Action</th>
                 </tr>
                     @foreach ($carcategories as $b)

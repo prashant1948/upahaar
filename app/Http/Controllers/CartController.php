@@ -4,12 +4,14 @@ namespace App\Http\Controllers;
 
 use App\BuyNow;
 use App\Department;
+use App\Mail\SendProductNotification;
 use App\User;
 use Illuminate\Http\Request;
 use App\Cart;
 use App\CartItem;
 use App\Product;
 use App\Checkout;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Redirect;
 use Illuminate\Support\Facades\Session;
 Use RealRashid\SweetAlert\Facades\Alert;
@@ -195,9 +197,6 @@ class CartController extends Controller
         $checkout->address = $request->input('address');
         $checkout->phone_no = $request->input('phone_no');
         $checkout->cart_id = $request->input('cart_id');
-
-
-
         $cart = Cart::find($request->input('cart_id'));
         $cart->checkout = 1;
 
@@ -206,6 +205,28 @@ class CartController extends Controller
         } else {
             $checkout->save();
             $cart->save();
+
+            $data = array(
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'phone_number' => $request['phone_number'],
+                'message' => $request['message'],
+            );
+
+            Mail::to($checkout->email)
+                ->send(new SendProductNotification($data));
+
+            $info = array(
+                'name' => $request['name'],
+                'email' => $request['email'],
+                'phone_number' => $request['phone_number'],
+                'message' => $request['message'],
+            );
+
+            Mail::to("info@letitgrownepal.com")
+                ->send(new SendProductNotification($info));
+
+
             Alert::success('Thank you', 'Your order is being processed');
             return redirect()->back();
         }
@@ -226,6 +247,27 @@ class CartController extends Controller
         $checkout->buy_id = $request->input('buy_id');
 
         $checkout->save();
+
+        $data = array(
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'phone_number' => $request['phone_number'],
+            'message' => $request['message'],
+        );
+
+        Mail::to($checkout->email)
+            ->send(new SendProductNotification($data));
+
+        $info = array(
+            'name' => $request['name'],
+            'email' => $request['email'],
+            'phone_number' => $request['phone_number'],
+            'message' => $request['message'],
+        );
+
+        Mail::to("info@letitgrownepal.com")
+            ->send(new SendProductNotification($info));
+
         Alert::success('Thank you', 'Your order is being processed');
         return redirect()->back();
     }

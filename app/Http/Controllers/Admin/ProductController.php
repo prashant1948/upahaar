@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Product;
 use App\Department;
 use App\Vendor;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Exports\ProductsExport;

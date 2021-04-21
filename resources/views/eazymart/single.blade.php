@@ -14,15 +14,15 @@
         </div>
     </div>
 </div>
-<div class="page-ecommerce_agile_info_w3l">
+{{--<div class="page-ecommerce_agile_info_w3l">--}}
 
-</div>
+{{--</div>--}}
 <!-- //page -->
 <!-- Single Page -->
 <div class="banner-bootom-w3-agileits">
     <div class="container">
         <!-- tittle heading -->
-        <h3 class="tittle-w3l">Single Page
+        <h3 class="tittle-w3l">Products
             <span class="heading-style">
 					<i></i>
 					<i></i>

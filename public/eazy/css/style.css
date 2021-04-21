@@ -667,10 +667,17 @@ button.w3view-cart {
 }
 .product-men {
     margin-top: 2em;
+    background: #ffffff;
+    /*margin: 12px;*/
+    padding: 12px 0 12px 0;
+    border: 1px solid #f4f5f7;
+    -webkit-box-shadow: 0px 0px 10px 0px rgb(107 121 124 / 20%);
+    box-shadow: 0px 0px 10px 0px rgb(107 121 124 / 20%);
 }
 .product-men img {
-    height: 100px;
-    max-width: 100px;
+    padding:0 10px 0 10px;
+    height: 150px;
+    max-width: 150px;
 }
 #cart-list .amount {
     float: right;
@@ -1057,20 +1064,20 @@ h3.heading-tittle {
 }
 .item-info-product h4 a {
     color: #000;
-    font-size: 17px;
+    font-size: 14px;
     letter-spacing: 1px;
 }
 .info-product-price {
     margin: 12px 0;
 }
 span.item_price {
-    font-size: 16px;
+    font-size: 14px;
     color: #d60404;
 }
 .info-product-price del {
     font-weight: 300;
     margin-left: 13px;
-    font-size: 11px;
+    font-size: 10px;
     color:red;
 }
 .product-sec1.product-sec2 {
@@ -1242,14 +1249,14 @@ h3.tittle-w3l:after {
 }
 .product-name-w3l h4 a {
     color: #000;
-    font-size: 20px;
+    font-size: 14px;
 }
 .w3l-pricehkj {
     margin: 13px 0 20px;
 }
 .w3l-pricehkj h6 {
     color: #ff5722;
-    font-size: 21px;
+    font-size: 16px;
 }
 .w3l-pricehkj p {
     color: #38393a;
@@ -1271,8 +1278,8 @@ h3.tittle-w3l:after {
     margin: 0 10px;
 }
 .w3l-specilamk img {
-    height: 100px;
-    max-width: 100px;
+    height: 150px;
+    max-width: 150px;
 }
 .speioffer-agile {
     text-align: center;
@@ -3192,7 +3199,7 @@ select.form-control.option-w3ls {
         left: -45px;
     }
     .product-name-w3l h4 a {
-        font-size: 18px;
+        font-size: 13px;
     }
     .footer-top h2 {
         font-size: 28px;
@@ -3878,7 +3885,7 @@ select.form-control.option-w3ls {
         font-size: 13px;
     }
     .info-product-price del {
-        font-size: 12px;
+        font-size: 11px;
     }
     .snipcart-details input.button {
         font-size: 7px;
@@ -4243,7 +4250,7 @@ select.form-control.option-w3ls {
         font-size: 13px;
     }
     .info-product-price del {
-        font-size: 12px;
+        font-size: 11px;
     }
     .product-name-w3l h4 a {
         font-size: 13px;

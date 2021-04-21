@@ -238,7 +238,7 @@
 <script>
     $(window).load(function () {
         $("#flexiselDemo1").flexisel({
-            visibleItems: 3,
+            visibleItems: 5,
             animationSpeed: 1000,
             autoPlay: true,
             autoPlaySpeed: 3000,

@@ -101,9 +101,8 @@
                                 <div class="speioffer-agile">
                                     <div class="men-thumb-item">
                                         <a href="/singleMart/{{$f->id}}">
-                                            <img alt="" src="/storage/images/products/{{$f->image}}" style="width:80px;height:80px"/>
+                                            <img alt="" src="/storage/images/products/{{$f->image}}"/>
                                         </a>
-
 {{--                                        <div class="men-cart-pro">--}}
 {{--                                            <div class="inner-men-cart-pro">--}}
 {{--                                                @if(!Auth::user())--}}

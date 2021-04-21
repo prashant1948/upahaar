@@ -129,7 +129,7 @@
         <!-- //Modal content-->
     </div>
 </div>
-@yield('content')
+@yield('content')i
 
 {{--<section class="content2" id="section2">--}}
 @include('eazymart.partials.footer')
@@ -225,7 +225,7 @@
 <script>
     $(window).load(function () {
         $("#flexiselDemo1").flexisel({
-            visibleItems: 3,
+            visibleItems: 5,
             animationSpeed: 1000,
             autoPlay: true,
             autoPlaySpeed: 3000,

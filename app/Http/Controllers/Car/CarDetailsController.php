@@ -13,6 +13,7 @@ use App\Job\JobApplications;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Storage;
 use RealRashid\SweetAlert\Facades\Alert;
 
 class CarDetailsController extends Controller
@@ -112,7 +113,7 @@ class CarDetailsController extends Controller
             Storage::delete('public/images/carDetails'.$car->image);
         } else {
             $fileNameToStore1 = 'no-image.jpg';
-        }i
+        }
 
         $car->model = $request->input('model');
         $car->description = $request->input('description');

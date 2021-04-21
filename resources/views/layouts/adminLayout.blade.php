@@ -406,7 +406,7 @@
                 </p>
             </a>
         </li>
-        <li class="nav-header">Car Rental</li>
+        <li class="nav-header">Rental</li>
 {{--        <li class="nav-item">--}}
 {{--            <a href="" class="nav-link">--}}
 {{--                <i class="nav-icon fas fa-building"></i>--}}
@@ -434,7 +434,7 @@
             <a href="" class="nav-link">
                 <i class="nav-icon fas fa-bookmark"></i>
                 <p>
-                    Car Categories
+                    Rental Categories
                     <i class="fas fa-angle-left right"></i>
                 </p>
             </a>
@@ -448,7 +448,7 @@
                 <li class="nav-item">
                     <a href="{{route('carcategory.index')}}" class="nav-link">
                         <i class="fas fa-list nav-icon"></i>
-                        <p>List Car Categories</p>
+                        <p>List Rental Categories</p>
                     </a>
                 </li>
             </ul>
@@ -457,7 +457,7 @@
             <a href="" class="nav-link">
                 <i class="nav-icon fas fa-car"></i>
                 <p>
-                    Cars
+                    Rents
                     <i class="fas fa-angle-left right"></i>
                 </p>
             </a>
@@ -471,7 +471,7 @@
                 <li class="nav-item">
                     <a href="{{route('cars.index')}}" class="nav-link">
                         <i class="fas fa-list nav-icon"></i>
-                        <p>List Cars</p>
+                        <p>List of Rents Info</p>
                     </a>
                 </li>
             </ul>

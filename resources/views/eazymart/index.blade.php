@@ -4,41 +4,6 @@
 
     </div>
 
-<!-- banner -->
-{{--<div id="myCarousel" class="carousel slide" data-ride="carousel">--}}
-
-{{--    <ol class="carousel-indicators">--}}
-{{--    @foreach( $frontEnd as $front )--}}
-{{--    <!-- Indicators-->--}}
-{{--        <li data-target="#myCarousel" data-slide-to="{{ $loop->index }}" class="{{ $loop->first ? 'active' : '' }}"></li>--}}
-{{--    @endforeach--}}
-{{--    </ol>--}}
-{{--    <div class="carousel-inner" role="listbox">--}}
-{{--        @foreach( $frontEnd as $front )--}}
-{{--        <div class="item {{ $loop->first ? ' active' : '' }}" style="background-image: url('{{ ('/storage/images/slider/' . $front->image) }}')">--}}
-{{--            <div class="container">--}}
-{{--                <div class="carousel-caption">--}}
-{{--                    <h3><span>{{$front->heading}}</span></h3>--}}
-{{--                    <p><span>{{$front->message}}</span></p>--}}
-{{--                    <a class="button2" href="product.html">Shop Now </a>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--        @endforeach--}}
-{{--    </div>--}}
-{{--    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">--}}
-{{--        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>--}}
-{{--        <span class="sr-only">Previous</span>--}}
-{{--    </a>--}}
-{{--    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">--}}
-{{--        <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>--}}
-{{--        <span class="sr-only">Next</span>--}}
-{{--    </a>--}}
-
-{{--</div>--}}
-<!-- //banner -->
-
-
 <div class="modal fade" id="myModal4" tabindex="-1" role="dialog">
     <div class="modal-dialog">
         <!-- Modal content-->
@@ -88,8 +53,10 @@
                 @if($nuts)
                 <div class="product-sec1">
                     <h3 class="heading-tittle">Nuts</h3>
+                    <div class="row" style="justify-content:center">
                     @foreach ($nuts as $f)
-                    <div class="col-md-2 col-2 product-men">
+                    <div class="col-md-2 col-2">
+                        <div class="product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
                                 <a href="/singleMart/{{$f->id}}"><img alt="" src="/storage/images/products/{{$f->image}}"/></a>
@@ -130,8 +97,10 @@
                                 @endif
                             </div>
                         </div>
+                        </div>
                     </div>
                     @endforeach
+                    </div>
                     <div class="clearfix"></div>
                 </div>
                 @endif
@@ -156,8 +125,10 @@
                 @if($oil)
                 <div class="product-sec1">
                     <h3 class="heading-tittle">Oils</h3>
+                    <div class="row" style="justify-content:center">
                     @foreach ($oil as $f)
-                    <div class="col-md-2 col-2 product-men">
+                    <div class="col-md-2 col-2">
+                        <div class="product-men">
                         <div class="men-pro-item simpleCart_shelfItem">
                             <div class="men-thumb-item">
                                 <img alt="" src="/storage/images/products/{{$f->image}}"/>
@@ -198,8 +169,10 @@
                                 @endif
                             </div>
                         </div>
+                        </div>
                     </div>
                     @endforeach
+                    </div>
 
                     <div class="clearfix"></div>
                 </div>
@@ -209,52 +182,56 @@
                 @if($bakery)
                 <div class="product-sec1">
                     <h3 class="heading-tittle">Bakery</h3>
+                    <div class="row" style="justify-content:center">
                     @foreach ($bakery as $f)
-
-                            <div class="col-md-2 col-2 product-men">
-                                <div class="men-pro-item simpleCart_shelfItem">
-                                    <div class="men-thumb-item">
-                                        <img alt="" src="/storage/images/products/{{$f->image}}"/>
-                                        <div class="men-cart-pro">
-                                            <div class="inner-men-cart-pro">
+                            <div class="col-md-2 col-2">
+                                <div class="product-men">
+                                    <div class="men-pro-item simpleCart_shelfItem">
+                                        <div class="men-thumb-item">
+                                            <img alt="" src="/storage/images/products/{{$f->image}}"/>
+                                            <div class="men-cart-pro">
                                                 <div class="inner-men-cart-pro">
-                                                    @if(!Auth::user())
-                                                        <a class="link-product-add-cart" data-toggle="modal" data-target="#myModal1">Buy Now</a>
-                                                    @else
-                                                        <a href="{{ url('buyNow/' . $f->id) }}" class="link-product-add-cart">Buy Now</a>
-                                                    @endif
+                                                    <div class="inner-men-cart-pro">
+                                                        @if(!Auth::user())
+                                                            <a class="link-product-add-cart" data-toggle="modal" data-target="#myModal1">Buy Now</a>
+                                                        @else
+                                                            <a href="{{ url('buyNow/' . $f->id) }}" class="link-product-add-cart">Buy Now</a>
+                                                        @endif
+                                                    </div>
                                                 </div>
                                             </div>
+                                            @if($f->prev_price)
+                                                <span class="product-new-top-discount">Rs. {{$f->prev_price - $f->rate}} Off</span>
+                                            @else{
+                                            <span class="product-new-top">New</span>
+                                            @endif
                                         </div>
-                                        @if($f->prev_price)
-                                            <span class="product-new-top-discount">Rs. {{$f->prev_price - $f->rate}} Off</span>
-                                        @else{
-                                        <span class="product-new-top">New</span>
-                                        @endif
-                                    </div>
-                                    <div class="item-info-product ">
-                                        <h4>
-                                            <a href="/singleMart/{{$f->id}}">{{ Str::limit($f->name, 10) }}</a>
-                                        </h4>
-                                        <div class="info-product-price">
-                                            <span class="item_price">Rs.{{$f->rate}}</span>
-                                            <del>Rs.{{$f->prev_price}}</del>
-                                        </div>
-                                        @if(!Auth::user())
-                                            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal1">
-                                                <input type="submit" name="submit" onclick="addToCart({{$f->id}}, '<?php echo csrf_token() ?>')" value="Add to cart" class="button" />
+                                        <div class="item-info-product ">
+                                            <h4>
+                                                <a href="/singleMart/{{$f->id}}">{{ Str::limit($f->name, 10) }}</a>
+                                            </h4>
+                                            <div class="info-product-price">
+                                                <span class="item_price">Rs.{{$f->rate}}</span>
+                                                <del>Rs.{{$f->prev_price}}</del>
                                             </div>
-                                        @else
-                                            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal4">
-                                                <input type="submit" name="submit" onclick="addToCart({{$f->id}}, '<?php echo csrf_token() ?>')" value="Add to cart" class="button" />
-                                            </div>
-                                        @endif
+                                            @if(!Auth::user())
+                                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal1">
+                                                    <input type="submit" name="submit" onclick="addToCart({{$f->id}}, '<?php echo csrf_token() ?>')" value="Add to cart" class="button" />
+                                                </div>
+                                            @else
+                                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out" data-toggle="modal" data-target="#myModal4">
+                                                    <input type="submit" name="submit" onclick="addToCart({{$f->id}}, '<?php echo csrf_token() ?>')" value="Add to cart" class="button" />
+                                                </div>
+                                            @endif
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
 
+
                     @endforeach
+                    </div>
                     <div class="clearfix"></div>
                 </div>
                 @endif
@@ -285,7 +262,7 @@
                     <div class="w3l-specilamk">
                         <div class="speioffer-agile">
                             <a href="/singleMart/{{$f->id}}">
-                                <img alt="" src="/storage/images/products/{{$f->image}}" style="width:70px;height:70px"/>
+                                <img alt="" src="/storage/images/products/{{$f->image}}"/>
                             </a>
 
                         </div>
