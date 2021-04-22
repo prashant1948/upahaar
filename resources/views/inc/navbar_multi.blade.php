@@ -1,7 +1,45 @@
 
 <!-- top-header -->
 <div class="header-most-top">
-    <p>Get the best Multi Service Application</p>
+    <div class="row">
+        <div class="col-lg-4 col-md-4 col-12">
+            <p>
+                <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
+            </p>
+        </div>
+        @guest
+            <div class="col-lg-4 col-md-4 col-12">
+                <p>
+                    <a href="#" data-toggle="modal" data-target="#myModal1">
+                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> Sign In </a>
+                </p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-12">
+                <p>
+                    <a href="#" data-toggle="modal" data-target="#myModal2">
+                        <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up </a>
+                </p>
+            </div>
+        @else
+            @if (Auth::user()->isStaff())
+                <div class="col-lg-4 col-md-4 col-12">
+                    <p><a href="/admin/dashboard">Dashboard</a></p>
+                </div>
+            @endif
+            {{--                    @if (Auth::user()->isJobCompany())--}}
+            {{--                        <li><a href="{{route('postJob.create')}}">Post a Job</a></li>--}}
+            {{--                        <li><a href="/profileCompany"><i class="fa fa-user s_color"></i> {{Auth::user()->name}} </a></li>--}}
+            {{--                    @endif--}}
+                <div class="col-lg-4 col-md-4 col-12">
+            <p>
+                <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </p>
+                </div>
+        @endif
+    </div>
 </div>
 
 <!-- //top-header -->
@@ -19,45 +57,18 @@
         <!-- header-bot -->
         <div class="col-md-10 col-12 header">
             <!-- header lists -->
-            <ul>
-                <div class="agileits_search">
-                    <form class="form" action="/search/all" method="POST">
-                        @csrf
-                        <input id="searchJob" name="query" type="search" placeholder="How can we help you?" required="">
-                        <button type="submit" class="btn btn-default">
-                            <span class="fa fa-search" aria-hidden="true"></span>
-                        </button>
-                    </form>
-                </div>
-                <li>
-                    <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
-                </li>
-                @guest
-                    <li>
-                        <a href="#" data-toggle="modal" data-target="#myModal1">
-                            <span class="fa fa-unlock-alt" aria-hidden="true"></span> Sign In </a>
-                    </li>
-                    <li>
-                        <a href="#" data-toggle="modal" data-target="#myModal2">
-                            <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up </a>
-                    </li>
-                @else
-                    @if (Auth::user()->isStaff())
-                        <li><a href="/admin/dashboard">Dashboard</a></li>
-                    @endif
-{{--                    @if (Auth::user()->isJobCompany())--}}
-{{--                        <li><a href="{{route('postJob.create')}}">Post a Job</a></li>--}}
-{{--                        <li><a href="/profileCompany"><i class="fa fa-user s_color"></i> {{Auth::user()->name}} </a></li>--}}
-{{--                    @endif--}}
 
-                    <li>
-                        <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </li>
-                @endif
-            </ul>
+            <div class="agileits_search">
+                <form class="form" action="/search/all" method="POST">
+                    @csrf
+                    <input id="searchJob" name="query" type="search" placeholder="How can we help you?" required="">
+                    <button type="submit" class="btn btn-default">
+                        <span class="fa fa-search" aria-hidden="true"></span>
+                    </button>
+                </form>
+            </div>
+
+
             <!-- //header lists -->
             <!-- search -->
 

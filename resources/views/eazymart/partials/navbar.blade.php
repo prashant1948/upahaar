@@ -1,7 +1,47 @@
 
 <!-- top-header -->
 <div class="header-most-top">
-    <p>Grocery Offer Zone Top Deals & Discounts</p>
+{{--    <p>Grocery Offer Zone Top Deals & Discounts</p>--}}
+    <div class="row">
+    <div class="col-lg-4 col-md-4 col-12">
+        <p>
+            <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
+        </p>
+    </div>
+    @guest
+        <div class="col-lg-4 col-md-4 col-12">
+            <p>
+                <a href="#" data-toggle="modal" data-target="#myModal1">
+                    <span class="fa fa-unlock-alt" aria-hidden="true"></span> Sign In </a>
+            </p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12">
+            <p>
+                <a href="#" data-toggle="modal" data-target="#myModal2">
+                    <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up </a>
+            </p>
+        </div>
+    @else
+        @if (Auth::user()->isStaff())
+            <div class="col-lg-4 col-md-4 col-12">
+                <p><a href="/admin/dashboard">Dashboard</a></p>
+            </div>
+        @endif
+
+        <div class="col-lg-4 col-md-4 col-12">
+            <p><a href="/profileMart"><i class="fa fa-user s_color"></i> {{Auth::user()->name}} </a></p>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12">
+            <p>
+                <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            </p>
+        </div>
+    @endif
+    </div>
+
 </div>
 
 <!-- //top-header -->
@@ -17,45 +57,22 @@
             </h1>
         </div>
         <!-- header-bot -->
-        <div class="col-md-10 col-12 header">
+        <div class="col-md-8 col-12 header">
             <!-- header lists -->
-            <ul>
+
                 <div class="agileits_search">
                     <form class="form" action="/products/search/all" method="POST">
                         @csrf
+
                         <input id="searchProduct" name="query" type="search" placeholder="How can we help you?" required="">
                         <button type="submit" class="btn btn-default" aria-label="Left Align">
                             <span class="fa fa-search" aria-hidden="true"></span>
                         </button>
+
                     </form>
                 </div>
-                <li>
-                    <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
-                </li>
-                @guest
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal1">
-                        <span class="fa fa-unlock-alt" aria-hidden="true"></span> Sign In </a>
-                </li>
-                <li>
-                    <a href="#" data-toggle="modal" data-target="#myModal2">
-                        <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up </a>
-                </li>
-                @else
-                    @if (Auth::user()->isStaff())
-                        <li><a href="/admin/dashboard">Dashboard</a></li>
-                    @endif
-                    @if (Auth::user()->isJobCompany())
-                        <li><a href="{{route('postJob.create')}}">Post a Job</a></li>
-                    @endif
-                    <li><a href="/profileMart"><i class="fa fa-user s_color"></i> {{Auth::user()->name}} </a></li>
-                    <li>
-                        <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            @csrf
-                        </form>
-                    </li>
-                    @endif
+        </div>
+        <div class="col-md-2 col-12 logo_agile">
 
                 <div class="top_nav_right">
                     <div class="wthreecartaits wthreecartaits2 cart cart box_1">
@@ -70,7 +87,7 @@
                                             </button>
                                         </div>
                                         <div class="total-price-basket">
-                                            <span class="lbl">Manage cart</span>
+                                            <span class="lbl"></span>
                                         </div>
                                     </a>
                                 @else
@@ -149,7 +166,7 @@
                     </div>
                 </div>
 
-            </ul>
+
             <!-- //header lists -->
             <!-- search -->
 
@@ -158,7 +175,7 @@
 
 
             <!-- //cart details -->
-            <div class="clearfix"></div>
+
     </div>
         <div class="clearfix"></div>
     </div>

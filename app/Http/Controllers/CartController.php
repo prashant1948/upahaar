@@ -168,7 +168,7 @@ class CartController extends Controller
 
     public function buyNow(Request $request, $id){
         $product = Product::find($id);
-        $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(5)->get();
         if (Auth::check()){
             $buy = new BuyNow();
             $buy->user_id = Auth::user()->id;
@@ -183,7 +183,7 @@ class CartController extends Controller
         return redirect()->back();
     }
 
-    public function checkout(Request $request,$id) {
+    public function checkout(Request $request) {
 
         $this->validate($request, [
             'name' => 'required',
@@ -206,29 +206,29 @@ class CartController extends Controller
             $checkout->save();
             $cart->save();
 
-            $data = array(
-                'name' => $request['name'],
-                'email' => $request['email'],
-                'phone_number' => $request['phone_number'],
-                'message' => $request['message'],
-            );
-
-            Mail::to($checkout->email)
-                ->send(new SendProductNotification($data));
-
-            $info = array(
-                'name' => $request['name'],
-                'email' => $request['email'],
-                'phone_number' => $request['phone_number'],
-                'message' => $request['message'],
-            );
-
-            Mail::to("info@letitgrownepal.com")
-                ->send(new SendProductNotification($info));
+//            $data = array(
+//                'name' => $request['name'],
+//                'email' => $request['email'],
+//                'phone_number' => $request['phone_number'],
+//                'message' => $request['message'],
+//            );
+//
+//            Mail::to($checkout->email)
+//                ->send(new SendProductNotification($data));
+//
+//            $info = array(
+//                'name' => $request['name'],
+//                'email' => $request['email'],
+//                'phone_number' => $request['phone_number'],
+//                'message' => $request['message'],
+//            );
+//
+//            Mail::to("info@letitgrownepal.com")
+//                ->send(new SendProductNotification($info));
 
 
             Alert::success('Thank you', 'Your order is being processed');
-            return redirect()->back();
+            return redirect('/profileMart');
         }
     }
     public function checkoutBuy(Request $request) {
@@ -248,25 +248,25 @@ class CartController extends Controller
 
         $checkout->save();
 
-        $data = array(
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'phone_number' => $request['phone_number'],
-            'message' => $request['message'],
-        );
-
-        Mail::to($checkout->email)
-            ->send(new SendProductNotification($data));
-
-        $info = array(
-            'name' => $request['name'],
-            'email' => $request['email'],
-            'phone_number' => $request['phone_number'],
-            'message' => $request['message'],
-        );
-
-        Mail::to("info@letitgrownepal.com")
-            ->send(new SendProductNotification($info));
+//        $data = array(
+//            'name' => $request['name'],
+//            'email' => $request['email'],
+//            'phone_number' => $request['phone_number'],
+//            'message' => $request['message'],
+//        );
+//
+//        Mail::to($checkout->email)
+//            ->send(new SendProductNotification($data));
+//
+//        $info = array(
+//            'name' => $request['name'],
+//            'email' => $request['email'],
+//            'phone_number' => $request['phone_number'],
+//            'message' => $request['message'],
+//        );
+//
+//        Mail::to("info@letitgrownepal.com")
+//            ->send(new SendProductNotification($info));
 
         Alert::success('Thank you', 'Your order is being processed');
         return redirect()->back();
@@ -278,20 +278,13 @@ class CartController extends Controller
             ['user_id', '=', Auth::id()],
             ['checkout', '=', 0]
         ])->get();
-        $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
-
-
-
-//        $buy = BuyNow::where([
-//            ['user_id', '=', Auth::id()],
-//        ])->get();
-
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(5)->get();
 
         return view('eazymart.checkout',['cart_id' => $cart[0]->id,'departmentsLists'=>$departmentsLists]);
     }
     public function checkoutFormMartBuy($id) {
         $buy = BuyNow::find($id);
-        $departmentsLists = Department::orderBy('created_at', 'desc')->take(6)->get();
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(5)->get();
 
         return view('eazymart.checkoutBuy',compact('buy','departmentsLists'));
     }

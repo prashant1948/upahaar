@@ -38,7 +38,13 @@
 
 <section class="header-product content1 pt-5" id="section2">
     <div class="container headings text-center pt-5">
-        <h1 class="font-weight-bold text-center">Our Services</h1>
+        <h3 class="tittle-w3l">Our Services
+            <span class="heading-style">
+					<i></i>
+					<i></i>
+					<i></i>
+				</span>
+        </h3>
         <div class="row">
             {{--                    @foreach ($products as $product)--}}
             <div class="product-cards col-lg-4 col-md-4 col-12">
@@ -191,6 +197,7 @@
         </div>
 
     </div>
+</div>
     <div class="ads-grid">
         <div class="container">
             <!-- tittle heading -->
@@ -238,7 +245,7 @@
             </div>
         </div>
     </div>
-</div>
+
 
 {{--<section class="header-product content2" id="section3">--}}
 {{--    <div class="container headings text-center">--}}

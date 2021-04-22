@@ -103,6 +103,13 @@ Route::get('file-export', 'Admin\ProductController@fileExport')->name('file-expo
 
 
 Auth::routes();
+Route::match(['get'], 'login', function () {
+    return redirect('/');
+})->name('login');
+
+Route::match(['get'], 'register', function () {
+    return redirect('/');
+})->name('register');
 
 Route::get('/profile', 'ProfileController@showProfile');
 

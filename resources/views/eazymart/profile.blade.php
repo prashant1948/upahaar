@@ -18,7 +18,10 @@
     <main id="profile">
         <div class="container inner-bottom-sm">
             <div class="section">
-                <h1 class="border">{{Auth::user()->name}}</h1><br>
+                <div class="clearfix"></div>
+                <div class="clearfix"></div>
+
+                <h3 class="border left">{{Auth::user()->name}}</h3><br>
 
                 <h3 class="outer-top-xs">Your checkouts:</h3>
                 <table class="table">

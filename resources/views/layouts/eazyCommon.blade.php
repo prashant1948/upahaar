@@ -2,11 +2,11 @@
 <html lang="zxx">
 
 <head>
-    <title>Eazy Mart</title>
+    <title>Upahaar Solutions</title>
     <!--/tags -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <meta name="keywords" content="Let It Grow, Website, Eazy Mart" />
+    <meta name="keywords" content="Let It Grow, Website" />
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <script>
         addEventListener("load", function () {
