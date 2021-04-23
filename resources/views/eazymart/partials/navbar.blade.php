@@ -2,6 +2,7 @@
 <!-- top-header -->
 <div class="header-most-top">
 {{--    <p>Grocery Offer Zone Top Deals & Discounts</p>--}}
+    <div class="container">
     <div class="row">
     <div class="col-lg-4 col-md-4 col-12">
         <p>
@@ -40,6 +41,7 @@
             </p>
         </div>
     @endif
+    </div>
     </div>
 
 </div>

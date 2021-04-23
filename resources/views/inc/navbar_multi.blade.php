@@ -1,6 +1,7 @@
 
 <!-- top-header -->
 <div class="header-most-top">
+    <div class="container">
     <div class="row">
         <div class="col-lg-4 col-md-4 col-12">
             <p>
@@ -39,6 +40,7 @@
             </p>
                 </div>
         @endif
+    </div>
     </div>
 </div>
 
