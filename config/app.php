@@ -167,6 +167,7 @@ return [
 
         Laravel\Socialite\SocialiteServiceProvider::class,
 
+
         /*
          * Package Service Providers...
          */
@@ -234,6 +235,8 @@ return [
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'Alert' => RealRashid\SweetAlert\Facades\Alert::class,
         'Socialite' => Laravel\Socialite\Facades\Socialite::class,
+
+
 
     ],
 

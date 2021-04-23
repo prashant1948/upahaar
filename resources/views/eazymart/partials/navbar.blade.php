@@ -4,7 +4,7 @@
 {{--    <p>Grocery Offer Zone Top Deals & Discounts</p>--}}
     <div class="container">
     <div class="row">
-    <div class="col-lg-4 col-md-4 col-12">
+    <div class="col-lg-3 col-md-3 col-12">
         <p>
             <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
         </p>
@@ -24,15 +24,15 @@
         </div>
     @else
         @if (Auth::user()->isStaff())
-            <div class="col-lg-4 col-md-4 col-12">
+            <div class="col-lg-3 col-md-3 col-12">
                 <p><a href="/admin/dashboard">Dashboard</a></p>
             </div>
         @endif
 
-        <div class="col-lg-4 col-md-4 col-12">
+        <div class="col-lg-3 col-md-3 col-12">
             <p><a href="/profileMart"><i class="fa fa-user s_color"></i> {{Auth::user()->name}} </a></p>
         </div>
-        <div class="col-lg-4 col-md-4 col-12">
+        <div class="col-lg-3 col-md-3 col-12">
             <p>
                 <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
             <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
