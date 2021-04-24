@@ -1,10 +1,14 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Archivo:wght@400;500&display=swap');
+*{
+    font-family: 'Archivo', sans-serif !important;
+}
 html,
 body {
     margin: 0;
     font-size: 100%;
     background: #fff;
-    font-family: "Open Sans", sans-serif;
+    /*font-family: "Open Sans", sans-serif;*/
+    font-family: 'Archivo', sans-serif;
 }
 
 body a {
@@ -57,7 +61,7 @@ label {
     font-weight: 600;
     padding: 8px;
     letter-spacing: 2px;
-    background: #fd050a;
+    /*background: #fd050a;*/
 }
 /* //top-header */
 /*-- header-bottom --*/
@@ -114,12 +118,14 @@ label {
     outline: none;
     border: 1px solid #191e21;
     background: #fff;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
     /*border-right-color: transparent;*/
     color: #191e21;
     padding: 10px;
     font-size: 14px;
     /*float: right;*/
-    width: 70%;
+    width: 50%;
     letter-spacing: 1px;
 }
 .agileits_search .btn-default {
@@ -127,10 +133,11 @@ label {
     width: 60px;
     height: 42px;
     border-top-right-radius: 50px;
+    border: 1px solid #009811;
     border-bottom-right-radius: 50px;
     outline: none;
     box-shadow: none;
-    background: #009811;
+    background: red;
     padding: 0;
     /*border-radius: inherit;*/
     -webkit-appearance: none;
@@ -142,7 +149,7 @@ label {
     background: #ff5722;
 }
 .agileits_search span {
-    color: #fff;
+    color: black;
 }
 #agileinfo_search {
     padding: 9.5px 2px;
@@ -302,14 +309,14 @@ a.nav-stylehead {
 .navbar-default .navbar-nav > .active > a,
 .navbar-default .navbar-nav > .active > a:hover,
 .navbar-default .navbar-nav > .active > a:focus {
-    color: #ff5722;
+    color: white;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
-    color: #ff5722;
+    color: white;
 }
 .navbar-default .navbar-nav > li > a {
-    color: #000;
+    color: white;
 }
 .agile_short_dropdown {
     border-radius: 0;
@@ -385,8 +392,9 @@ button.w3view-cart {
 /*-- banner --*/
 .ban-top {
     border: 1px solid rgba(0, 0, 0, 0.22);
-    margin: 0 10px 10px 10px;
-    border-radius: 4px;
+    margin: 0 0px 10px 0px;
+    /*border-radius: 4px;*/
+    background: darkred;
 }
 
 .ban-top1 {
@@ -673,7 +681,7 @@ p a{
     color:white;
 }
 .header-most-top{
-    background: #fd050a;
+    background:#009811 ;
 }
 .product-men {
     margin-top: 2em;

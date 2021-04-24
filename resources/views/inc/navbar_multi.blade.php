@@ -373,12 +373,12 @@
                     <div class="collapse navbar-collapse menu--shylock" id="bs-example-navbar-collapse-1">
                         <ul class="nav navbar-nav menu__list">
                             <li class="active">
-                                <a class="nav-stylehead" href="/">Home
+                                <a class="nav-stylehead" href="/"><i class="fa fa-home"></i> Home
                                     <span class="sr-only">(current)</span>
                                 </a>
                             </li>
                             <li class="">
-                                <a class="nav-stylehead" href="/about">About Us</a>
+                                <a class="nav-stylehead" href="/about"><i class="fa fa-pen"></i> About Us</a>
                             </li>
                             {{--                            <li class="dropdown">--}}
                             {{--                                <a href="#" class="dropdown-toggle nav-stylehead" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Kitchen--}}
@@ -520,7 +520,7 @@
                             {{--                                </ul>--}}
                             {{--                            </li>--}}
                             <li class="">
-                                <a class="nav-stylehead" href="/contact">Contact</a>
+                                <a class="nav-stylehead" href="/contact"><i class="fa fa-phone"></i> Contact</a>
                             </li>
                         </ul>
                     </div>
