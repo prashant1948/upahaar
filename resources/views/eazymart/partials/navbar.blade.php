@@ -1,6 +1,6 @@
 
 <!-- top-header -->
-<div class="header-most-top">
+<!-- <div class="header-most-top">
 {{--    <p>Grocery Offer Zone Top Deals & Discounts</p>--}}
     <div class="container">
     <div class="row">
@@ -44,7 +44,7 @@
     </div>
     </div>
 
-</div>
+</div> -->
 
 <!-- //top-header -->
 <!-- header-bot-->
@@ -59,7 +59,7 @@
             </h1>
         </div>
         <!-- header-bot -->
-        <div class="col-md-8 col-12 header">
+        <div class="col-md-4 col-12 header">
             <!-- header lists -->
 
                 <div class="agileits_search">
@@ -179,6 +179,48 @@
             <!-- //cart details -->
 
     </div>
+    <div class="col-lg-4 col-md-4 col-12">
+            <div class="row header-most-top">
+                <p>
+                    <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
+                </p>
+            
+                @guest
+                
+                    <p>
+                        <a href="#" data-toggle="modal" data-target="#myModal1">
+                            <span class="fa fa-unlock-alt" aria-hidden="true"></span> Sign In </a>
+                    </p>
+                
+                
+                    <p>
+                        <a href="#" data-toggle="modal" data-target="#myModal2">
+                            <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up </a>
+                    </p>
+            
+            
+                    @else
+                        @if (Auth::user()->isStaff())
+                            
+                            <p><a href="/admin/dashboard">Dashboard</a></p>
+                            
+                        @endif
+
+                       
+                        <p><a href="/profileMart"><i class="fa fa-user s_color"></i> {{Auth::user()->name}} </a></p>
+                    
+                    
+                        <p>
+                            <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                        </p>
+                        
+                    @endif
+                </div>
+            </div>
+        </div>
         <div class="clearfix"></div>
     </div>
 </div>
@@ -336,27 +378,25 @@
 <!-- navigation -->
 
 <div class="col-12">
-    <div class="col-lg-2 col-md-2 col-12">
-        <div class="ban-top">
-            <div class="container">
-                <div class="agileits-navi_search ecommerce">
-                    <div id="agileinfo-nav_search">
-                        <ul class="inline">
-                            <li class="dropdown le-dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                                    <i class="fa fa-list"></i>All Categories
-                                </a>
-                                <ul class="dropdown-menu" id="departmentList">
+    <div class="col-lg-2 col-md-2 col-12">        
+        <div class="container">
+            <div class="agileits-navi_search ecommerce">
+                <div id="agileinfo-nav_search">
+                    <ul class="inline">
+                        <li class="dropdown le-dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                                <i class="fa fa-list"></i>All Categories
+                            </a>
+                            <ul class="dropdown-menu" id="departmentList">
 
-                                </ul>
-                            </li>
-                        </ul>
-                    </div>
+                            </ul>
+                        </li>
+                    </ul>
                 </div>
             </div>
-        </div>
+        </div>        
     </div>
-    <div class="col-lg-10 col-md-10 col-12">
+    <div class="col-lg-10 col-md-10 col-12 darkred">
 
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">

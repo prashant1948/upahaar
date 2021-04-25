@@ -1,6 +1,6 @@
 
 <!-- top-header -->
-<div class="header-most-top">
+<!-- <div class="header-most-top">
     {{--    <p>Grocery Offer Zone Top Deals & Discounts</p>--}}
     <div class="container">
         <div class="row">
@@ -47,7 +47,7 @@
         </div>
     </div>
 
-</div>
+</div> -->
 
 <!-- //top-header -->
 <!-- header-bot-->
@@ -62,7 +62,7 @@
             </h1>
         </div>
         <!-- header-bot -->
-        <div class="col-md-10 col-12 header">
+        <div class="col-md-6 col-12 header">
             <!-- header lists -->
             <ul>
                 <div class="agileits_search">
@@ -79,104 +79,48 @@
             <!-- //header lists -->
             <!-- search -->
 
-            <!-- //search -->
-            <!-- cart details -->
-{{--            <header>--}}
-{{--            <div class="top_nav_right">--}}
-{{--                <div class="wthreecartaits wthreecartaits2 cart cart box_1">--}}
-{{--                    <div class="top-cart-holder dropdown animate-dropdown basket" id="cart-dropdown">--}}
-{{--                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">--}}
-{{--                                @guest--}}
-{{--                                    <a href="#" data-toggle="modal" data-target="#myModal1">--}}
-{{--                                        <div class="basket-item-count">--}}
-{{--                                            <span class="count">0</span>--}}
-{{--                                            <button class="w3view-cart">--}}
-{{--                                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>--}}
-{{--                                            </button>--}}
-{{--                                        </div>--}}
-{{--                                        <div class="total-price-basket">--}}
-{{--                                            <span class="lbl">Manage cart</span>--}}
-{{--                                        </div>--}}
-{{--                                    </a>--}}
-{{--                                @else--}}
-{{--                                    @if ($carts ?? '')--}}
-{{--                                        <div class="basket-item-count" style="width:400px">--}}
-{{--                                            <span class="count">{{count($carts)}}</span>--}}
-{{--                                            <button class="w3view-cart">--}}
-{{--                                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>--}}
-{{--                                            </button>--}}
-{{--                                        </div>--}}
 
-{{--                                        <div class="total-price-basket">--}}
-{{--                                            <span class="lbl">Your cart:</span>--}}
-{{--                                            <span class="total-price">--}}
-{{--                                                <span class="sign">Rs.</span>--}}
-{{--                                                <span class="value">{{$grand_total}}</span>--}}
-{{--                                            </span>--}}
-{{--                                        </div>--}}
-{{--                                    @else--}}
-{{--                                        <div class="basket-item-count">--}}
-{{--                                            <span class="count">0</span>--}}
-{{--                                            <button class="w3view-cart">--}}
-{{--                                                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>--}}
-{{--                                            </button>--}}
-
-{{--                                        </div>--}}
-
-{{--                                        <div class="total-price-basket">--}}
-{{--                                            <span class="lbl">your cart:</span>--}}
-{{--                                            <span class="total-price">--}}
-{{--                                                                <span class="sign">Rs.</span>--}}
-{{--                                                                <span class="value">0</span>--}}
-{{--                                                            </span>--}}
-{{--                                        </div>--}}
-{{--                                    @endif--}}
-{{--                                @endguest--}}
-{{--                            </a>--}}
-
-{{--                            @if ($carts ?? '')--}}
-{{--                                    <ul class="dropdown-menu">--}}
-{{--                                        @foreach ($carts as $cart)--}}
-{{--                                            <li>--}}
-{{--                                                <div class="basket-item">--}}
-{{--                                                    <div class="row">--}}
-{{--                                                        <div class="col-xs-4 col-sm-4 no-margin text-center">--}}
-{{--                                                            <div class="thumb" >--}}
-{{--                                                                <img alt="" src="/assets/images/products/{{$cart->product->image}}"/>--}}
-{{--                                                            </div>--}}
-{{--                                                        </div>--}}
-{{--                                                        <div class="col-xs-8 col-sm-8">--}}
-{{--                                                            <div class="title">{{$cart->product->name}}</div>--}}
-{{--                                                            <div class="price">Rs.{{$cart->product->rate}}</div>--}}
-{{--                                                        </div>--}}
-{{--                                                    </div>--}}
-{{--                                                    <a class="close-btn" href="#"></a>--}}
-{{--                                                </div>--}}
-{{--                                            </li>--}}
-{{--                                        @endforeach--}}
-
-{{--                                        <li class="checkout">--}}
-{{--                                            <div class="basket-item">--}}
-{{--                                                <div class="row">--}}
-{{--                                                    <div class="col-xs-12 col-sm-6">--}}
-{{--                                                        <a href="/checkoutMart" class="le-button">Checkout</a>--}}
-{{--                                                    </div>--}}
-{{--                                                </div>--}}
-{{--                                            </div>--}}
-{{--                                        </li>--}}
-{{--                                    </ul>--}}
-
-{{--                            @endif--}}
-{{--                        </div><!-- /.basket -->--}}
-{{--                    </div><!-- /.top-cart-holder -->--}}
-{{--                    </form>--}}
-
-{{--                </div>--}}
-{{--            </div>--}}
-{{--            </header>--}}
-            <!-- //cart details -->
             <div class="clearfix"></div>
-    </div>
+        </div>
+    <div class="col-lg-4 col-md-4 col-12">
+            <div class="row header-most-top">
+                <p>
+                    <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
+                </p>
+            
+                @guest
+                
+                    <p>
+                        <a href="#" data-toggle="modal" data-target="#myModal1">
+                            <span class="fa fa-unlock-alt" aria-hidden="true"></span> Sign In </a>
+                    </p>
+                
+                
+                    <p>
+                        <a href="#" data-toggle="modal" data-target="#myModal2">
+                            <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up </a>
+                    </p>
+            
+            
+                @else
+                    @if (Auth::user()->isStaff())
+                    
+                        <p><a href="/admin/dashboard">Dashboard</a></p>
+                        
+                    @endif
+                
+                        
+                    <p>
+                        <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </p>
+                        
+                @endif
+                </div>
+            </div>
+        </div>
         <div class="clearfix"></div>
     </div>
 </div>
@@ -344,7 +288,7 @@
             <div id="agileinfo-nav_search">
                 <ul class="inline">
                     <li class="dropdown le-dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <a class="white" href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <i class="fa fa-list"></i> All Categories
                         </a>
                         <ul class="dropdown-menu" id="carList">

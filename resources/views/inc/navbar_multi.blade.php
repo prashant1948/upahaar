@@ -1,6 +1,6 @@
 
 <!-- top-header -->
-<div class="header-most-top">
+<!-- <div class="header-most-top">
     <div class="container">
     <div class="row">
         <div class="col-lg-4 col-md-4 col-12">
@@ -42,7 +42,7 @@
         @endif
     </div>
     </div>
-</div>
+</div> -->
 
 <!-- //top-header -->
 <!-- header-bot-->
@@ -57,7 +57,7 @@
             </h1>
         </div>
         <!-- header-bot -->
-        <div class="col-md-10 col-12 header">
+        <div class="col-md-6 col-12 header">
             <!-- header lists -->
 
             <div class="agileits_search">
@@ -171,6 +171,45 @@
         {{--            </header>--}}
         <!-- //cart details -->
             <div class="clearfix"></div>
+        </div>
+        <div class="col-lg-4 col-md-4 col-12">
+            <div class="row header-most-top">
+                <p>
+                    <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
+                </p>
+            
+                @guest
+                
+                    <p>
+                        <a href="#" data-toggle="modal" data-target="#myModal1">
+                            <span class="fa fa-unlock-alt" aria-hidden="true"></span> Sign In </a>
+                    </p>
+                
+                
+                    <p>
+                        <a href="#" data-toggle="modal" data-target="#myModal2">
+                            <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up </a>
+                    </p>
+            
+            
+                @else
+                    @if (Auth::user()->isStaff())
+                    
+                        <p><a href="/admin/dashboard">Dashboard</a></p>
+                        
+                    @endif
+                
+                        
+                    <p>
+                        <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </p>
+                        
+                @endif
+                </div>
+            </div>
         </div>
         <div class="clearfix"></div>
     </div>

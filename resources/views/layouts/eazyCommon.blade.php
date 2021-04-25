@@ -47,7 +47,7 @@
              justify-content: space-evenly;
              padding: 0;
              overflow: hidden;
-             border: 1px solid #E6E7EB;
+             /* border: 1px solid #E6E7EB; */
              width:100%;
          }
         @media (max-width:750px){
@@ -63,7 +63,7 @@
 
         .departments li a {
             display: block;
-            color: black;
+            /* color: black; */
             text-align: center;
             font-size: 12px;
             /*padding: 10px 20px;*/
@@ -71,7 +71,7 @@
         }
 
         .departments li a:hover {
-            color:orangered;
+            color:darkred;
             background: white;
             /*text-decoration: underline orangered;*/
         }
