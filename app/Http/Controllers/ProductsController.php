@@ -92,4 +92,15 @@ class ProductsController extends Controller
     }
 
 
+    public function showProductsDetailsMart(Request $request, $id) {
+        $product = Product::find($id);
+        $departments = Department::all();
+        $products = Product::get();
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(5)->get();
+        $productImg = ProductImage::with('products')->where('p_id','=',$product->id)->get();
+        return view('eazymart.product', compact('product', 'departments','products','productImg','departmentsLists'));
+    }
+
+
+
 }

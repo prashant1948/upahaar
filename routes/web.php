@@ -16,6 +16,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/ecommerce', 'IndexController@indexMart')->name('ecommerce');
 Route::get('/', 'IndexController@multi');
+Route::get('/ecommercelist/{id}', 'IndexController@ecommercelist')->name('ecommercelist');
+// Route::get('ecommercelist/{slug}',['as'=>'ecommercelist','uses'=>'IndexController@ecommercelist']);
+
 //Route::get('/index', 'IndexController@index');
 //Route::get('/home', 'IndexController@home')->name('home');
 //Route::get('/about', 'IndexController@about')->name('about');
@@ -34,9 +37,11 @@ Route::get('/products/tag_search', 'ProductsController@searchProductsByTag');
 Route::get('/cart', 'CartController@getCart');
 Route::post('/cart/add', 'CartController@addToCart');
 Route::get('/cart/list', 'CartController@getCartList');
-Route::post('/cart/remove', 'CartController@removeFromCart');
+Route::post('/cart/remove', 'CartController@removeItem');
 Route::get('/checkout', 'CartController@checkoutForm');
 Route::post('/checkout', 'CartController@checkout');
+
+Route::get('/checkouttest/{id}', 'CartController@checkoutFormTest');
 
 //admin Dashboard
 // Route::get('/admin/dashboard','Admin\DashboardController@index')->middleware('role:3');
@@ -55,6 +60,8 @@ Route::post('/admin/department/add','Admin\DepartmentController@store');
 Route::get('/admin/department/{id}/edit','Admin\DepartmentController@edit')->name('department.edit');
 Route::post('/admin/department/{id}','Admin\DepartmentController@update')->name('department.update');
 Route::get('/admin/department/destroy/{id}', 'Admin\DepartmentController@destroy')->name('d.destroy');
+
+Route::get('/testMethod', 'IndexController@getProductData')->name('testMethod');
 
 Route::get('/contact', 'IndexController@contact');
 Route::get('/contact/list','ContactUsController@index');
@@ -103,6 +110,7 @@ Route::get('file-export', 'Admin\ProductController@fileExport')->name('file-expo
 
 
 Auth::routes();
+
 Route::match(['get'], 'login', function () {
     return redirect('/');
 })->name('login');
@@ -120,6 +128,7 @@ Route::get('/about', 'IndexController@aboutMart');
 Route::get('/contact', 'IndexController@contactMart');
 Route::get('/singleMart/{id}', 'ProductsController@showProductsMart');
 
+Route::get('/productDetails/{id}', 'ProductsController@showProductsDetailsMart');
 
 Route::post('/products/search/all', 'ProductsController@searchProductsMart');
 Route::get('/departmentMart/{department}', 'ProductsController@showProductsMartDepartment');
@@ -184,6 +193,10 @@ Route::get('/buyNow/{id}', 'CartController@buyNow')->name('buyNow');
 
 Route::get('/checkoutBuy/{id}', 'CartController@checkoutFormMartBuy')->name('checkoutBuy');
 Route::post('/checkoutBuy', 'CartController@checkoutBuy');
+
+Route::get('/checkedoutBuy/{id}/{qty}', 'CartController@checkedoutFormMartBuy')->name('checkedoutBuy');
+Route::post('/checkedoutBuy', 'CartController@checkedoutBuy');
+
 //Car
 Route::get('/indexCar', 'IndexController@car')->name('car.index');
 
@@ -199,7 +212,6 @@ Route::post('/car/add/{id}', 'Car\CarDetailsController@rent');
 Route::get('/carapplicants', 'Car\CarDetailsController@rentDetails')->name('carapplicants');
 
 Route::post('/car/search/all', 'IndexController@searchCar');
-
 
 Route::post('/search/all', 'IndexController@searchAll');
 
@@ -220,9 +232,13 @@ Route::get('auth/google/callback', 'Auth\LoginController@handleGoogleCallback');
 Route::get('auth/facebook', 'Auth\LoginController@redirectToFacebook');
 
 Route::get('auth/facebook/callback', 'Auth\LoginController@handleFacebookCallback');
- Route::get('/magnify','IndexController@magnify');
 
- Route::get('/test',function(){
+Route::get('/magnify','IndexController@magnify');
+
+Route::get('/loginn','IndexController@login');
+
+Route::get('/qtydown','IndexController@qtydown');
+
+Route::get('/productinfo','IndexController@productdetails');
 
 
- });

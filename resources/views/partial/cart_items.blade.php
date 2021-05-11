@@ -1,83 +1,93 @@
-<a class="dropdown-toggle" data-toggle="dropdown" href="#">
-    @guest
-    <a href="/login">
-        <div class="basket-item-count">
-            <span class="count">0</span>
-            <button class="w3view-cart">
-                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-            </button>
-        </div>
+@extends('multiservice')
+@section('content')
+<div class="page-header"
+				style="background-image: url('{{asset('images/banner-shop.jpg')}}'); background-color: #3C63A4;">
+				<h1 class="page-title">Cart Items</h1>
+</div>
 
-        <div class="total-price-basket">
-            <span class="lbl">login to <br> manage cart</span>
-        </div>
-    </a>
-    @else
-        @if ($carts ?? '')
-            <div class="basket-item-count">
-                <span class="count">{{count($carts)}}</span>
-                <button class="w3view-cart">
-                    <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                </button>
-            </div>
+<main class="main cart">
+			<div class="page-content pt-7 pb-10">
+			
+				<div class="container mt-7 mb-2">
+					<div class="row">
+						<div class="col-lg-8 col-md-12 pr-lg-4">
+							<table class="shop-table cart-table">
+								<thead>
+									<tr>
+										<th><span>Product</span></th>
+										<th></th>
+										<th><span>Price</span></th>
+										<th><span>quantity</span></th>
+										<th>Subtotal</th>
+									</tr>
+								</thead>
+								<tbody>
 
-            <div class="total-price-basket">
-                <span class="lbl">Your cart:</span>
-                <span class="total-price">
-                    <span class="sign">Rs.</span>
-                    <span class="price-value">{{$grand_total}}</span>
-                </span>
-            </div>
-        @else
-            <div class="basket-item-count">
-                <span class="count">0</span>
-                <button class="w3view-cart">
-                    <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-                </button>
-            </div>
+                                <div style="display: none">
+                                        {{ $total = 0 }}
+                                </div>
 
-            <div class="total-price-basket">
-                <span class="lbl">Your cart:</span>
-                <span class="total-price">
-                    <span class="sign">Rs.</span>
-                    <span class="price-value">0</span>
-                </span>
-            </div>
-        @endif
-    @endguest
-</a>
+                                @foreach ($carts as $cart)
 
-@if ($carts ?? '')
-    <ul class="dropdown-menu">
-        <table class="dropdown">
-            <thead>
-                <tr>
-                    <td>Img</td>
-                    <td>Product</td>
-                    <td>Rate</td>
-                    <td>Qty</td>
-                </tr>
-            </thead>
-            <tbody>
-            @foreach ($carts as $cart)
-                <tr>
-                    <td>
-                        <div class="thumb inline">
-                            <img alt="" src="/storage/images/products/{{$cart->product->image}}" />
-                        </div>
-                    </td>
-                    <td>{{$cart->product->name}}</td>
-                    <td><span class="price">Rs{{$cart->product->rate}}</span></td>
-                    <td><span class="qty pl-5">{{$cart->quantity}}</span></td>
-                </tr>
-            @endforeach
-            </tbody>
-        </table>
+									<tr>
+										<td class="product-thumbnail">
+											<figure>
+												<a href="product-simple.html">
+													<img src="/storage/images/products/{{$cart->product->image}}" width="100" height="100"
+														alt="product">
+												</a>
+											</figure>
+										</td>
+										<td class="product-name">
+											<div class="product-name-section">
+                                                <span class="amount">{{$cart->product->name}}</span>
+											</div>
+										</td>
+										<td class="product-subtotal">
+											<span class="amount">Rs {{$cart->product->rate}}</span>
+										</td>
+										<td class="product-quantity">
+                                        <span class="amount">{{$cart->quantity}}</span>
+										</td>
+										<td class="product-price">
+											<span class="amount">Rs {!! $cart->quantity * $cart->product->rate !!}</span>
+										</td>
+										<td class="product-close">
+											<button type="submit" class="product-remove" title="Remove this product" onclick="removeItem({{$cart->id}}, '<?php echo csrf_token() ?>')">
+												<i class="fas fa-times"></i>
+                                            </button>
+										</td>
+									</tr>
+                                    <div style="display: none">{{$total += $cart->quantity * $cart->product->rate}}</div>
 
-        <div class="checkout">
-            <a href="/checkoutMart" class="checkout-button">Checkout</a>
-        </div>
-    </ul>
-@endif
+                                @endforeach
+								</tbody>
+							</table>
+						
+						</div>
+						<aside class="col-lg-4 sticky-sidebar-wrapper">
+							<div class="sticky-sidebar" data-sticky-options="{'bottom': 20}">
+								<div class="summary mb-4">
+									<h3 class="summary-title text-left">Cart Totals</h3>
+								
+									<table class="total">
+										<tr class="summary-subtotal">
+											<td>
+												<h4 class="summary-subtitle">Total</h4>
+											</td>
+											<td>
+												<p class="summary-total-price ls-s">Rs {{ $total }}</p>
+											</td>												
+										</tr>
+									</table>
+									<a href="checkoutMart" class="btn btn-dark btn-rounded btn-checkout">Proceed to checkout</a>
+								</div>
+							</div>
+						</aside>
+					</div>
+				</div>
+			</div>
+		</main>
 
 
+@endsection

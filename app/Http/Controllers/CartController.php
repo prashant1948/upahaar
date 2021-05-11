@@ -30,9 +30,12 @@ class CartController extends Controller
                 $carts = CartItem::where('cart_id', $cart[0]->id)->get();
             } else {
                 $grand_total = 0;
-                return response()->json(array('view' => view('partial.cart_items', compact('grand_total'))->render()));
+                return view('partial.cart_items', compact('grand_total'));
+                // return response()->json(array('view' => view('partial.cart_items', compact('grand_total'))->render()));
             }
-            return response()->json(array('view' => view('partial.cart_items', compact('carts', 'grand_total'))->render()));
+            return view('partial.cart_items',compact('carts', 'grand_total'));
+
+            // return response()->json(array('view' => view('partial.cart_items', compact('carts', 'grand_total'))->render()));
         }else {
             return response()->json(array('auth' => 0));
         }
@@ -122,7 +125,7 @@ class CartController extends Controller
         ));
     }
 
-    public function RemoveFromCart(Request $request){
+    public function removeItem(Request $request){
         if (Auth::check()) {
             $item = CartItem::find($request->input('cartItem'));
             if ($item === null) {
@@ -166,6 +169,11 @@ class CartController extends Controller
         return view('main.checkout', ['cart_id' => $cart[0]->id]);
     }
 
+
+    public function checkoutFormTest(){
+        return view('eazymart.checkouttest');
+    }
+
     public function buyNow(Request $request, $id){
         $product = Product::find($id);
         $departmentsLists = Department::orderBy('created_at', 'desc')->take(5)->get();
@@ -206,27 +214,6 @@ class CartController extends Controller
             $checkout->save();
             $cart->save();
 
-//            $data = array(
-//                'name' => $request['name'],
-//                'email' => $request['email'],
-//                'phone_number' => $request['phone_number'],
-//                'message' => $request['message'],
-//            );
-//
-//            Mail::to($checkout->email)
-//                ->send(new SendProductNotification($data));
-//
-//            $info = array(
-//                'name' => $request['name'],
-//                'email' => $request['email'],
-//                'phone_number' => $request['phone_number'],
-//                'message' => $request['message'],
-//            );
-//
-//            Mail::to("info@letitgrownepal.com")
-//                ->send(new SendProductNotification($info));
-
-
             Alert::success('Thank you', 'Your order is being processed');
             return redirect('/profileMart');
         }
@@ -248,25 +235,26 @@ class CartController extends Controller
 
         $checkout->save();
 
-//        $data = array(
-//            'name' => $request['name'],
-//            'email' => $request['email'],
-//            'phone_number' => $request['phone_number'],
-//            'message' => $request['message'],
-//        );
-//
-//        Mail::to($checkout->email)
-//            ->send(new SendProductNotification($data));
-//
-//        $info = array(
-//            'name' => $request['name'],
-//            'email' => $request['email'],
-//            'phone_number' => $request['phone_number'],
-//            'message' => $request['message'],
-//        );
-//
-//        Mail::to("info@letitgrownepal.com")
-//            ->send(new SendProductNotification($info));
+        Alert::success('Thank you', 'Your order is being processed');
+        return redirect()->back();
+    }
+
+    public function checkedoutBuy(Request $request) {
+
+        $this->validate($request, [
+            'name' => 'required',
+            'address' => 'required',
+            'phone_no' => 'required'
+        ]);
+
+        $checkout = new Checkout();
+        $checkout->name = $request->input('name');
+        $checkout->email = $request->input('email');
+        $checkout->address = $request->input('address');
+        $checkout->phone_no = $request->input('phone_no');
+        $checkout->buy_id = $request->input('buy_id');
+
+        $checkout->save();
 
         Alert::success('Thank you', 'Your order is being processed');
         return redirect()->back();
@@ -274,18 +262,55 @@ class CartController extends Controller
 
 
     public function checkoutFormMart() {
-        $cart = Cart::where([
-            ['user_id', '=', Auth::id()],
-            ['checkout', '=', 0]
-        ])->get();
-        $departmentsLists = Department::orderBy('created_at', 'desc')->take(5)->get();
+        if (Auth::check()) {
+            $cart = Cart::where([
+                ['user_id', '=', Auth::id()],
+                ['checkout', '=', 0]
+            ])->get();
+            if ($cart[0] ?? '') {
+                $grand_total = $cart[0]->grand_total;
+                $carts = CartItem::where('cart_id', $cart[0]->id)->get();
+            } else {
+                $grand_total = 0;
+                return view('eazymart.checkout', compact('grand_total'));
+                // return response()->json(array('view' => view('partial.cart_items', compact('grand_total'))->render()));
+            }
+            return view('eazymart.checkout',compact('carts', 'grand_total'));
 
-        return view('eazymart.checkout',['cart_id' => $cart[0]->id,'departmentsLists'=>$departmentsLists]);
+            // return response()->json(array('view' => view('partial.cart_items', compact('carts', 'grand_total'))->render()));
+        }else {
+            return response()->json(array('auth' => 0));
+        }
+
+        // $cart = Cart::where([
+        //     ['user_id', '=', Auth::id()],
+        //     ['checkout', '=', 0]
+        // ])->get();
+        // $departmentsLists = Department::orderBy('created_at', 'desc')->take(5)->get();
+
+        // return view('eazymart.checkout',['cart_id' => $cart[0]->id,'departmentsLists'=>$departmentsLists]);
     }
     public function checkoutFormMartBuy($id) {
         $buy = BuyNow::find($id);
         $departmentsLists = Department::orderBy('created_at', 'desc')->take(5)->get();
 
         return view('eazymart.checkoutBuy',compact('buy','departmentsLists'));
+    }
+
+    public function checkedoutFormMart() {
+        $cart = Cart::where([
+        ['user_id', '=', Auth::id()],
+        ['checkout', '=', 0]
+        ])->get();
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(5)->get();
+
+        return view('eazymart.checkouttest',['cart_id' => $cart[0]->id,'departmentsLists'=>$departmentsLists]);
+    }
+    public function checkedoutFormMartBuy($id, $qty) {
+        $products = Product::where('id', '=', $id)->get();
+        $buy = BuyNow::find($id);
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(5)->get();
+        $quantity = $qty;
+        return view('eazymart.checkouttest',compact('buy','departmentsLists','products','quantity'));
     }
 }

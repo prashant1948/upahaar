@@ -25,6 +25,26 @@ use Illuminate\Support\Facades\DB;
 
 class IndexController extends Controller
 {
+    public function login(){
+        return view('eazymart.login.login');
+    }
+
+    public function qtydown(){
+        return view('eazymart.login.qtydown');
+    }
+
+    public function ecommercelist(Request $request,$id) {
+        $products = Product::where('dept_id', '=', $id)->get();
+        $productsname =  DB::table('departments')->select('department_name')->where('id', '=', $id)
+        ->get();
+        $productsall =  Product::where('dept_id', '<>', '');
+        $products_list = DB::table('products')
+        ->join('departments', 'products.dept_id', '=', 'departments.id')
+        ->select('departments.*', 'products.*')
+        ->get();
+        return view('eazymart.index', compact('products', 'productsall','products_list', 'productsname'));
+    }
+
     public function index() {
         $featured_products = Product::where('featured', '=', 1)
                 ->orderBy('created_at', 'desc')
@@ -126,6 +146,15 @@ class IndexController extends Controller
             'products' => $products
         ]);
     }
+
+    public function getProductData(){
+        $productname = request()->productname;
+
+        $products_det = Product::where('dept_id','=', $productname)->get();
+
+        return response()-json_encode(['products_det']);
+    }
+
     public function indexMart() {
         $featured_products = Product::where('featured', '=', 1)
             ->orderBy('created_at', 'desc')
@@ -140,19 +169,17 @@ class IndexController extends Controller
             ->take(10)
             ->get();
 
+        $productsall =  Product::where('dept_id', '<>', '')->get();
 
-        $dairyDepartment = Department::where('department_name', '=', 'Dairy')->value('id');
-        $fruitDepartment = Department::where('department_name', '=', 'Fruits & Vegetables')->value('id');
-        $bakeryDepartment = Department::where('department_name', '=', 'Bakery')->value('id');
-        $chipsDepartment = Department::where('department_name', '=', 'Chips')->value('id');
-        $nutsDepartment = Department::where('department_name', '=', 'Nuts')->value('id');
-        $oilDepartment = Department::where('department_name', '=', 'Oils')->value('id');
-        $dairy= Product::select()->where('dept_id', $dairyDepartment)->take(6)->get();
-        $fruits= Product::select()->where('dept_id', $fruitDepartment)->get();
-        $bakery= Product::select()->where('dept_id', $bakeryDepartment)->take(6)->get();
-        $chips= Product::select()->where('dept_id', $chipsDepartment)->take(6)->get();
-        $nuts= Product::select()->where('dept_id', $nutsDepartment)->take(6)->get();
-        $oil= Product::select()->where('dept_id', $oilDepartment)->take(6)->get();
+        $products_list = DB::table('products')
+        ->join('departments', 'products.dept_id', '=', 'departments.id')
+        ->select('departments.*', 'products.*')
+        ->get();
+
+        $products_det = Department::where('department_name', '=', 'Dairy')->value('id');
+        // dd($products_list);
+
+       
         $frontEnd = Frontend::orderBy('created_at', 'desc')->get();
         $departmentsLists = Department::orderBy('created_at', 'desc')->take(5)->get();
 
@@ -172,7 +199,7 @@ class IndexController extends Controller
             $popup = PopUp::first();
             $products = Product::get();
 
-            return view('eazymart.index',[
+            return view('layouts.multiservicelayout',[
                 'featured' => $featured_products,
                 'new_arrival' => $new_arrival,
                 'top_sales' => $top_sales,
@@ -180,22 +207,18 @@ class IndexController extends Controller
                 'banner' => $banner,
                 'products' => $products,
                 'popup' => $popup,
-                'dairy' => $dairy,
-                'oil' => $oil,
-                'nuts' => $nuts,
-                'fruits' => $fruits,
-                'bakery' => $bakery,
-                'chips' => $chips,
-                'departmentsLists' => $departmentsLists,
                 'grand_total' => $grand_total,
-                'carts' => $carts
+                'carts' => $carts,
+                'products_list' => $products_list,
+                'productsall' => $productsall
+
             ]);
         }
         $banner = Banner::first();
         $popup = PopUp::first();
         $products = Product::get();
 
-        return view('eazymart.index',[
+        return view('layouts.multiservicelayout',[
             'featured' => $featured_products,
             'new_arrival' => $new_arrival,
             'top_sales' => $top_sales,
@@ -203,15 +226,15 @@ class IndexController extends Controller
             'banner' => $banner,
             'products' => $products,
             'popup' => $popup,
-            'dairy' => $dairy,
-            'oil' => $oil,
-            'nuts' => $nuts,
-            'fruits' => $fruits,
-            'bakery' => $bakery,
-            'departmentsLists' => $departmentsLists,
-            'chips' => $chips,
-            'auth'=> 0
+            'auth'=> 0,
+            'products_list' => $products_list,
+            'products_det' => $products_det,
+            'productsall' => $productsall
         ]);
+    }
+
+    public function productdetails(){
+        return view('eazymart.product');
     }
 
     public function car(){
@@ -284,6 +307,16 @@ class IndexController extends Controller
     public function singleMart() {
         return view('eazymart.single');
     }
+ 
+    public function showProductsDetailsMart(Request $request, $id) {
+        $product = Product::find($id);
+        $departments = Department::all();
+        $products = Product::get();
+        $departmentsLists = Department::orderBy('created_at', 'desc')->take(5)->get();
+        $productImg = ProductImage::with('products')->where('p_id','=',$product->id)->get();
+        return view('eazymart.product', compact('product', 'departments','products','productImg','departmentsLists'));
+    }
+
     public function multi() {
         $top_sales = Product::where('top_sales', '=', 1)
             ->orderBy('created_at', 'desc')
